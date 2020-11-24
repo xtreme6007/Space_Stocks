@@ -1,17 +1,25 @@
-/* eslint-disable react/prefer-stateless-function */
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Header from './components/Header'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Header />
-      </div>
-    );
+import React from 'react';
+import { makeStyles, CssBaseline } from '@material-ui/core';
+import Header from './components/Header';
+import PlaceToVisit from './components/PlaceToVisit';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minHeight: '100vh',
+    backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/snake_skin.jpg'})`,
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+
   }
-}
-
-export default App;
+}));
+export default function() {
+  const classes = useStyles();
+  return (
+    <div className={classes.root}>
+      <CssBaseline />
+      <Header />
+      <PlaceToVisit />
+    </div>
+  )
+};
