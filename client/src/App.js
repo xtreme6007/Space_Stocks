@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { makeStyles, CssBaseline } from '@material-ui/core';
 import Header from './components/Header';
@@ -9,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/snake_skin.jpg'})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+
   }
 }));
 export default function() {
