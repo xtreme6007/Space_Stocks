@@ -1,20 +1,23 @@
 import axios from "axios";
 const env = require(dot-env)
 
-const loserURL ="https://financialmodelingprep.com/api/v3/losers?"
-const GainUrl = "https://financialmodelingprep.com/api/v3/gainers?"
 
 
 
 
 
-function API() {
+
+
+export default  {
+  
   getGainers: function () {
+    const GainUrl = "https://financialmodelingprep.com/api/v3/gainers?"
     return axios.get
     (GainUrl+ process.env.ApiKey);  
   },
   getLosers: function () {
-      return axios.get(loserUrl + process.env.ApiKey);
+    const loserURL ="https://financialmodelingprep.com/api/v3/losers?"
+      return axios.get(loserURL + process.env.ApiKey);
   },
   getRSI: function(Stock) {
     const RsiURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=rsi&" 
@@ -37,4 +40,3 @@ function API() {
   
 };
 
-export default API
