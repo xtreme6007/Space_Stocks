@@ -5,6 +5,7 @@ import SortIcon from '@material-ui/icons/Sort';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -77,6 +78,7 @@ export default function Header() {
       <div className={classes.container}>
           <h1 className={classes.title}>Welcome to <br />Stock{''} 
           <span className={classes.colorText}>Trading</span>
+
           </h1>
           {/* <h1 className={classes.simple}>
           <span className={classes.colorText}>Made Simple</span>
