@@ -5,6 +5,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Collapse } from '@material-ui/core';
+import places from '../static/places';
 
 const useStyles = makeStyles({
   root: {
@@ -36,7 +37,7 @@ export default function ImageCard({ place, checked }) {
     <Card className={classes.root}>
         <CardMedia
           className={classes.media}
-          image={place.imageUrl}
+          image={places.imageUrl}
           title="Contemplative Reptile"
         />
         <CardContent>
