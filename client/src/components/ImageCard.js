@@ -8,14 +8,16 @@ import TextField from '@material-ui/core/TextField';
 import { Collapse } from '@material-ui/core';
 import Fab from '@material-ui/core/Fab';
 import Link from '@material-ui/core/Link';
-import Button from '@material-ui/core/Button';
+import './imagecard.css';
+// import Button from '@material-ui/core/Button';
 // import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles({
   root: {
     maxWidth: 645,
     background: 'rgba(0,0,0,0.5)',
-    margin: '20px',
+    marginTop: '60px',
+    marginBottom: '20px',
     color: 'rgba(0,0,0,0.7)',
     backgroundColor: '#5AFF3D',
     textAlign: 'center',
@@ -32,9 +34,8 @@ const useStyles = makeStyles({
   },
   desc: {
     fontFamily: 'Nunito',
-    fontSize: '1.7rem',
+    fontSize: '1.9rem',
     color: '#fff',
-    fontStyle: 'italic',
     textShadow: '2px 2px 4px #000000',
     paddingBottom: '10px',
     paddingTop: '20px',
@@ -46,9 +47,6 @@ const useStyles = makeStyles({
     backgroundColor: 'green',
     boxShadow: '5px 5px 10px #000000',
   },
-
-  
-
 });
 
 export default function ImageCard({ place, checked }) {
@@ -59,13 +57,20 @@ export default function ImageCard({ place, checked }) {
 
     <Card className={classes.root} elevation={4}>
 
-        <CardMedia
+        <CardMedia 
           className={classes.media}
           image={place.imageUrl}
           username={place.username}
-          title="Contemplative Reptile"
-          
-        />
+          // title="Contemplative Reptile"
+          >
+        
+        <div class="tcontainer"><div class="ticker-wrap"><div class="ticker-move">
+        <div class="ticker-item">Snake Stocks</div>
+        <div class="ticker-item">Trading can be slippery business</div>
+        <div class="ticker-item">Ready to play?</div>
+        </div></div></div>
+
+        </CardMedia>
      
         <CardContent>
 
