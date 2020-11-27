@@ -4,6 +4,9 @@ import { AppBar, IconButton, Toolbar, Collapse } from '@material-ui/core';
 import SortIcon from '@material-ui/icons/Sort';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
+// import ReactCSSTransitionGroup from 'react-transition-group';
+// import Slide from '@material-ui/core/Slide';
+// import { Transition } from 'react-transition-group';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     },
     icon: {
         color: '#fff',
-        fontsize: '5rem',
+        fontsize: '10rem',
     },
     colorText: {
         color: '#5AFF3D',
@@ -38,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     title: {
         color: '#fff',
         fontFamily: 'Nunito',
-        fontSize: '4.5rem',
+        fontSize: '5.5rem',
     },
     simple: {
         color: '#fff',
@@ -48,9 +51,11 @@ const useStyles = makeStyles((theme) => ({
     },
     goDown: {
         color: '#5AFF3D',
-        fontSize: '4rem',
+        fontSize: '7rem',
     },
 }));
+
+
 export default function Header() {
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
@@ -75,8 +80,14 @@ export default function Header() {
       {...(checked ? { timeout: 1000 } : {})} 
       collapsedHeight={50} >
       <div className={classes.container}>
-          <h1 className={classes.title}>Welcome to <br />Stock{''} 
-          <span className={classes.colorText}>Trading</span>
+          <h1 className={classes.title}>Welcome to <br />Stock{''}
+   
+          <span className={classes.colorText}>
+              Trading
+          </span>
+
+
+
           </h1>
           {/* <h1 className={classes.simple}>
           <span className={classes.colorText}>Made Simple</span>
