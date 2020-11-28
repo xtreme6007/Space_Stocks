@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { makeStyles, CssBaseline } from '@material-ui/core';
 import Header from './components/Header';
@@ -10,9 +11,11 @@ const useStyles = makeStyles((theme) => ({
     // opacity: '0.2',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+
     backgroundBlendMode: 'screen',
     // backgroundColor: 'rgba(76, 175, 80, 0.3)',
     
+
   }
 }));
 export default function() {

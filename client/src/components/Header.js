@@ -8,6 +8,7 @@ import { Link as Scroll } from 'react-scroll';
 // import Slide from '@material-ui/core/Slide';
 // import { Transition } from 'react-transition-group';
 
+
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -80,11 +81,13 @@ export default function Header() {
       {...(checked ? { timeout: 1000 } : {})} 
       collapsedHeight={50} >
       <div className={classes.container}>
+
           <h1 className={classes.title}>Welcome to <br />Stock{''}
    
           <span className={classes.colorText}>
               Trading
           </span>
+
 
 
 
