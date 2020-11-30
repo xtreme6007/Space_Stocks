@@ -3,8 +3,6 @@ import React from 'react';
 import { makeStyles, CssBaseline } from '@material-ui/core';
 import Header from './components/Header';
 import PlaceToVisit from './components/PlaceToVisit';
-import APItest from './components/APItest';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -24,10 +22,9 @@ export default function() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      {/* <CssBaseline />
+      <CssBaseline />
       <Header />
-      <PlaceToVisit /> */}
-      <APItest />
+      <PlaceToVisit />
     </div>
   )
 };
