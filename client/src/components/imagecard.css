@@ -9,6 +9,8 @@
   /* MIDDLE CONTAINER */
   .ticker-wrap {
     width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
     padding-left: 110%; /* Push contents to right side of screen */
     background-color: black;
   }
@@ -23,6 +25,7 @@
     display: inline-block;
     white-space: nowrap;
     padding-right: 100%;
+    padding-bottom: 10px;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-name: ticker;
@@ -35,12 +38,13 @@
   /* ITEMS */
   .ticker-item{
     display: inline-block; /* Lay items in a horizontal line */
-    margin-top: 100px;
+    margin-top: 60px;
+    margin-bottom: 20px;
     font-style: italic;
     padding: 0 2rem;
     font-size: 40px;
     /* font-family: 'Press Start 2P'; */
-    color: darkgreen;
+    color: #5AFF3D;
     font-family: 'Orbitron', sans-serif;
   }
 
