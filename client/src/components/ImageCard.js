@@ -64,10 +64,10 @@ export default function ImageCard({ place, checked }) {
           // title="Contemplative Reptile"
           >
         
-        <div class="tcontainer"><div class="ticker-wrap"><div class="ticker-move">
-        <div class="ticker-item">Snake Stocks</div>
-        <div class="ticker-item">Trading can be slippery business</div>
-        <div class="ticker-item">Ready to play?</div>
+        <div className="tcontainer"><div className="ticker-wrap"><div className="ticker-move">
+        <div className="ticker-item">Snake Stocks</div>
+        <div className="ticker-item">Trading can be slippery business</div>
+        <div className="ticker-item">Ready to play?</div>
         </div></div></div>
 
         </CardMedia>
