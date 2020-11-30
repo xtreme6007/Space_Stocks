@@ -6,10 +6,11 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import { Collapse } from '@material-ui/core';
-import Fab from '@material-ui/core/Fab';
 import Link from '@material-ui/core/Link';
 import './imagecard.css';
-// import Button from '@material-ui/core/Button';
+import Login from '../components/Login';
+import Login2 from '../components/Login2';
+import Button from '@material-ui/core/Button';
 // import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles({
@@ -72,19 +73,7 @@ export default function ImageCard({ place, checked }) {
         </div></div></div>
 
         </CardMedia>
-     
         <CardContent>
-
-        <form noValidate autoComplete="off">
-          <TextField className="email" 
-          id="outlined-basic" 
-          label="Email" 
-          variant="outlined" />
-          <TextField className="password" 
-          id="outlined-basic" 
-          label="Password" 
-          variant="outlined" />
-        </form>
 
           <Typography 
           gutterBottom 
@@ -92,27 +81,12 @@ export default function ImageCard({ place, checked }) {
           component="h1" 
           className={classes.title}
           >  
-         
-            <Fab className={classes.fab} color="secondary" 
-            variant="extended" >
-            Sign In
-            </Fab>
-           
-            {/* <Fab className={classes.fabSignup} color="secondary"
-            variant="extended" >
-            Sign Up
-          
-            </Fab> */}
 
-{/* <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="secondary"
-            className={classes.submit}
-          >
-            Sign Up
-          </Button> */}
+
+        <Login2>
+
+        </Login2> 
+
 
           </Typography>
 
