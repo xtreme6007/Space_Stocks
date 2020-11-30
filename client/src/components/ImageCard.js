@@ -47,6 +47,7 @@ const useStyles = makeStyles({
     backgroundColor: 'green',
     boxShadow: '5px 5px 10px #000000',
   },
+  
 });
 
 export default function ImageCard({ place, checked }) {
