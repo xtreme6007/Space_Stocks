@@ -15,7 +15,7 @@ class APItest extends Component {
 render() {
 
     return(
-<Button className="ml-auto mr-auto mt-auto mb-auto" onClick={this.Test}></Button>
+<Button className="ml-auto mr-auto mt-auto mb-auto" onClick={this.Test}>CLick here to test</Button>
 
     )}
 }
