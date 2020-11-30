@@ -7,8 +7,7 @@ import PlaceToVisit from './components/PlaceToVisit';
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
-    backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/snakeskin.jpg'})`,
-    // opacity: '0.2',
+    backgroundImage: `url(./assets/universe.jpg)`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
 

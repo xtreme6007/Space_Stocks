@@ -4,9 +4,6 @@ import { AppBar, IconButton, Toolbar, Collapse } from '@material-ui/core';
 import SortIcon from '@material-ui/icons/Sort';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Link as Scroll } from 'react-scroll';
-// import ReactCSSTransitionGroup from 'react-transition-group';
-// import Slide from '@material-ui/core/Slide';
-// import { Transition } from 'react-transition-group';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
     appbarTitle: {
         flexGrow: '2rem',
         fontFamily: 'Nunito',
+        marginTop: '15px',
     },
     icon: {
         color: '#fff',
@@ -53,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
     goDown: {
         color: '#5AFF3D',
         fontSize: '7rem',
+     
     },
 }));
 
@@ -87,9 +86,6 @@ export default function Header() {
           <span className={classes.colorText}>
               Trading
           </span>
-
-
-
 
           </h1>
           {/* <h1 className={classes.simple}>

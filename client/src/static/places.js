@@ -3,7 +3,7 @@ export const places = [
         title: 'Sign Up',
         description:
         'Change your fortune forever.',
-        imageUrl: '/assets/snake_skin.jpg',
+        imageUrl: '/assets/snakeskin.jpg',
         time: 1500
     },
     {
