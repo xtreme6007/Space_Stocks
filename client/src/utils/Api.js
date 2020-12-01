@@ -3,7 +3,8 @@ import axios from "axios";
 
 
 
-const APIkey = process.env.ApiKey
+// const APIkey = process.env.ApiKey
+const APIkey = "f4e7c42e248f28c917aee5e08872c328"
 
 
 
@@ -19,26 +20,26 @@ export default  {
     return axios.get
     (GainUrl+ APIkey);  
   },
-  getLosers: function () {
-    const loserURL ="https://financialmodelingprep.com/api/v3/losers?apikey="
-      return axios.get(loserURL + APIkey);
-  },
+  // getLosers: function () {
+  //   const loserURL ="https://financialmodelingprep.com/api/v3/losers?apikey="
+  //     return axios.get(loserURL + APIkey);
+  // },
   getRSI: function(Stock) {
     const RsiURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=rsi&apikey=" 
         return axios.get(RsiURL + APIkey)
   },
-  getSMA: function(Stock) {
-    const SmaURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=SMA&apikey=" 
-        return axios.get(SmaURL + APIkey)
-  },
-  getADX: function(Stock) {
-    const AdxURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=ADX&apikey=" 
-        return axios.get(AdxURL + APIkey)
-  },
-  getWillams: function(Stock) {
-    const WilliamsURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=Williams&apikey=" 
-        return axios.get(WilliamsURL + APIkey)
-  }
+  // getSMA: function(Stock) {
+  //   const SmaURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=SMA&apikey=" 
+  //       return axios.get(SmaURL + APIkey)
+  // },
+  // getADX: function(Stock) {
+  //   const AdxURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=ADX&apikey=" 
+  //       return axios.get(AdxURL + APIkey)
+  // },
+  // getWillams: function(Stock) {
+  //   const WilliamsURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=Williams&apikey=" 
+  //       return axios.get(WilliamsURL + APIkey)
+  // }
   
 
   
