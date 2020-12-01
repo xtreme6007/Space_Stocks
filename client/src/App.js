@@ -24,8 +24,9 @@ export default function() {
       <CssBaseline />
       <Header />
       <PlaceToVisit />
-      <Route exact path="/dashboard" component={Dashboard} />
+      
     </div>
+    <Route exact path="/dashboard" component={Dashboard} />
     </Router>
   )
 };
