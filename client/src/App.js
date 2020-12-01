@@ -1,29 +1,33 @@
+import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
+import { makeStyles, CssBaseline } from "@material-ui/core";
+import Header from "./components/Header";
+import PlaceToVisit from "./components/PlaceToVisit";
 
-import React from 'react';
-import { makeStyles, CssBaseline } from '@material-ui/core';
-import Header from './components/Header';
-import PlaceToVisit from './components/PlaceToVisit';
+
+// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minHeight: '100vh',
+    minHeight: "100vh",
     backgroundImage: `url(./assets/universe.jpg)`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
 
-    backgroundBlendMode: 'screen',
+    backgroundBlendMode: "screen",
     // backgroundColor: 'rgba(76, 175, 80, 0.3)',
-    
-
-  }
+  },
 }));
-export default function() {
+export default function () {
   const classes = useStyles();
   return (
+    <Router>
     <div className={classes.root}>
       <CssBaseline />
       <Header />
       <PlaceToVisit />
     </div>
-  )
-};
+    </Router>
+  );
+}
+
