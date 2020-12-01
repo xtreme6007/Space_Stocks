@@ -1,8 +1,10 @@
 
 import React from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { makeStyles, CssBaseline } from '@material-ui/core';
 import Header from './components/Header';
 import PlaceToVisit from './components/PlaceToVisit';
+import Dashboard from './pages/Dashboard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -10,20 +12,20 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: `url(./assets/universe.jpg)`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-
     backgroundBlendMode: 'screen',
     // backgroundColor: 'rgba(76, 175, 80, 0.3)',
-    
-
   }
 }));
 export default function() {
   const classes = useStyles();
   return (
+  <Router>
     <div className={classes.root}>
       <CssBaseline />
       <Header />
       <PlaceToVisit />
+      <Route exact path="/dashboard" component={Dashboard} />
     </div>
+    </Router>
   )
 };

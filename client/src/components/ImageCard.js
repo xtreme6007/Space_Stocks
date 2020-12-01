@@ -9,6 +9,7 @@ import Link from '@material-ui/core/Link';
 import './imagecard.css';
 import Login from '../components/Login';
 import Signup from '../components/Signup';
+import Dashboard from '../pages/Dashboard';
 
 import Button from '@material-ui/core/Button';
 // import Box from '@material-ui/core/Box';
@@ -71,9 +72,11 @@ export default function ImageCard({ place, checked }) {
         >
           <Login>
           </Login>
+
           <Signup>
-            
           </Signup>
+
+         
           
         </Typography>
         {/* <Link href="#" variant="body2">
@@ -90,7 +93,13 @@ export default function ImageCard({ place, checked }) {
         </Typography>
         {/* </CardContent> */}
 
+
       </Card>
+
+
+      <Dashboard>
+          </Dashboard>
+          
     </Collapse>
   );
 }
