@@ -2,8 +2,6 @@ const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -13,16 +11,16 @@ const User = require("./models/users")
 mongoose.connect("mongodb://localhost/loginapp");
 const db = mongoose.connection;
 
-//adding Bodyparser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
-app.use(cookieParser());
+//adding middleware
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 //Express session
 app.use(session({
   secret: "secret",
-  saveUninitialized: true, 
-  resave: true
+  saveUninitialized: false, 
+  resave: false,
+  store: new MongoStore({ mongooseConnection: db})
 }));
 
 //initializing passport
@@ -52,8 +50,6 @@ else {
   res.status(500).send("{errors: \"Passwords do not match\"}").end()
 }
 });
-
-
 
 // Login route
 app.post('/login',
