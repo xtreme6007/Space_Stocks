@@ -4,14 +4,9 @@ const Schema = mongoose.Schema;
 const stockSchema = new Schema({
   DailyStocks: {
     date: {type: Date, required: true},
-    ticker: {type: String},
-    open: { type: Float, required: false },
-    close: { type: Float, required: false },
-    rsi: { type: Float, required: false }
+    stock:[]
 
-   },
-
-  
+  }
 });
 
 const Stock = mongoose.model("Stock", stockSchema);
