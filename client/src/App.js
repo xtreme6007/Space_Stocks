@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import PlaceToVisit from "./components/PlaceToVisit";
 
 
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
