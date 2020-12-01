@@ -7,9 +7,13 @@ import PlaceToVisit from './components/PlaceToVisit';
 const useStyles = makeStyles((theme) => ({
   root: {
     minHeight: '100vh',
-    backgroundImage: `url(${process.env.PUBLIC_URL + '/assets/snake_skin.jpg'})`,
+    backgroundImage: `url(./assets/universe.jpg)`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+
+    backgroundBlendMode: 'screen',
+    // backgroundColor: 'rgba(76, 175, 80, 0.3)',
+    
 
   }
 }));

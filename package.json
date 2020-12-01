@@ -22,14 +22,24 @@
   "dependencies": {
     "@material-ui/core": "^4.11.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "dot-env": "0.0.1",
 =======
 
     "@material-ui/icons": "^4.9.1",
 
 >>>>>>> 0a9b4f425f417076875d709166685b5f68fa6287
+=======
+    "@material-ui/icons": "^4.9.1",
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+>>>>>>> 2ef52e5c4dcfe7bdd7b512792541b1d9ea5e69dd
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "if-env": "^1.0.4",
+    "mongoose": "^5.10.18",
+    "mongoose-type-email": "^1.1.2",
+    "passport": "^0.4.1",
     "react-scroll": "^1.8.1"
   }
 }

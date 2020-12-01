@@ -2,8 +2,8 @@ export const places = [
     {
         title: 'Sign Up',
         description:
-        'And change your life and your fortune forever.',
-        imageUrl: '/assets/snake_skin.jpg',
+        'Change your fortune forever.',
+        imageUrl: '/assets/snakeskin.jpg',
         time: 1500
     },
     {
