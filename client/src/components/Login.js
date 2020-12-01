@@ -12,6 +12,7 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import Axios from 'axios';
 
 function Copyright() {
   return (
@@ -60,6 +61,25 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignInSide() {
   const classes = useStyles();
+
+  Axios
+  .post('user/login', {
+    username: this.state.username,
+    password: this.state.password
+  }).then(response => {
+    console.log(response)
+    if(response.status === 200 {
+      this.props.updateUser({
+        loggedIn: true,
+        username: response.data.username
+      })
+    this.setState({redirectTo:"/"})
+    }
+  }).catch(error => {
+    throw(error)
+  })
+
+  }
 
   return (
     <Grid container component="main" className={classes.root}>
