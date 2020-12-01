@@ -15,32 +15,25 @@ let User = module.exports = mongoose.model('User', userSchema);
 
 
 //uses bcrypt to hash the user pasword so it's not visible as plain text in the database
-//uses https://medium.com/gomycode/authentication-with-passport-js-73ca65b25feb as guiding material
-module.exports.createUser = function (newUser, callback) {
-  bcrypt.genSalt(10, function (err, salt) {
-    bcrypt.hash(newUser.password, salt, function (err, hash) {
-      newUser.password = hash;
-      newUser.save(callback);
 
-    });
+userSchema.methods = {
+  checkPassword: function (inputPassword) {
+return bcrypt.compareSync(inputPassword, this.password)
 
-  });
+  },
+
+  hashPassword: plainTextPassword => {
+    return bcrypt.hashSync(plainTextPassword, 10)
+  }
 
 }
 
-module.exports.getUserByUsername = function (username, callback) {
-  let query = { username: username };
-  User.findOne(query.callback);
+userSchema.pre('save', function (next) {
+  if(!this.password) {
+    console.log("no password entered")
+    next()
+  }
+else {
+  this.password = this.hashPassword(this.password)
 }
-
-module.exports.getUserbyId = function (id, callback) {
-  User.findById(id, callback);
-}
-
-module.exports.comparePassword = function (candidatePassword, hash, callback) {
-  bcrypt.compare(candidatePassword, hash, function (err, isMatch) {
-    if (err) throw err;
-    callback(null, isMatch)
-  });
-}
-
+})
