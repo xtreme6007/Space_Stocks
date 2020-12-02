@@ -3,15 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 // import CardContent from '@material-ui/core/CardContent';
 // import CardMedia from '@material-ui/core/CardMedia';
-
-import Typography from '@material-ui/core/Typography';
-import { Collapse } from '@material-ui/core';
-import Link from '@material-ui/core/Link';
-import './imagecard.css';
-import Login from '../components/Login';
-import Signup from '../components/Signup';
-import Dashboard from '../pages/Dashboard';
-
 import Typography from "@material-ui/core/Typography";
 import { Collapse } from "@material-ui/core";
 import Link from "@material-ui/core/Link";
@@ -19,7 +10,6 @@ import { Route, Switch } from "react-router-dom";
 import "./imagecard.css";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
-
 
 import Button from "@material-ui/core/Button";
 // import Box from '@material-ui/core/Box';
@@ -86,15 +76,6 @@ export default function ImageCard({ place, checked }) {
           component="h1"
           className={classes.title}
         >
-
-          <Login>
-          </Login>
-
-          <Signup>
-          </Signup>
-
-         
-
           <Switch>
             <Route exact path="/Signup">
               <Signup></Signup>
@@ -103,7 +84,6 @@ export default function ImageCard({ place, checked }) {
               <Login></Login>
             </Route>
           </Switch>
-
           
         </Typography>
         {/* <Link href="#" variant="body2">
@@ -119,13 +99,7 @@ export default function ImageCard({ place, checked }) {
           {/* {place.description} */}
         </Typography>
         {/* </CardContent> */}
-
       </Card>
-
-
-      <Dashboard>
-          </Dashboard>
-          
     </Collapse>
   );
 }
