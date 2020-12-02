@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { makeStyles, CssBaseline } from "@material-ui/core";
 import Header from "./components/Header";
 import PlaceToVisit from "./components/PlaceToVisit";
+import APItest from "./components/APItest"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,6 +24,7 @@ export default function () {
       <PlaceToVisit />
     </div>
     </Router>
+    // <APItest />
   );
 }
 
