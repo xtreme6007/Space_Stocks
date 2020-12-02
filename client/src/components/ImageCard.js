@@ -1,29 +1,23 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-// import CardContent from '@material-ui/core/CardContent';
-// import CardMedia from '@material-ui/core/CardMedia';
-
-import Typography from '@material-ui/core/Typography';
-import { Collapse } from '@material-ui/core';
-import Link from '@material-ui/core/Link';
-import './imagecard.css';
-import Login from '../components/Login';
-import Signup from '../components/Signup';
-import Dashboard from '../pages/Dashboard';
-
-
-
-
+// import CardContent from ‘@material-ui/core/CardContent’;
+// import CardMedia from ‘@material-ui/core/CardMedia’;
+import Typography from "@material-ui/core/Typography";
+import { Collapse } from "@material-ui/core";
+import Link from "@material-ui/core/Link";
+import { Route, Switch } from "react-router-dom";
+import "./imagecard.css";
+import Login from "../components/Login";
+import Signup from "../components/Signup";
 import Button from "@material-ui/core/Button";
-// import Box from '@material-ui/core/Box';
-
+// import Box from ‘@material-ui/core/Box’;
 const useStyles = makeStyles({
   root: {
     // maxWidth: 585,
     background: "rgba(0,0,0,0.5)",
-    // marginTop: '30px',
-    // marginLeft: '20px',
+    // marginTop: ‘30px’,
+    // marginLeft: ‘20px’,
     marginBottom: "20px",
     color: "rgba(0,0,0,0.7)",
     backgroundColor: "#5AFF3D",
@@ -40,22 +34,20 @@ const useStyles = makeStyles({
     color: "#fff",
   },
   // desc: {
-  //   fontFamily: 'Nunito',
-  //   fontSize: '1.9rem',
-  //   color: '#fff',
-  //   textShadow: '2px 2px 4px #000000',
-  //   paddingBottom: '10px',
-  //   paddingTop: '20px',
+  //   fontFamily: ‘Nunito’,
+  //   fontSize: ‘1.9rem’,
+  //   color: ‘#fff’,
+  //   textShadow: ‘2px 2px 4px #000000’,
+  //   paddingBottom: ‘10px’,
+  //   paddingTop: ‘20px’,
   // },
 });
-
 export default function ImageCard({ place, checked }) {
   const classes = useStyles();
-
   return (
     <Collapse in={checked} {...(checked ? { timeout: 1000 } : {})}>
       <Card className={classes.root} elevation={4}>
-        {/* <CardMedia 
+        {/* <CardMedia
           className={classes.media}
           image={place.imageUrl}
           username={place.username} */}
@@ -80,15 +72,6 @@ export default function ImageCard({ place, checked }) {
           component="h1"
           className={classes.title}
         >
-
-          <Login>
-          </Login>
-
-          <Signup>
-          </Signup>
-
-         
-
           <Switch>
             <Route exact path="/Signup">
               <Signup></Signup>
@@ -97,13 +80,10 @@ export default function ImageCard({ place, checked }) {
               <Login></Login>
             </Route>
           </Switch>
-
-
         </Typography>
         {/* <Link href="#" variant="body2">
-                You don't have an account? Sign up
+                You don’t have an account? Sign up
           </Link> */}
-
         <Typography
           variant="body2"
           color="textSecondary"
@@ -113,13 +93,7 @@ export default function ImageCard({ place, checked }) {
           {/* {place.description} */}
         </Typography>
         {/* </CardContent> */}
-
       </Card>
-
-
-      <Dashboard>
-          </Dashboard>
-          
     </Collapse>
   );
 }

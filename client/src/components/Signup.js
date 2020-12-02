@@ -12,9 +12,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import axios from 'axios';
-import { response } from 'express';
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -27,7 +24,6 @@ function Copyright() {
     </Typography>
   );
 }
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -47,39 +43,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
-
-handleSubmit(event) {
-  event.preventDefault()
-  console.log(this.state.username)
-  axios.post('/', {
-    username: this.state.username,
-    password: this.state.password
-
-  })
-.then(response => {
-  console.log(response)
-  if(response.data) {
-    console.log("login worked")
-    this.setState({
-      redirectedTo: '/login'
-    })
-  }
-  else {
-    console.log("could not log in")
-  }
-
-
-}).catch(error => {
-  throw(error)
-})
-}
-
-
 export default function SignUp() {
   const classes = useStyles();
-
-
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -124,7 +89,6 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
-                value={this.state.username}
               />
             </Grid>
             <Grid item xs={12}>
@@ -137,7 +101,6 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-                value={this.state.password}
               />
             </Grid>
             <Grid item xs={12}>
