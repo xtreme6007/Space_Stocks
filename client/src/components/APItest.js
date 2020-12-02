@@ -19,12 +19,16 @@ class APItest extends Component {
     }
     eachStock = (item, index) => {
         Api.getRSI(item.ticker).then(res => {
+            const stock =  {ticker: item.ticker, RSI: res.data[0].rsi} ;
+            const stocks = this.state.stock;
+            stocks.push(stock)
+
+
               this.setState({
     
-                  RSI: res.data[0].rsi
+                  stock: stocks
               })
-              console.log(res)
-              console.log(this.state.RSI)
+            console.log(this.state.stock)
     
         })
       
