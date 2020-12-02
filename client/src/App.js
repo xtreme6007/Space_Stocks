@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "cover",
 
     backgroundBlendMode: "screen",
-    // backgroundColor: 'rgba(76, 175, 80, 0.3)',
+    
   },
 }));
 export default function () {

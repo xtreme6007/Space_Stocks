@@ -84,7 +84,7 @@ export default function ImageCard({ place, checked }) {
               <Login></Login>
             </Route>
           </Switch>
-          
+
         </Typography>
         {/* <Link href="#" variant="body2">
                 You don't have an account? Sign up
