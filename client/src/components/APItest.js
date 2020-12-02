@@ -12,6 +12,7 @@ class APItest extends Component {
         stock: [{
             ticker: "",
             RSI: "",
+            recomended: ""
         }],
         RSI:[]
 
@@ -19,7 +20,14 @@ class APItest extends Component {
     }
     eachStock = (item, index) => {
         Api.getRSI(item.ticker).then(res => {
-            const stock =  {ticker: item.ticker, RSI: res.data[0].rsi} ;
+            let recomendation;
+            if(res.data[0].rsi < 70 ) {
+                recomendation = "Strong Buy"
+            } else if (res.data[0].rsi > 70 ) {
+                recomendation = "Strong Sell"
+            }
+            
+            const stock =  {ticker: item.ticker, RSI: res.data[0].rsi, recomended: recomendation} ;
             const stocks = this.state.stock;
             stocks.push(stock)
 
