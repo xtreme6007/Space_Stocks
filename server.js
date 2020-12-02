@@ -20,7 +20,7 @@ app.use(session({
   secret: "secret",
   saveUninitialized: false, 
   resave: false,
-  store: new MongoStore({ mongooseConnection: db})
+  // store: new MongoStore({ mongooseConnection: db})
 }));
 
 //initializing passport
