@@ -47,7 +47,7 @@ class APItest extends Component {
         // await this.state.gainers.forEach(this.eachStock)
         for(let i=0; i < this.state.gainers.length; i++ ){
             await this.eachStock(this.state.gainers[i])
-            if(i == (this.state.gainers.length -1)){
+            if(i === (this.state.gainers.length -1)){
                 console.log("Hello", this.state.stock)
                 Api.saveStocks(this.state.stock)
             }
