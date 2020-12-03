@@ -1,20 +1,20 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-require('mongoose-type-email');
-const bcrypt = require("bcrypt");
-const passport = require("passport");
 
+const bcrypt = require("bcrypt");
+
+//setting up a new schema with the items that will be entered in the sign-up component
 const userSchema = new Schema({
-  username: { type: String, index: true },
-  password: { type: String },
-  email: { type: String },
-  name: { type: String }
+  email: { type: String, required: true  },
+  password: { type: String, required: true },
+  first_name: { type: String },
+  last_name: {type: String}
 });
 
-let User = module.exports = mongoose.model('User', userSchema);
+const User = mongoose.model('User', userSchema);
 
 
-//uses bcrypt to hash the user pasword so it's not visible as plain text in the database
+//uses bcrypt to hash the user password so it's not visible as plain text in the database
 
 userSchema.methods = {
   checkPassword: function (inputPassword) {
@@ -28,6 +28,7 @@ return bcrypt.compareSync(inputPassword, this.password)
 
 }
 
+//this defines hooks for pre-saving
 userSchema.pre('save', function (next) {
   if(!this.password) {
     console.log("no password entered")
@@ -37,3 +38,5 @@ else {
   this.password = this.hashPassword(this.password)
 }
 })
+
+module.exports = User
