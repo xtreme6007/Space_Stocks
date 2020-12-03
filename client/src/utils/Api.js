@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 // const APIkey = process.env.ApiKey
-const APIkey = "f4e7c42e248f28c917aee5e08872c328"
+const APIkey = "daa5f8a2ca6437380aea8522e02fc737"
 
 
 
@@ -30,7 +30,8 @@ export default  {
   },
 
   saveStocks: function(stockData) {
-    return axios.post("/api/stocks", stockData);
+    console.log("Hello 45", stockData)
+    return axios.post("api/stocks/", stockData);
   },
   // getSMA: function(Stock) {
   //   const SmaURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=SMA&apikey=" 

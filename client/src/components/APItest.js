@@ -14,16 +14,19 @@ class APItest extends Component {
 
 
     }
-    eachStock = (item, index) => {
-        Api.getRSI(item.ticker).then(res => {
+    eachStock = async (item) => {
+       
+        let response = await  Api.getRSI(item.ticker)
+         
+          
             let recomendation;
-            if(res.data[0].rsi < 70 ) {
+            if(response.data[0].rsi < 70 ) {
                 recomendation = "Strong Buy"
-            } else if (res.data[0].rsi > 70 ) {
+            } else if (response.data[0].rsi > 70 ) {
                 recomendation = "Strong Sell"
             }
             
-            const stock =  {ticker: item.ticker, RSI: res.data[0].rsi, recomended: recomendation} ;
+            const stock =  {ticker: item.ticker, RSI: response.data[0].rsi, recomended: recomendation} ;
             const stocks = this.state.stock;
             stocks.push(stock)
 
@@ -34,14 +37,24 @@ class APItest extends Component {
               })
             console.log(this.state.stock)
     
-        })
-        Api.saveStocks(this.state.stock)
+        
+        
       
         }
      
 
-    Rsi = () => {
-        this.state.gainers.forEach(this.eachStock)
+    Rsi = async () => {
+        // await this.state.gainers.forEach(this.eachStock)
+        for(let i=0; i < this.state.gainers.length; i++ ){
+            await this.eachStock(this.state.gainers[i])
+            if(i === (this.state.gainers.length -1)){
+                console.log("Hello", this.state.stock)
+                Api.saveStocks(this.state.stock)
+            }
+
+
+        }
+       
         
         
 
@@ -52,6 +65,7 @@ class APItest extends Component {
     Test = () => {
         
         Api.getGainers().then(res => {
+            console.log(res)
             const sliced = res.data.slice(0,5) 
             
             this.setState(
