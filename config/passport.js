@@ -1,24 +1,36 @@
 const passport = require("passport");
-
-//Local Strategy for comparing passwords
 const LocalStrategy = require("passport-local").Strategy;
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({username: username}, (err, user) => {
-      if(err) {
-        return done(err)
-      }
-      if (!user) {
-        return done(null, false, {message: 'incorrect username'})
-      }
-      if(!user.checkPassword(password)) {
-        return done(null, false, {message: 'incorrect password'})
+const User = ("../models/users.js")
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+
+passport.deserializeUser((obj, done) => {
+  done(null, obj);
+});
+
+
+
+//local strategy to check username and password
+const localPassport = 
+  new LocalStrategy(
+   function(email, password, done) {
+     User.findOne({ email: email}, (err, user) => {
+       if(err) {
+         return done(err)
+       }
+       if(!user) {
+         return done(null, false, {message: 'incorrect username entered'})
+       }
+       if(!user.checkPassword(password)) {return done(null, false, {message: "incorrect password entered"})
       }
       return done(null, user)
-    })
-      }
-      
+     })
+   }
+  )
 
 
 
-module.exports = passport;
+
+module.exports = localPassport;
