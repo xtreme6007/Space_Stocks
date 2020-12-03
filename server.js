@@ -6,27 +6,28 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const User = require("./models/users");
+const routes = require("./routes");
 
 //connecting to database
 mongoose.connect("mongodb://localhost/loginapp");
 const db = mongoose.connection;
-
+app.use(routes);
 //adding middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//starts passport session
-app.use(passport.initialize());
-app.use(passport.session());
+// //starts passport session
+// app.use(passport.initialize());
+// app.use(passport.session());
 
-//Express session
-app.use(
-  session({
-    secret: "secret",
-    resave: true,
-    saveUninitialized: true,
-  })
-);
+// //Express session
+// app.use(
+//   session({
+//     secret: "secret",
+//     resave: true,
+//     saveUninitialized: true,
+//   })
+// );
 
 require("./routes/api/index");
 

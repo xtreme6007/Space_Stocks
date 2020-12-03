@@ -20,7 +20,7 @@ module.exports = {
     // let data = JSON.parse(req.body)
     let dailyStock = {stock: req.body}
     console.log(dailyStock)
-        Stock
+      Stock
       .create(dailyStock)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
