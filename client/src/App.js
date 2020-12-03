@@ -3,7 +3,8 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { makeStyles, CssBaseline } from "@material-ui/core";
 import Header from "./components/Header";
 import PlaceToVisit from "./components/PlaceToVisit";
-import APItest from "./components/APItest"
+import APItest from "./components/APItest";
+import Dashboard from './pages/Dashboard';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,9 +23,12 @@ export default function () {
       <CssBaseline />
       <Header />
       <PlaceToVisit />
+      <Dashboard />
     </div>
     </Router>
     // <APItest />
+    
+
   );
 }
 

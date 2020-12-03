@@ -20,7 +20,7 @@ const useStyles = makeStyles({
     // marginLeft: ‘20px’,
     marginBottom: "20px",
     color: "rgba(0,0,0,0.7)",
-    backgroundColor: "#5AFF3D",
+    // backgroundColor: "#5AFF3D",
     textAlign: "center",
     boxShadow: "5px 15px 25px 15px #000000",
   },
