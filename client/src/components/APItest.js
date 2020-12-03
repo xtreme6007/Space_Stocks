@@ -9,11 +9,7 @@ class APItest extends Component {
 
     state = {
         gainers: [],
-        stock: [{
-            ticker: "",
-            RSI: "",
-            recomended: ""
-        }],
+        stock: [],
         RSI:[]
 
 
@@ -39,6 +35,7 @@ class APItest extends Component {
             console.log(this.state.stock)
     
         })
+        Api.saveStocks(this.state.stock)
       
         }
      
@@ -55,7 +52,7 @@ class APItest extends Component {
     Test = () => {
         
         Api.getGainers().then(res => {
-            const sliced = res.data.slice(0,4) 
+            const sliced = res.data.slice(0,5) 
             
             this.setState(
                 {
