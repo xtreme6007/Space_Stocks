@@ -9,12 +9,13 @@ const User = require("./models/users");
 const routes = require("./routes");
 
 //connecting to database
-mongoose.connect("mongodb://localhost/loginapp");
+mongoose.connect("mongodb://localhost/DailyStocks");
 const db = mongoose.connection;
-app.use(routes);
+
 //adding middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(routes);
 
 // //starts passport session
 // app.use(passport.initialize());
@@ -29,7 +30,7 @@ app.use(express.json());
 //   })
 // );
 
-require("./routes/api/index");
+//  require("./routes/api/index");
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
