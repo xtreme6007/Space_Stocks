@@ -5,7 +5,10 @@ const app = express();
 const session = require("express-session");
 const mongoose = require("mongoose");
 const passport = require("passport");
-const User = require("./models/users")
+const User = require("./models/users");
+const routes = require("./routes") ;
+
+
 
 //connecting to database
 mongoose.connect("mongodb://localhost/loginapp");
@@ -15,75 +18,79 @@ const db = mongoose.connection;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-//Express session
-app.use(session({
-  secret: "secret",
-  saveUninitialized: false, 
-  resave: false,
-  // store: new MongoStore({ mongooseConnection: db})
-}));
+app.use(routes);
 
-//initializing passport
-app.use(passport.initialize());
-app.use(passport.session());
+// //Express session
+// app.use(session({
+//   secret: "secret",
+//   saveUninitialized: false, 
+//   resave: false,
+//   // store: new MongoStore({ mongooseConnection: db})
+// }));
 
-//adding route to save users to database if password matches
+// //initializing passport
+// app.use(passport.initialize());
+// app.use(passport.session());
 
-app.post("/register", function(req, res) {
-let password = req.body.password;
-let password2 = req.body.password2;
+// //adding route to save users to database if password matches
 
-if(password == password2) {
-  let newUser = new User({
-    name: req.body.name,
-    email: req.body.email,
-    username: req.body.username,
-    password: req.body.password
-  });
-  User.createUser(newUser, function(err, user) {
-    if(err) throw err;
-    res.send(user).end()
+// app.post("/register", function(req, res) {
+// let password = req.body.password;
+// let password2 = req.body.password2;
 
-  });
-}
-else {
-  res.status(500).send("{errors: \"Passwords do not match\"}").end()
-}
-});
+// if(password == password2) {
+//   let newUser = new User({
+//     name: req.body.name,
+//     email: req.body.email,
+//     username: req.body.username,
+//     password: req.body.password
+//   });
+//   User.createUser(newUser, function(err, user) {
+//     if(err) throw err;
+//     res.send(user).end()
 
-// Login route
-app.post('/login',
-  passport.authenticate('local'),
-  function(req, res) {
-    res.send(req.user);
-  }
-);
+//   });
+// }
+// else {
+//   res.status(500).send("{errors: \"Passwords do not match\"}").end()
+// }
+// });
 
-//the routes below may need to go to the respective front end files
+// // Login route
+// app.post('/login',
+//   passport.authenticate('local'),
+//   function(req, res) {
+//     res.send(req.user);
+//   }
+// );
 
-// route to get current user
-app.get('/user', function(req, res){
-  res.send(req.user);
-})
+// //the routes below may need to go to the respective front end files
+
+// // route to get current user
+// app.get('/user', function(req, res){
+//   res.send(req.user);
+// })
 
 
-// logout route
-app.get('/logout', function(req, res){
-  req.logout();
-  res.send(null)
-});
+// // logout route
+// app.get('/logout', function(req, res){
+//   req.logout();
+//   res.send(null)
+// });
 
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
+  // Send every request to the React app
+// Define any API routes before this runs
+  // app.get("*", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  // });
 }
 
-// Send every request to the React app
-// Define any API routes before this runs
-app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
-});
+
+
 
 app.listen(PORT, function() {
   console.log(`🌎 ==> API server now on port ${PORT}!`);
