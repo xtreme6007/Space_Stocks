@@ -14,8 +14,7 @@ const APIkey = "daa5f8a2ca6437380aea8522e02fc737"
 export default  {
   
   
-  getGainers: function () {
-    
+  getGainers: function() {
     const GainUrl = "https://financialmodelingprep.com/api/v3/gainers?apikey="
     return axios.get
     (GainUrl+ APIkey);  
