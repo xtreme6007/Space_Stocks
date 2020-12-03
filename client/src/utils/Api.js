@@ -28,6 +28,10 @@ export default  {
     const RsiURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=rsi&apikey=" 
         return axios.get(RsiURL + APIkey)
   },
+
+  saveStocks: function(stockData) {
+    return axios.post("/api/stocks", stockData);
+  },
   // getSMA: function(Stock) {
   //   const SmaURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=SMA&apikey=" 
   //       return axios.get(SmaURL + APIkey)

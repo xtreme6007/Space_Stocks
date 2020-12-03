@@ -1,18 +1,7 @@
 const router = require("express").Router();
+const bookRoutes = require("./stocks");
 
-const router = require("express").Router();
-const stockController = require("../../controllers/StockController");
-
-// Matches with "/api/books"
-router.route("/")
-  .get(stockController.findAll)
-  .post(stockController.create);
-
-// Matches with "/api/books/:id"
-router
-  .route("/:id")
-  .get(stockController.findById)
-  .put(stockController.update)
-  
+// Book routes
+router.use("/stocks", stockRoutes);
 
 module.exports = router;
