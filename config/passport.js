@@ -21,9 +21,9 @@ const localPassport =
          return done(err)
        }
        if(!user) {
-         return done(null, false, {message: 'incorrect username entered'})
+         return done(null, false, {message: 'incorrect username/password entered'})
        }
-       if(!user.checkPassword(password)) {return done(null, false, {message: "incorrect password entered"})
+       if(!user.checkPassword(password)) {return done(null, false, {message: "incorrect username/password entered"})
       }
       return done(null, user)
      })

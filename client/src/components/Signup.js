@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { Redirect, Route } from "react-router-dom";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -35,25 +36,7 @@ function Copyright() {
 //   redirectTo: null
 // }
 //function to take the data from the form and write it to the database
-function handleSubmit(event) {
-  event.preventDefault();
-  axios
-    .post("../../../routes/signup", {
-      email: this.state.email,
-      password: this.state.password,
-    })
-    .then((response) => {
-      console.log(response);
-      if (!response.data.console.error()) {
-        console.log("working as intended");
-        this.setState({
-          redirectTo: "/Login",
-        });
-      } else {
-        console.log("duplicate");
-      }
-    });
-}
+
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -75,8 +58,58 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function SignUp() {
+ 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setfirstName] = useState("");
+  const [lastName, setlastName] = useState("");
+
+  function handleuserNameinput(event) {
+    setEmail(event.target.value);
+  }
+
+  function handlepasswordinput(event) {
+    setPassword(event.target.value);
+  }
+
+  function handlefirstnameInput(event) {
+    setfirstName(event.target.value);
+  }
+
+  function handlelastnameInput(event) {
+    setlastName(event.target.value);
+  }
+console.log(email, password, firstName, lastName)
+
+const [loggedIn, setloggedIn]=useState(false)
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const userObject = {email:email, password:password, first_name:firstName, last_name:lastName}
+console.log(userObject)
+  axios
+    .post("/signup", 
+      userObject
+    )
+    .then((response) => {
+      
+      if (!response.data.console.errmsg) {
+        console.log("working as intended");
+        setloggedIn(true)
+        console.log(response);
+        
+               
+      } else {
+        console.log("duplicate");
+      }
+    });
+}
   const classes = useStyles();
   return (
+    <>
+     <Route exact path="/">
+        {loggedIn ? <Redirect to="/dashboard" /> : <Redirect to="/Login" />}
+      </Route>
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
@@ -96,6 +129,8 @@ export default function SignUp() {
                 required
                 fullWidth
                 id="firstName"
+                onChange={handlefirstnameInput}
+                value={firstName}
                 label="First Name"
                 autoFocus
               />
@@ -108,6 +143,8 @@ export default function SignUp() {
                 id="lastName"
                 label="Last Name"
                 name="lastName"
+                onChange={handlelastnameInput}
+                value={lastName}
                 autoComplete="lname"
               />
             </Grid>
@@ -120,7 +157,8 @@ export default function SignUp() {
                 id="email"
                 label="Email Address"
                 name="email"
-                
+                value={email}
+                onChange={handleuserNameinput}
                 autoComplete="email"
               />
             </Grid>
@@ -131,7 +169,8 @@ export default function SignUp() {
                 fullWidth
                 name="password"
                 label="Password"
-                
+                onChange={handlepasswordinput}
+                value={password}
                 type="password"
                 id="password"
                 autoComplete="current-password"
@@ -167,5 +206,6 @@ export default function SignUp() {
         <Copyright />
       </Box>
     </Container>
+    </>
   );
 }
