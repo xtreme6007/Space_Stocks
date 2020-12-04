@@ -1,5 +1,6 @@
 const Stock = require("../models/stocks.js");
 
+
 // Defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
