@@ -3,7 +3,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, IconButton, Toolbar, Collapse } from '@material-ui/core';
 import SortIcon from '@material-ui/icons/Sort';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Link from "@material-ui/core/Link";
+import Icon from '@material-ui/core/Icon';
+import { green } from '@material-ui/core/colors';
+import { loadCSS } from 'fg-loadcss';
 import { Link as Scroll } from 'react-scroll';
+import FontAwesome from "../components/IconButton";
 
 
 
@@ -54,6 +59,9 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '7rem',
      
     },
+    fas: {
+        color: '#5AFF3D',
+    }
 }));
 
 
@@ -69,11 +77,17 @@ export default function Header() {
       <AppBar className={classes.appbar} elevation={0}>
         <Toolbar className={classes.appbarWrapper}> 
             <h1 className={classes.appbarTitle}>
-              Snake <span className={classes.colorText}>Stocks</span> 
+              Space <span className={classes.colorText}>Stocks</span> 
             </h1>
-          <IconButton>
-            <SortIcon className={classes.icon}/>
-          </IconButton>
+            <div><Link href="/">
+          <FontAwesome>
+          {/* <div className={classes.appbarTitle}>
+      <Icon className="fas fa-space-shuttle" />
+          </div> */}
+          </FontAwesome>
+          
+          </Link>
+          </div>
             </Toolbar>
       </AppBar>
 

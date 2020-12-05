@@ -56,9 +56,9 @@ export default function ImageCard({ place, checked }) {
         <div className="tcontainer">
           <div className="ticker-wrap">
             <div className="ticker-move">
-              <div className="ticker-item">Snake Stocks</div>
+              <div className="ticker-item">Space Stocks</div>
               <div className="ticker-item">
-                Trading can be slippery business
+                Trading can be an out of this world experience...
               </div>
               <div className="ticker-item">Ready to play?</div>
             </div>
