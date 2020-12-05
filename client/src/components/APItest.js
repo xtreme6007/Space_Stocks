@@ -4,9 +4,8 @@ import Api from '../utils/Api'
 
 
 
-
 class APItest extends Component {
-
+// set state to hold stock info  
     state = {
         gainers: [],
         stock: [],
@@ -14,23 +13,31 @@ class APItest extends Component {
 
 
     }
+    // use this as the foreach callback 
     eachStock = async (item) => {
        
         let response = await  Api.getRSI(item.ticker).catch(err => console.log(err))
          console.log("this is the response", response)
           
             let recomendation;
-            if(response.data[0].rsi < 70 ) {
+            // recomendation algoritham  
+             if(response.data[0].rsi < 40 ) {
                 recomendation = "Strong Buy"
-            } else if (response.data[0].rsi > 70 ) {
+            } else if (response.data[0].rsi > 80 ) {
                 recomendation = "Strong Sell"
+            } else if (response.data[0].rsi > 40 && response.data[0].rsi < 70 ) {
+
+                recomendation = "Buy"
+            } else if (response.data[0].rsi > 70 && response.data[0].rsi < 80 ) {
+
+                recomendation = "Sell"
             }
-            
+            // set stock object
             const stock =  {ticker: item.ticker, RSI: response.data[0].rsi, recomended: recomendation} ;
             const stocks = this.state.stock;
             stocks.push(stock)
 
-
+                // set stock object to state
               this.setState({
     
                   stock: stocks
@@ -42,6 +49,7 @@ class APItest extends Component {
       
         }
      
+// Use this to get the RSI for each ticker returned in the gainers call  
 
     Rsi = async () => {
         // await this.state.gainers.forEach(this.eachStock)
@@ -61,8 +69,8 @@ class APItest extends Component {
 
 
     }
-
-    Test = () => {
+// Use this to call and set state of tickers to use in the rsi fucntion  
+    Gainers = () => {
         
         Api.getGainers().then(res => {
             console.log("Test", res)
@@ -81,11 +89,18 @@ class APItest extends Component {
 
     }
 
+    Search = () => {
+
+
+    }
+
     render() {
 
         return (
-            <Button className="ml-auto mr-auto mt-auto mb-auto" onClick={this.Test}>CLick here to test</Button>
-
+         
+            <Button className="ml-auto mr-auto mt-auto mb-auto" onClick={this.Gainers}>CLick here to test</Button>
+         
+     
         )
     }
 }
