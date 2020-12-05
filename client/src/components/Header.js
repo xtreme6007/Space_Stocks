@@ -1,12 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, IconButton, Toolbar, Collapse } from '@material-ui/core';
-import SortIcon from '@material-ui/icons/Sort';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Link from "@material-ui/core/Link";
-import Icon from '@material-ui/core/Icon';
-import { green } from '@material-ui/core/colors';
-import { loadCSS } from 'fg-loadcss';
 import { Link as Scroll } from 'react-scroll';
 import FontAwesome from "../components/IconButton";
 
