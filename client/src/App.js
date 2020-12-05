@@ -17,14 +17,14 @@ const useStyles = makeStyles((theme) => ({
 export default function () {
   const classes = useStyles();
   return (
-    // <Router>
-    // <div className={classes.root}>
-    //   <CssBaseline />
-    //   <Header />
-    //   <PlaceToVisit />
-    // </div>
-    // </Router>
-      <APItest />
+    <Router>
+    <div className={classes.root}>
+      <CssBaseline />
+      <Header />
+      <PlaceToVisit />
+    </div>
+    </Router>
+      // <APItest />
   );
 }
 
