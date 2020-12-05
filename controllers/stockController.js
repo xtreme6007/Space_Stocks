@@ -1,6 +1,6 @@
 const Stock = require("../models/stocks.js");
 
-// Defining methods for the booksController
+// Defining methods for the Stocks Controller
 module.exports = {
   findAll: function(req, res) {
     Stock
@@ -16,7 +16,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    
+    console.log("Create Function")
     // let data = JSON.parse(req.body)
     let dailyStock = {stock: req.body}
     console.log(dailyStock)
