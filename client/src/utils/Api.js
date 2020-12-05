@@ -34,7 +34,7 @@ export default  {
   },
 
   getPrice: function(Stock) {
-      const PriceURL = "https://financialmodelingprep.com/api/v3/historical-chart/1min/" + Stock + "?apikey="
+      const PriceURL = "https://financialmodelingprep.com/api/v3/historical-price-full/" + Stock + "?apikey="
       return axios.get(PriceURL, APIkey)
 
 

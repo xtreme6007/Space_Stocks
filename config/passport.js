@@ -12,7 +12,7 @@ clientSecret: process.env.GOOGLE_CLIENT_SECRET,
 callbackURL: "/auth/google/callback",
     },
     async (accessToken, refreshToken, profile, done) => {
-      const newUser = {
+      const  newUser = {
         googleId: profile.id,
         displayName: profile.displayName,
         firstName: profile.name.givenName,
