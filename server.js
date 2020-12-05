@@ -26,8 +26,8 @@ app.use(express.json());
 app.use(
   session({
     secret: "keyboard cat",
-    resave: false;
-    saveUninitialized: false;
+    resave: false,
+    saveUninitialized: false,
   })
 );
 
