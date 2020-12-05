@@ -16,9 +16,7 @@ export default  {
   
   getGainers: function() {
     const GainUrl = "https://financialmodelingprep.com/api/v3/gainers?apikey="
-    return axios.get
-    (GainUrl+ APIkey);  
-  },
+    return axios.get(GainUrl+ APIkey);  },
   // getLosers: function () {
   //   const loserURL ="https://financialmodelingprep.com/api/v3/losers?apikey="
   //     return axios.get(loserURL + APIkey);
