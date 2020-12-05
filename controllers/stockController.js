@@ -1,6 +1,8 @@
 const Stock = require("../models/stocks.js");
 
+
 // Defining methods for the Stocks Controller
+
 module.exports = {
   findAll: function(req, res) {
     Stock
