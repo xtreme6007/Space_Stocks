@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { makeStyles, CssBaseline } from "@material-ui/core";
-import Header from "./components/Header";
+import LandingPage from "./components/LandingPage";
 import PlaceToVisit from "./components/PlaceToVisit";
 import Dashboard from './pages/Dashboard';
 
@@ -20,7 +20,7 @@ export default function () {
     <Router>
     <div className={classes.root}>
       <CssBaseline />
-      <Header />
+      <LandingPage />
       <PlaceToVisit />
       <Dashboard />
     </div>

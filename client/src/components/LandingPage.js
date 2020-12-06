@@ -4,7 +4,11 @@ import { AppBar, IconButton, Toolbar, Collapse } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Link from "@material-ui/core/Link";
 import { Link as Scroll } from 'react-scroll';
-import FontAwesome from "../components/IconButton";
+import Slide from '@material-ui/core/Slide';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
+import Paper from '@material-ui/core/Paper';
+// import FontAwesome from "./IconButton";
 
 
 
@@ -13,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        // textAlign: 'center',
         height: '100vh',
     },
     appbar: {
@@ -68,6 +71,10 @@ export default function Header() {
       setChecked(true);
   }, []);
 
+  const handleChange = () => {
+    setChecked((prev) => !prev);
+  };
+
   return (
     <div className={classes.root} id='header'>
       <AppBar className={classes.appbar} elevation={0}>
@@ -76,11 +83,12 @@ export default function Header() {
               Space <span className={classes.colorText}>Stocks</span> 
             </h1>
             <div><Link href="/">
-          <FontAwesome>
-          {/* <div className={classes.appbarTitle}>
+
+          {/* <FontAwesome>
+          <div className={classes.appbarTitle}>
       <Icon className="fas fa-space-shuttle" />
-          </div> */}
-          </FontAwesome>
+          </div> 
+          </FontAwesome> */}
           
           </Link>
           </div>
@@ -98,10 +106,23 @@ export default function Header() {
               Trading
           </span>
 
+
+          <FormControlLabel
+    control={<Switch checked={checked} onChange={handleChange} />}
+    label="Show"
+  />
+  <Slide direction="right" in={checked} mountOnEnter unmountOnExit>
+    <Paper elevation={4} className={classes.paper}>
+      <svg className={classes.svg}>
+      </svg>
+      <span className={classes.colorText}>
+              Has never been so easy
+          </span>
+    </Paper>
+  </Slide>
+
           </h1>
-          {/* <h1 className={classes.simple}>
-          <span className={classes.colorText}>Made Simple</span>
-          </h1> */}
+        
           <Scroll to="place-to-visit" smooth={true}>
           <IconButton>
               <ExpandMoreIcon className={classes.goDown}/>

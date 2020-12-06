@@ -21,6 +21,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems } from '../components/listitems';
 import Chart from '../components/Chart';
+import '../components/imagecard.css';
 
 function Copyright() {
   return (
@@ -151,7 +152,7 @@ render() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={this.classes.title}>
-            Space Stocks
+            Space Stocks Dashboard
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -191,13 +192,25 @@ render() {
                 <Chart />
               </Paper>
             </Grid>
-            {/* Recent Deposits */}
+        
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={this.fixedHeightPaper}>
                 
               </Paper>
             </Grid>
-            {/* Recent Orders */}
+
+            <div className="tcontainer">
+          <div className="ticker-wrap">
+            <div className="ticker-move">
+              <div className="ticker-item">Space Stocks</div>
+              <div className="ticker-item">
+                Trading can be an out of this world experience...
+              </div>
+              <div className="ticker-item">Ready to play?</div>
+            </div>
+          </div>
+        </div>
+     
             <Grid item xs={12}>
               <Paper className={this.classes.paper}>
               
