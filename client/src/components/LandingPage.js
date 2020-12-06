@@ -4,13 +4,8 @@ import { AppBar, IconButton, Toolbar, Collapse } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Link from "@material-ui/core/Link";
 import { Link as Scroll } from 'react-scroll';
-import Slide from '@material-ui/core/Slide';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Switch from '@material-ui/core/Switch';
-import Paper from '@material-ui/core/Paper';
+import './LandingPage.css';
 // import FontAwesome from "./IconButton";
-
-
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -39,6 +34,12 @@ const useStyles = makeStyles((theme) => ({
     colorText: {
         color: '#5AFF3D',
     },
+    animation: {
+        color: '#5AFF3D',
+        position: 'relative',
+        animation: 'move-text-color'
+
+    },
     container: {
         textAlign: 'center',
     },
@@ -56,7 +57,6 @@ const useStyles = makeStyles((theme) => ({
     goDown: {
         color: '#5AFF3D',
         fontSize: '7rem',
-     
     },
     fas: {
         color: '#5AFF3D',
@@ -74,6 +74,14 @@ export default function Header() {
   const handleChange = () => {
     setChecked((prev) => !prev);
   };
+
+  const [change, setChange] = useState(false);
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+
+    
+  });
 
   return (
     <div className={classes.root} id='header'>
@@ -99,30 +107,22 @@ export default function Header() {
       {...(checked ? { timeout: 1000 } : {})} 
       collapsedHeight={50} >
       <div className={classes.container}>
-
           <h1 className={classes.title}>Welcome to <br />Stock{''}
-   
           <span className={classes.colorText}>
               Trading
-          </span>
+          </span><p />
 
 
-          <FormControlLabel
-    control={<Switch checked={checked} onChange={handleChange} />}
-    label="Show"
-  />
-  <Slide direction="right" in={checked} mountOnEnter unmountOnExit>
-    <Paper elevation={4} className={classes.paper}>
-      <svg className={classes.svg}>
-      </svg>
-      <span className={classes.colorText}>
-              Has never been so easy
-          </span>
-    </Paper>
-  </Slide>
+          {this.props.copy.split("").map(function(char, index){
+    const style = {"animation-delay": (0.5 + index / 10) + "s"};
+    return<span className={classes.animation}>
+              has never been so easy   
+          </span>;
+          })}
 
           </h1>
-        
+
+
           <Scroll to="place-to-visit" smooth={true}>
           <IconButton>
               <ExpandMoreIcon className={classes.goDown}/>
