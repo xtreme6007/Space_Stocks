@@ -17,6 +17,7 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems } from '../components/listitems';
 import Chart from '../components/Chart';
@@ -26,7 +27,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Space Stocks
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -46,6 +47,7 @@ class Dashboard extends Component {
     },
     toolbar: {
       paddingRight: 24, // keep right padding when drawer closed
+      paddingLeft: 24,
     },
     toolbarIcon: {
       display: 'flex',
@@ -173,6 +175,9 @@ render() {
         <div className={this.classes.toolbarIcon}>
           <IconButton onClick={this.handleDrawerClose}>
             <ChevronLeftIcon />
+          </IconButton>
+          <IconButton onClick={this.handleDrawerOpen}>
+            <ChevronRightIcon />
           </IconButton>
         </div>
         <Divider />
