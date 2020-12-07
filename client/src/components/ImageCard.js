@@ -10,10 +10,7 @@ import Signup from "../components/Signup";
 
 const useStyles = makeStyles({
   root: {
-    // maxWidth: 585,
     background: "rgba(0,0,0,0.5)",
-    // marginTop: ‘30px’,
-    // marginLeft: ‘20px’,
     marginBottom: "20px",
     color: "rgba(0,0,0,0.7)",
     backgroundColor: "#5AFF3D",
