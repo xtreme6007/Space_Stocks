@@ -64,7 +64,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function Header() {
+export default function Header(props) {
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
   useEffect(() => {
@@ -110,15 +110,15 @@ export default function Header() {
           <h1 className={classes.title}>Welcome to <br />Stock{''}
           <span className={classes.colorText}>
               Trading
-          </span><p />
+          </span>
 
 
-          {this.props.copy.split("").map(function(char, index){
+          {/* {props.copy.split("").map(function(char, index){
     const style = {"animation-delay": (0.5 + index / 10) + "s"};
     return<span className={classes.animation}>
               has never been so easy   
           </span>;
-          })}
+          })} */}
 
           </h1>
 
