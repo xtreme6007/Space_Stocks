@@ -14,7 +14,6 @@ export const mainListItems = (
       </ListItemIcon>
 
       <ListItemText primary="Dashboard" />
-    </ListItem>
     
 
       <ListItemText primary="Space Stocks Watch" />
