@@ -121,6 +121,14 @@ class Dashboard extends Component {
   }));
 
 
+
+export default function Dashboard() {
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(true);
+  
+  const handleDrawerOpen = () => {
+    setOpen(true);
+
   state = {
     open: true,
   }
@@ -129,14 +137,22 @@ class Dashboard extends Component {
     this.setState({
       open: true
     });
+
   };
   handleDrawerClose = () => {
     this.setState({
       open: true
     });
   };
+
+
+ 
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+
    fixedHeightPaper = clsx(this.classes.paper, this.classes.fixedHeight);
 render() {
+
   return (
     <div className={this.classes.root}>
       <CssBaseline />
@@ -173,9 +189,15 @@ render() {
           <IconButton onClick={this.handleDrawerClose}>
             <ChevronLeftIcon />
           </IconButton>
+
+          <IconButton onClick={handleDrawerOpen}>
+            <ChevronRightIcon />
+          </IconButton>        
+
           <IconButton onClick={this.handleDrawerOpen}>
             <ChevronRightIcon />
           </IconButton>
+
         </div>
         <Divider />
         <List>{mainListItems}</List>
