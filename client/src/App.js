@@ -4,6 +4,7 @@ import { makeStyles, CssBaseline } from "@material-ui/core";
 import LandingPage from "./components/LandingPage";
 import PlaceToVisit from "./components/PlaceToVisit";
 import Dashboard from './pages/Dashboard';
+import APItest from './components/APItest';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +26,7 @@ export default function () {
       <Dashboard />
     </div>
     </Router>
-      // <APItest />
+        // <APItest />
   );
 }
 
