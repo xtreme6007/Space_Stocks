@@ -12,45 +12,29 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-
-      <ListItemText primary="Dashboard" />
-    </ListItem>
-    
-
       <ListItemText primary="Space Stocks Watch" />
     </ListItem><br />
-
     <ListItem button>
       <ListItemIcon>
         <ShowChartIcon />
       </ListItemIcon>
       <ListItemText primary="Stocks" />
     </ListItem>
-
     <ListItem button>
       <ListItemIcon>
         <AttachMoneyIcon />
       </ListItemIcon>
       <ListItemText primary="Stocks" />
     </ListItem>
-
     <ListItem button>
       <ListItemIcon>
         <ShowChartIcon />
       </ListItemIcon>
       <ListItemText primary="Stocks" />
     </ListItem>
-
     <ListItem button>
       <ListItemIcon>
         <AttachMoneyIcon />
-      </ListItemIcon>
-      <ListItemText primary="Stocks" />
-    </ListItem>
-
-    <ListItem button>
-    <ListItemIcon>
-        <ShowChartIcon />
       </ListItemIcon>
       <ListItemText primary="Stocks" />
     </ListItem>
