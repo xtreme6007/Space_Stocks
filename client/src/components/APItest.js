@@ -89,8 +89,12 @@ class APItest extends Component {
 
     }
 
-    Search = () => {
+    Search = (Stock) => {
+    Api.getprice(Stock)
 
+    // use this function to get data for your chart 
+    .then(res => {} )
+    .catch(err => console.log(err))
 
     }
 

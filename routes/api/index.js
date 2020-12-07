@@ -1,7 +1,7 @@
 const router = require("express").Router();
 // const stockRoutes = require("./stocks");
 
-// Book routes
+// Stock routes
 router.use("/stocks", require("./stocks"));
 
 
