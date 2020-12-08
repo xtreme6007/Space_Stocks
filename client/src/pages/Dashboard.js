@@ -229,31 +229,31 @@ export default function Dashboard() {
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
-          <ListItemText primary={starter[0].ticker} />
+          <ListItemText primary={(starter && starter[0]) ? starter[0].ticker : "Loading"} />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
-          <ListItemText primary={starter[1].ticker} />
+          <ListItemText primary={(starter && starter[1]) ? starter[1].ticker : "Loading"} />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
-          <ListItemText primary={starter[2].ticker} />
+          <ListItemText primary={(starter && starter[2]) ? starter[2].ticker : "Loading"} />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
-          <ListItemText primary={starter[3].ticker} />
+          <ListItemText primary={(starter && starter[3]) ? starter[3].ticker : "Loading"} />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
-          <ListItemText primary={starter[4].ticker} />
+          <ListItemText primary={(starter && starter[4]) ? starter[4].ticker : "Loading"} />
         </ListItem>
         <Divider />
         <Divider />
