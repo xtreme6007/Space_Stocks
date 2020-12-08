@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react';
 
 import { GoogleLogin } from 'react-google-login';
@@ -7,10 +6,6 @@ import { refreshTokenSetup } from '../utils/refreshToken';
 
 const clientId =
   '6045650641-tq4ukq9d2gmds59t2cv9qnhreae8fkec.apps.googleusercontent.com';
-=======
-import React from "react";
-import "./Login.css";
->>>>>>> 9b3829638e88de07f6b38cd8c1659f1c3560d495
 
 function Login() {
   const onSuccess = (res) => {
