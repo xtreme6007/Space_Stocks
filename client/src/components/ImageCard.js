@@ -66,7 +66,7 @@ export default function ImageCard({ place, checked }) {
           component="h1"
           className={classes.title}
         >
-          <Switch>
+          {/* <Switch>
             <Route exact path="/Signup">
               <Signup></Signup>
             </Route>
@@ -76,7 +76,7 @@ export default function ImageCard({ place, checked }) {
                 <Dashboard></Dashboard>
               </Route>
             </Route>
-          </Switch>
+          </Switch> */}
         </Typography>
         {/* <Link href="#" variant="body2">
                 You don’t have an account? Sign up
