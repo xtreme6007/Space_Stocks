@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -20,6 +20,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
+import Api from '../utils/Api'
+
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -112,6 +115,82 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function Dashboard() {
+  const [starter, setStarter] = useState();
+    const [stockData, setStock] = useState([]);
+    const [RSI, setRSI] = useState([]);
+    const [priceInfo, setPriceInfo] = useState([]);
+    const [chartData, setChartData] = useState([]);
+    useEffect(() => {
+        async function Gainers() {
+            const res = await Api.getGainers()
+            console.log("Test", res)
+            const sliced = await res.data.slice(0,5)
+             setStarter(sliced);
+
+             for (let i = 0; i < sliced.length; i++) {
+                 console.log("HEREEEE" + i, sliced[i])
+                await eachStock(sliced[i])
+                if (i === (sliced.length - 1)) {
+                    // console.log("Hello", stockData)
+                    Api.saveStocks(stockData)
+                }
+            }
+        }
+        Gainers();
+    }, [])
+
+    // use this as the foreach callback 
+    const eachStock = async (item) => {
+        console.log("its an item", item)
+        let response = await Api.getRSI(item.ticker).catch(err => console.log(err))
+        console.log("this is the response", response)
+        let recomendation;
+        // recomendation algoritham  
+        if (response.data[0].rsi < 40) {
+            recomendation = "Strong Buy"
+        } else if (response.data[0].rsi > 80) {
+            recomendation = "Strong Sell"
+        } else if (response.data[0].rsi > 40 && response.data[0].rsi < 70) {
+            recomendation = "Buy"
+        } else if (response.data[0].rsi > 70 && response.data[0].rsi < 80) {
+            recomendation = "Sell"
+        }
+        // set stock object
+        const stock = { ticker: item.ticker, RSI: response.data[0].rsi, recomended: recomendation };
+        const stocks = stockData;
+        stocks.push(stock)
+        // set stock object to state
+        setStock(stocks)
+
+        console.log(stock)
+    }
+   
+    const Search = (Stock) => {
+
+
+        Api.getPrice(Stock).then(res => {
+            const data = res.data.historical.splice(0, 20)
+            setPriceInfo(data)
+
+            // this.state.PriceInfo.forEach()
+            priceInfo.forEach(stock => {
+                const data2 = Math.round(stock.close)
+
+                const chart = chartData;
+                chart.push(data2)
+
+                setChartData(chart)
+
+
+            })
+            console.log(chartData)
+        }).catch(err => console.log(err))
+    }
+    const SearchTest = "AAPL"
+
+
+
+  // -------------------------------------------------------------
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -150,31 +229,31 @@ export default function Dashboard() {
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
-          <ListItemText primary="Stocks" />
+          <ListItemText primary={starter[0].ticker} />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
-          <ListItemText primary="Stocks" />
+          <ListItemText primary={starter[1].ticker} />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
-          <ListItemText primary="Stocks" />
+          <ListItemText primary={starter[2].ticker} />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
-          <ListItemText primary="Stocks" />
+          <ListItemText primary={starter[3].ticker} />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
-          <ListItemText primary="Stocks" />
+          <ListItemText primary={starter[4].ticker} />
         </ListItem>
         <Divider />
         <Divider />

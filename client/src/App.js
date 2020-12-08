@@ -7,6 +7,7 @@ import PlaceToVisit from "./components/PlaceToVisit";
 import Dashboard from './pages/Dashboard';
 import Signup from './components/Signup';
 import Login from './components/Login';
+import Header from './components/Login'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -33,7 +34,8 @@ export default function () {
 
 <div className="mb-5">
   <Switch>
-    <Route exact path="/" component={Signup} />
+    <Route exact path="/" component={Header} />
+    <Route exact path="/signup" component={Signup} />
     <Route exact path="/dashboard" component={Dashboard} />
   </Switch>
 </div>
