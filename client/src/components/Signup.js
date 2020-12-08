@@ -13,6 +13,13 @@ function Login() {
     alert(
       `Logged in successfully welcome ${res.profileObj.name}  \n See console for full profile object.`
     );
+    <Router>
+      <switch>
+        
+
+      </switch>
+
+    </Router>
     refreshTokenSetup(res);
   };
 
