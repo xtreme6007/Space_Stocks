@@ -28,7 +28,7 @@ export default function () {
       <CssBaseline />
       <LandingPage />
       <PlaceToVisit />
-      <Dashboard />
+      {/* <Dashboard /> */}
     </div>
     </Router>
     // <APItest />
