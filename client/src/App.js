@@ -1,10 +1,13 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { makeStyles, CssBaseline } from "@material-ui/core";
 import LandingPage from "./components/LandingPage";
 import PlaceToVisit from "./components/PlaceToVisit";
 // import APItest from "./components/APItest";
 import Dashboard from './pages/Dashboard';
+import Signup from './components/Signup';
+import Login from './components/Login';
+
 
 const useStyles = makeStyles((theme) => ({
 
@@ -22,17 +25,21 @@ export default function () {
   
   const classes = useStyles();
   return (
-    
-    <Router>
-    <div className={classes.root}>
-      <CssBaseline />
-      <LandingPage />
-      <PlaceToVisit />
-      <Dashboard />
-    </div>
-    </Router>
-    // <APItest />
-    
+    <>
+    <div className={classes.root}></div>
+   
+
+<Router basename='/'>
+
+<div className="mb-5">
+  <Switch>
+    <Route exact path="/" component={Signup} />
+    <Route exact path="/dashboard" component={Dashboard} />
+  </Switch>
+</div>
+</Router>
+    {/* //  <APItest /> */}
+    </>
 
   );
 

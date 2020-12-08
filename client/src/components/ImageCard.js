@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import "./imagecard.css";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
+import Dashboard from "../pages/Dashboard";
 
 const useStyles = makeStyles({
   root: {
@@ -65,14 +66,17 @@ export default function ImageCard({ place, checked }) {
           component="h1"
           className={classes.title}
         >
-          <Switch>
+          {/* <Switch>
             <Route exact path="/Signup">
               <Signup></Signup>
             </Route>
             <Route exact path={["/", "/Login"]}>
               <Login></Login>
+              <Route exact path="/dashboard">
+                <Dashboard></Dashboard>
+              </Route>
             </Route>
-          </Switch>
+          </Switch> */}
         </Typography>
         {/* <Link href="#" variant="body2">
                 You don’t have an account? Sign up
