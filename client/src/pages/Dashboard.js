@@ -254,31 +254,51 @@ export default function Dashboard() {
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
+<<<<<<< HEAD
           <ListItemText primary="stock ticker" />
+=======
+          <ListItemText primary={(starter && starter[0]) ? starter[0].ticker : "Loading"} />
+>>>>>>> 1892221072c68bcdfb819eef03d8238c1fdc1a89
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
+<<<<<<< HEAD
           <ListItemText primary="stock ticker" />
+=======
+          <ListItemText primary={(starter && starter[1]) ? starter[1].ticker : "Loading"} />
+>>>>>>> 1892221072c68bcdfb819eef03d8238c1fdc1a89
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
+<<<<<<< HEAD
           <ListItemText primary="stock ticker" />
+=======
+          <ListItemText primary={(starter && starter[2]) ? starter[2].ticker : "Loading"} />
+>>>>>>> 1892221072c68bcdfb819eef03d8238c1fdc1a89
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
+<<<<<<< HEAD
           <ListItemText primary="stock ticker" />
+=======
+          <ListItemText primary={(starter && starter[3]) ? starter[3].ticker : "Loading"} />
+>>>>>>> 1892221072c68bcdfb819eef03d8238c1fdc1a89
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
+<<<<<<< HEAD
           <ListItemText primary="stock ticker" />
+=======
+          <ListItemText primary={(starter && starter[4]) ? starter[4].ticker : "Loading"} />
+>>>>>>> 1892221072c68bcdfb819eef03d8238c1fdc1a89
         </ListItem>
         <Divider />
         <Divider />
