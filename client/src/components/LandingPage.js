@@ -88,12 +88,6 @@ export default function Header(props) {
               Space <span className={classes.colorText}>Stocks</span> 
             </h1>
             <div><Link href="/">
-
-          {/* <FontAwesome>
-          <div className={classes.appbarTitle}>
-      <Icon className="fas fa-space-shuttle" />
-          </div> 
-          </FontAwesome> */}
           
           </Link>
           </div>
@@ -105,9 +99,15 @@ export default function Header(props) {
       collapsedHeight={50} >
       <div className={classes.container}>
           <h1 className={classes.title}>Welcome to <br />Stock{''}
-          <span className={classes.animation}>
+
+          <span className='animation'>
               Trading
           </span>
+          <div className='anim-words'>
+          <span >
+              making trades great again!
+          </span>
+          </div>
 
           </h1>
 
