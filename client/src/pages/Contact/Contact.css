@@ -1,0 +1,108 @@
+
+.contact-us-section {
+    padding: 2rem;
+    background: #fefefe;
+  }
+  
+  .contact-us-section .contact-us-section-left {
+    padding-right: 2rem;
+    border-bottom: 2px solid #e6e6e6;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media print, screen and (min-width: 40em) {
+    .contact-us-section .contact-us-section-left {
+      border-right: 1px solid #e6e6e6;
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+  
+  .contact-us-section .contact-us-section-right {
+    padding-left: 2rem;
+  }
+  
+  @media print, screen and (min-width: 40em) {
+    .contact-us-section .contact-us-section-right {
+      border-left: 1px solid #e6e6e6;
+    }
+  }
+  
+  .contact-us-section .contact-us-header {
+    margin-bottom: 2rem;
+  }
+  
+  @media screen and (min-width: 40em) and (max-width: 74.9375em) {
+    .contact-us-section .contact-us-header {
+      font-size: 32px;
+    }
+  }
+  
+  .contact-us-section .responsive-embed {
+    margin-bottom: 0;
+    padding-bottom: 55%;
+  }
+  
+  .contact-us-form input[type=text],
+  .contact-us-form input[type=email],
+  .contact-us-form textarea {
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-us-form-actions {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  
+  .contact-us-form-actions input[type=submit] {
+    border-radius: 5000px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .contact-us-form-actions .contact-us-file-button {
+    background: transparent;
+    color: #8a8a8a;
+  }
+  
+  .contact-us-list {
+    list-style-type: none;
+    margin: 0;
+  }
+  
+  .contact-us-list li a {
+    color: #0a0a0a;
+  }
+  
+  .contact-us-list li::before {
+    margin-right: 2rem;
+    font-size: 2rem;
+    vertical-align: middle;
+    color: #8a8a8a;
+    font-family: 'FontAwesome';
+  }
+  
+  .contact-us-list .address::before {
+    content: '\f041';
+    margin-left: 0.4rem;
+    margin-right: 2.3rem;
+  }
+  
+  .contact-us-list .email::before {
+    content: '\f003';
+  }
+  
+  .contact-us-list .phone::before {
+    content: '\f098';
+  }
+  
+  

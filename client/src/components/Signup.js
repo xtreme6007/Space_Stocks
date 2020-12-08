@@ -21,7 +21,7 @@ function Login() {
     refreshTokenSetup(res);
     console.log("next is the redirect")
  
-window.location.replace("/dashboard")  
+window.location.replace("/Dashboard")  
 
 
 }
