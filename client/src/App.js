@@ -23,15 +23,18 @@ export default function () {
   const classes = useStyles();
   return (
     
-    // <Router>
-    // <div className={classes.root}>
-    //   <CssBaseline />
-    //   <LandingPage />
-    //   <PlaceToVisit />
-    //   {/* <Dashboard /> */}
-    // </div>
-    // </Router>
-     <APItest />
+ googlestrategy
+    <Router>
+    <div className={classes.root}>
+      <CssBaseline />
+      <LandingPage />
+      <PlaceToVisit />
+      {/* <Dashboard /> */}
+    </div>
+    </Router>
+    // <APItest />
+
+   
     
 
   );

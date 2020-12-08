@@ -7,6 +7,7 @@ import { Route, Switch } from "react-router-dom";
 import "./imagecard.css";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
+import Dashboard from "../pages/Dashboard";
 
 const useStyles = makeStyles({
   root: {
@@ -71,6 +72,9 @@ export default function ImageCard({ place, checked }) {
             </Route>
             <Route exact path={["/", "/Login"]}>
               <Login></Login>
+              <Route exact path="/dashboard">
+                <Dashboard></Dashboard>
+              </Route>
             </Route>
           </Switch>
         </Typography>
