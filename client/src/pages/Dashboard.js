@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -43,8 +43,8 @@ function Contact() {
     <Typography variant="body2" color="textDanger" align="center">
       {/* {'Copyright © '} */}
       <WhiteTextTypography variant="h4">
-      <Link color="inherit" href="/Contact">
-        Contact Us
+        <Link color="inherit" href="/Contact">
+          Contact Us
       </Link>{' '}
       </WhiteTextTypography>
       {/* {new Date().getFullYear()}
@@ -138,89 +138,86 @@ const useStyles = makeStyles((theme) => ({
     height: 240,
   },
 
-  
+
 }));
 export default function Dashboard() {
   const [starter, setStarter] = useState();
-    const [stockData, setStock] = useState([]);
-    const [RSI, setRSI] = useState([]);
-    const [priceInfo, setPriceInfo] = useState([]);
-    const [chartData, setChartData] = useState([]);
-    useEffect(() => {
-        async function Gainers() {
-            const res = await Api.getGainers()
-            console.log("Test", res)
-            const sliced = await res.data.slice(0,5)
-             setStarter(sliced);
+  const [stockData, setStock] = useState([]);
+  const [RSI, setRSI] = useState([]);
+  const [priceInfo, setPriceInfo] = useState([]);
+  const [chartData, setChartData] = useState([]);
+  useEffect(() => {
+    async function Gainers() {
+      const res = await Api.getGainers()
+      console.log("Test", res)
+      const sliced = await res.data.slice(0, 5)
+      setStarter(sliced);
 
-             for (let i = 0; i < sliced.length; i++) {
-                 console.log("HEREEEE" + i, sliced[i])
-                await eachStock(sliced[i])
-                if (i === (sliced.length - 1)) {
-                    // console.log("Hello", stockData)
-                    Api.saveStocks(stockData)
-                }
-            }
+      for (let i = 0; i < sliced.length; i++) {
+        console.log("HEREEEE" + i, sliced[i])
+        await eachStock(sliced[i])
+        if (i === (sliced.length - 1)) {
+          // console.log("Hello", stockData)
+          Api.saveStocks(stockData)
         }
-        Gainers();
-    }, [])
-
-    // use this as the foreach callback 
-    const eachStock = async (item) => {
-        console.log("its an item", item)
-        let response = await Api.getRSI(item.ticker).catch(err => console.log(err))
-        console.log("this is the response", response)
-        let recomendation;
-        // recomendation algoritham  
-        if (response.data[0].rsi < 40) {
-            recomendation = "Strong Buy"
-        } else if (response.data[0].rsi > 80) {
-            recomendation = "Strong Sell"
-        } else if (response.data[0].rsi > 40 && response.data[0].rsi < 70) {
-            recomendation = "Buy"
-        } else if (response.data[0].rsi > 70 && response.data[0].rsi < 80) {
-            recomendation = "Sell"
-        }
-        // set stock object
-        const stock = { ticker: item.ticker, RSI: response.data[0].rsi, recomended: recomendation };
-        const stocks = stockData;
-        stocks.push(stock)
-        // set stock object to state
-        setStock(stocks)
-
-        console.log(stock)
+      }
     }
+    Gainers();
+  }, [])
 
-   
-    const Search = (Stock) => {
-      
-        if(chartData || priceInfo) {
-          setPriceInfo([]);
-          setChartData([]);
-        }
-     
-        
+  const clearState = () => {
+    setChartData([]);
+    setPriceInfo([]);
+  }
 
-        Api.getPrice(Stock).then(res => {
-          
-            const data = res.data.historical.splice(0, 20)
-            setPriceInfo(data)
-
-            // this.state.PriceInfo.forEach()
-            priceInfo.forEach(stock => {
-                // const data2 = Math.round(stock.close, 2)
-
-                const chart = chartData;
-                chart.push(stock.close)
-
-                setChartData(chart)
-
-
-            })
-            console.log(chartData)
-        }).catch(err => console.log(err))
+  // use this as the foreach callback 
+  const eachStock = async (item) => {
+    console.log("its an item", item)
+    let response = await Api.getRSI(item.ticker).catch(err => console.log(err))
+    console.log("this is the response", response)
+    let recomendation;
+    // recomendation algoritham  
+    if (response.data[0].rsi < 40) {
+      recomendation = "Strong Buy"
+    } else if (response.data[0].rsi > 80) {
+      recomendation = "Strong Sell"
+    } else if (response.data[0].rsi > 40 && response.data[0].rsi < 70) {
+      recomendation = "Buy"
+    } else if (response.data[0].rsi > 70 && response.data[0].rsi < 80) {
+      recomendation = "Sell"
     }
-    const SearchTest = "AAPL"
+    // set stock object
+    const stock = { ticker: item.ticker, RSI: response.data[0].rsi, recomended: recomendation };
+    const stocks = stockData;
+    stocks.push(stock)
+    // set stock object to state
+    setStock(stocks)
+
+    console.log(stock)
+  }
+
+  const Search = (Stock) => {
+
+
+
+    Api.getPrice(Stock).then(res => {
+
+      const data = res.data.historical.splice(0, 20)
+      setPriceInfo(data)
+
+      // this.state.PriceInfo.forEach()
+      let chart = [];
+      priceInfo.forEach(stock => {
+        chart.push(stock.close)
+      })
+      setChartData(chart)
+      console.log(chartData)
+    }).catch(err => console.log(err))
+  }
+
+
+
+  const SearchTest = "AAPL"
 
 
 
@@ -259,31 +256,31 @@ export default function Dashboard() {
           <ListItemText primary="" />
           <ListItemText primary="Space Stocks" />
         </ListItem><br />
-        <ListItem button onClick={() => {Search((starter && starter[0]) ? starter[0].ticker : "Loading")}}>
+        <ListItem button onClick={() => { Search((starter && starter[0]) ? starter[0].ticker : "Loading") }}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
           <ListItemText primary={(starter && starter[0]) ? starter[0].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => {Search((starter && starter[1]) ? starter[1].ticker : "Loading")}}>
+        <ListItem button onClick={() => { Search((starter && starter[1]) ? starter[1].ticker : "Loading") }}>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
           <ListItemText primary={(starter && starter[1]) ? starter[1].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => {Search((starter && starter[2]) ? starter[2].ticker : "Loading")}}>
+        <ListItem button onClick={() => { Search((starter && starter[2]) ? starter[2].ticker : "Loading") }}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
           <ListItemText primary={(starter && starter[2]) ? starter[2].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => {Search((starter && starter[3]) ? starter[3].ticker : "Loading")}}>
+        <ListItem button onClick={() => { Search((starter && starter[3]) ? starter[3].ticker : "Loading") }}>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
           <ListItemText primary={(starter && starter[3]) ? starter[3].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => { Search((starter && starter[4]) ? starter[4].ticker : "Loading")}}>
+        <ListItem button onClick={() => { Search((starter && starter[4]) ? starter[4].ticker : "Loading") }}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
