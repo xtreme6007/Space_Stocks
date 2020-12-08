@@ -6,7 +6,11 @@ import PlaceToVisit from "./components/PlaceToVisit";
 import Dashboard from './pages/Dashboard';
 import APItest from './components/APItest';
 
+
+
 const useStyles = makeStyles((theme) => ({
+
+  
   root: {
     minHeight: "100vh",
     backgroundImage: `url(./assets/universe.jpg)`,
@@ -16,8 +20,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function () {
+
+  
   const classes = useStyles();
   return (
+    
     <Router>
     <div className={classes.root}>
       <CssBaseline />
@@ -28,6 +35,9 @@ export default function () {
     </Router>
         // <APItest />
   );
+
 }
+
+
 
 
