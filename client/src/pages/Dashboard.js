@@ -22,6 +22,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
 import Api from '../utils/Api'
+import { set } from 'mongoose';
 
 
 function Copyright() {
@@ -189,20 +190,28 @@ export default function Dashboard() {
 
         console.log(stock)
     }
+
    
     const Search = (Stock) => {
-
+      
+        if(chartData || priceInfo) {
+          setPriceInfo([]);
+          setChartData([]);
+        }
+     
+        
 
         Api.getPrice(Stock).then(res => {
+          
             const data = res.data.historical.splice(0, 20)
             setPriceInfo(data)
 
             // this.state.PriceInfo.forEach()
             priceInfo.forEach(stock => {
-                const data2 = Math.round(stock.close)
+                // const data2 = Math.round(stock.close, 2)
 
                 const chart = chartData;
-                chart.push(data2)
+                chart.push(stock.close)
 
                 setChartData(chart)
 
@@ -250,31 +259,31 @@ export default function Dashboard() {
           <ListItemText primary="" />
           <ListItemText primary="Space Stocks" />
         </ListItem><br />
-        <ListItem button>
+        <ListItem button onClick={() => {Search((starter && starter[0]) ? starter[0].ticker : "Loading")}}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
           <ListItemText primary={(starter && starter[0]) ? starter[0].ticker : "Loading"} />
         </ListItem>
-        <ListItem button>
+        <ListItem button onClick={() => {Search((starter && starter[1]) ? starter[1].ticker : "Loading")}}>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
           <ListItemText primary={(starter && starter[1]) ? starter[1].ticker : "Loading"} />
         </ListItem>
-        <ListItem button>
+        <ListItem button onClick={() => {Search((starter && starter[2]) ? starter[2].ticker : "Loading")}}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
           <ListItemText primary={(starter && starter[2]) ? starter[2].ticker : "Loading"} />
         </ListItem>
-        <ListItem button>
+        <ListItem button onClick={() => {Search((starter && starter[3]) ? starter[3].ticker : "Loading")}}>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
           <ListItemText primary={(starter && starter[3]) ? starter[3].ticker : "Loading"} />
         </ListItem>
-        <ListItem button>
+        <ListItem button onClick={() => { Search((starter && starter[4]) ? starter[4].ticker : "Loading")}}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
