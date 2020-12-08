@@ -59,7 +59,7 @@ const WhiteTextTypography = withStyles({
   }
 })(Typography);
 
-const drawerWidth = 140;
+const drawerWidth = 250;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -142,7 +142,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Dashboard() {
   const [starter, setStarter] = useState();
-  const [stockData, setStock] = useState([]);
+  const [stockData, setStockData] = useState([]);
   const [RSI, setRSI] = useState([]);
   const [priceInfo, setPriceInfo] = useState([]);
   const [chartData, setChartData] = useState([]);
@@ -154,7 +154,7 @@ export default function Dashboard() {
       setStarter(sliced);
 
       for (let i = 0; i < sliced.length; i++) {
-        console.log("HEREEEE" + i, sliced[i])
+        
         await eachStock(sliced[i])
         if (i === (sliced.length - 1)) {
           // console.log("Hello", stockData)
@@ -165,16 +165,13 @@ export default function Dashboard() {
     Gainers();
   }, [])
 
-  const clearState = () => {
-    setChartData([]);
-    setPriceInfo([]);
-  }
+  
 
   // use this as the foreach callback 
   const eachStock = async (item) => {
-    console.log("its an item", item)
+    // console.log("its an item", item)
     let response = await Api.getRSI(item.ticker).catch(err => console.log(err))
-    console.log("this is the response", response)
+    // console.log("this is the response", response)
     let recomendation;
     // recomendation algoritham  
     if (response.data[0].rsi < 40) {
@@ -191,9 +188,9 @@ export default function Dashboard() {
     const stocks = stockData;
     stocks.push(stock)
     // set stock object to state
-    setStock(stocks)
+    setStockData(stocks)
 
-    console.log(stock)
+    console.log(stockData)
   }
 
   const Search = (Stock) => {
@@ -256,35 +253,35 @@ export default function Dashboard() {
           <ListItemText primary="" />
           <ListItemText primary="Space Stocks" />
         </ListItem><br />
-        <ListItem button onClick={() => { Search((starter && starter[0]) ? starter[0].ticker : "Loading") }}>
+        <ListItem button onClick={() => { Search((stockData && stockData[0]) ? stockData[0].ticker : "Loading") }}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
-          <ListItemText primary={(starter && starter[0]) ? starter[0].ticker : "Loading"} />
+          <ListItemText primary={(stockData && stockData[0]) ? stockData[0].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => { Search((starter && starter[1]) ? starter[1].ticker : "Loading") }}>
+        <ListItem button onClick={() => { Search((stockData && stockData[1]) ? stockData[1].ticker : "Loading") }}>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
-          <ListItemText primary={(starter && starter[1]) ? starter[1].ticker : "Loading"} />
+          <ListItemText primary={(stockData && stockData[1]) ? stockData[1].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => { Search((starter && starter[2]) ? starter[2].ticker : "Loading") }}>
+        <ListItem button onClick={() => { Search((stockData && stockData[2]) ? stockData[2].ticker : "Loading") }}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
-          <ListItemText primary={(starter && starter[2]) ? starter[2].ticker : "Loading"} />
+          <ListItemText primary={(stockData && stockData[2]) ? stockData[2].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => { Search((starter && starter[3]) ? starter[3].ticker : "Loading") }}>
+        <ListItem button onClick={() => { Search((stockData && stockData[3]) ? stockData[3].ticker : "Loading") }}>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
-          <ListItemText primary={(starter && starter[3]) ? starter[3].ticker : "Loading"} />
+          <ListItemText primary={(stockData && stockData[3]) ? stockData[3].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => { Search((starter && starter[4]) ? starter[4].ticker : "Loading") }}>
+        <ListItem button onClick={() => { Search((stockData && stockData[4]) ? stockData[4].ticker : "Loading") }}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
-          <ListItemText primary={(starter && starter[4]) ? starter[4].ticker : "Loading"} />
+          <ListItemText primary={(stockData && stockData[4]) ? stockData[4].ticker : "Loading"} />
         </ListItem>
         <Divider />
         <Divider />
