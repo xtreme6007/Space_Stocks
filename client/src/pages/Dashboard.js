@@ -19,15 +19,20 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems } from '../components/listitems';
 import Chart from '../components/Chart';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import ShowChartIcon from '@material-ui/icons/ShowChart';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="https://space-stocks.com/">
+        Space Stocks
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -119,7 +124,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -127,7 +132,7 @@ export default function Dashboard() {
     setOpen(false);
   };
 
- 
+
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
@@ -167,10 +172,9 @@ export default function Dashboard() {
           </IconButton>
           <IconButton onClick={handleDrawerOpen}>
             <ChevronRightIcon />
-          </IconButton>        
+          </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
         <Divider />
         {/* <List>{secondaryListItems}</List> */}
       </Drawer>
@@ -187,29 +191,76 @@ export default function Dashboard() {
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-              <div className="tcontainer">
-          <div className="ticker-wrap">
-            <div className="ticker-move">
-              <div className="ticker-item">Space Stocks</div>
-              <div className="ticker-item">
-                Trading can be an out of this world experience...
-              </div>
-              <div className="ticker-item">Ready to play?</div>
-            </div>
-          </div>
-        </div>
+          
               </Paper>
             </Grid>
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-              
+              <div className="tcontainer">
+                  <div className="ticker-wrap">
+                    <div className="ticker-move">
+                      <div className="ticker-item">Space Stocks</div>
+                      <div className="ticker-item">
+                        Trading can be an out of this world experience...
+                      </div>
+                      <div className="ticker-item">Ready to play?</div>
+                    </div>
+                  </div>
+                </div>
               </Paper>
             </Grid>
           </Grid>
           <Box pt={4}>
             <Copyright />
           </Box>
+          <div>
+            <ListItem button>
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+
+              <ListItemText primary="" />
+              <ListItemText primary="Space Stocks" />
+            </ListItem><br />
+            <ListItem button>
+              <ListItemIcon>
+                <ShowChartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Stocks" />
+            </ListItem>
+
+            <ListItem button>
+              <ListItemIcon>
+                <AttachMoneyIcon />
+              </ListItemIcon>
+              <ListItemText primary="Stocks" />
+            </ListItem>
+
+            <ListItem button>
+              <ListItemIcon>
+                <ShowChartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Stocks" />
+            </ListItem>
+
+            <ListItem button>
+              <ListItemIcon>
+                <AttachMoneyIcon />
+              </ListItemIcon>
+              <ListItemText primary="Stocks" />
+            </ListItem>
+
+            <ListItem button>
+              <ListItemIcon>
+                <ShowChartIcon />
+              </ListItemIcon>
+              <ListItemText primary="Stocks" />
+            </ListItem>
+
+          </div>
+
+
         </Container>
       </main>
     </div>
