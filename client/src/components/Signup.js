@@ -2,6 +2,7 @@ import React from 'react';
 import { GoogleLogin } from 'react-google-login';
 import { Redirect } from "react-router-dom";
 import Dashboard from '../pages/Dashboard';
+import LandingPage from '../components/LandingPage'
 
 // refresh token
 import { refreshTokenSetup } from '../utils/refreshToken';
@@ -35,6 +36,7 @@ window.location.replace("/Dashboard")
 
   return (
     <div>
+  
       <GoogleLogin
         clientId={clientId}
         buttonText="Login"
