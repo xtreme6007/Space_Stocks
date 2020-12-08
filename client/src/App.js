@@ -1,10 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Redirect } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { makeStyles, CssBaseline } from "@material-ui/core";
-import Header from "./components/Header";
+import LandingPage from "./components/LandingPage";
 import PlaceToVisit from "./components/PlaceToVisit";
-import APItest from "./components/APItest";
 import Dashboard from './pages/Dashboard';
+import APItest from './components/APItest';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,12 +21,12 @@ export default function () {
     <Router>
     <div className={classes.root}>
       <CssBaseline />
-      <Header />
+      <LandingPage />
       <PlaceToVisit />
       <Dashboard />
     </div>
     </Router>
-      // <APItest />
+        // <APItest />
   );
 }
 

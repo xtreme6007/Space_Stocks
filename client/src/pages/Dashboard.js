@@ -17,16 +17,18 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems } from '../components/listitems';
 import Chart from '../components/Chart';
+import '../components/imagecard.css';
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        Space Stocks
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -36,8 +38,6 @@ function Copyright() {
 
 const drawerWidth = 240;
 
-
-
 class Dashboard extends Component {
 
   classes = makeStyles((theme) => ({
@@ -46,6 +46,7 @@ class Dashboard extends Component {
     },
     toolbar: {
       paddingRight: 24, // keep right padding when drawer closed
+      paddingLeft: 24,
     },
     toolbarIcon: {
       display: 'flex',
@@ -122,11 +123,8 @@ class Dashboard extends Component {
 
   state = {
     open: true,
-    
-
   }
-  
- 
+
    handleDrawerOpen = () => {
     this.setState({
       open: true
@@ -134,7 +132,7 @@ class Dashboard extends Component {
   };
   handleDrawerClose = () => {
     this.setState({
-      open: false
+      open: true
     });
   };
    fixedHeightPaper = clsx(this.classes.paper, this.classes.fixedHeight);
@@ -142,7 +140,7 @@ render() {
   return (
     <div className={this.classes.root}>
       <CssBaseline />
-      <AppBar position="absolute" className={clsx(this.classes.appBar, this.state.open && this.classes.appBarShift)}>
+      <AppBar position="absolute" className={clsx(this.classes.appBar, this.state.open, this.state.close && this.classes.appBarShift)}>
         <Toolbar className={this.classes.toolbar}>
           <IconButton
             edge="start"
@@ -154,7 +152,7 @@ render() {
             <MenuIcon />
           </IconButton>
           <Typography component="h1" variant="h6" color="inherit" noWrap className={this.classes.title}>
-            Dashboard
+            Space Stocks Dashboard
           </Typography>
           <IconButton color="inherit">
             <Badge badgeContent={4} color="secondary">
@@ -169,10 +167,14 @@ render() {
           paper: clsx(this.classes.drawerPaper, !this.state.open && this.classes.drawerPaperClose),
         }}
         open={this.state.open}
+        close={this.state.close}
       >
         <div className={this.classes.toolbarIcon}>
           <IconButton onClick={this.handleDrawerClose}>
             <ChevronLeftIcon />
+          </IconButton>
+          <IconButton onClick={this.handleDrawerOpen}>
+            <ChevronRightIcon />
           </IconButton>
         </div>
         <Divider />
@@ -190,13 +192,25 @@ render() {
                 <Chart />
               </Paper>
             </Grid>
-            {/* Recent Deposits */}
+        
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={this.fixedHeightPaper}>
                 
               </Paper>
             </Grid>
-            {/* Recent Orders */}
+
+            <div className="tcontainer">
+          <div className="ticker-wrap">
+            <div className="ticker-move">
+              <div className="ticker-item">Space Stocks</div>
+              <div className="ticker-item">
+                Trading can be an out of this world experience...
+              </div>
+              <div className="ticker-item">Ready to play?</div>
+            </div>
+          </div>
+        </div>
+     
             <Grid item xs={12}>
               <Paper className={this.classes.paper}>
               

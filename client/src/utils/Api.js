@@ -4,7 +4,7 @@ import axios from "axios";
 
 
 // const APIkey = process.env.ApiKey
-const APIkey = "daa5f8a2ca6437380aea8522e02fc737"
+const APIkey = "f4e7c42e248f28c917aee5e08872c328"
 
 
 
@@ -35,7 +35,7 @@ export default  {
 
   getPrice: function(Stock) {
       const PriceURL = "https://financialmodelingprep.com/api/v3/historical-price-full/" + Stock + "?apikey="
-      return axios.get(PriceURL, APIkey)
+      return axios.get(PriceURL + APIkey)
 
 
 
