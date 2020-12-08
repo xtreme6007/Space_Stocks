@@ -12,6 +12,10 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
+<<<<<<< HEAD
+      <ListItemText primary="Snake List" />
+    </ListItem>
+=======
 
       <ListItemText primary="" />
     
@@ -19,6 +23,7 @@ export const mainListItems = (
       <ListItemText primary="Space Stocks" />
     </ListItem><br />
 
+>>>>>>> 86e214299d561cab692b62fdface8c23270e9b65
     <ListItem button>
       <ListItemIcon>
         <ShowChartIcon />

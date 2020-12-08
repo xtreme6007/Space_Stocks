@@ -49,6 +49,43 @@ export default function Login() {
     </div>
   );
 }
+<<<<<<< HEAD
+const useStyles = makeStyles((theme) => ({
+  root: {
+    height: '100vh',
+  },
+  image: {
+    backgroundImage: 'url(./assets/city.jpg)',
+    backgroundRepeat: 'no-repeat',
+    backgroundColor:
+      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  },
+  paper: {
+    margin: theme.spacing(8, 4),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: '100%', // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#5AFF3D',
+  },
+}));
+export default function SignInSide() {
+  const classes = useStyles();
+  return (
+    <Grid container component="main" className={classes.root}>
+=======
 
 
 /* // import React, { useState } from "react";
@@ -164,6 +201,7 @@ export default function Login() {
 //         {loggedIn ? <Redirect to="/dashboard" /> : <Redirect to="/Login" />}
 //       </Route>
     /* <Container component="main" maxWidth="xs">
+>>>>>>> 86e214299d561cab692b62fdface8c23270e9b65
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>

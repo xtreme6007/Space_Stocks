@@ -4,8 +4,15 @@ import { AppBar, IconButton, Toolbar, Collapse } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Link from "@material-ui/core/Link";
 import { Link as Scroll } from 'react-scroll';
+<<<<<<< HEAD:client/src/components/Header.js
+import Dashboard from '../pages/Dashboard';
+
+
+=======
 import './LandingPage.css';
 // import FontAwesome from "./IconButton";
+>>>>>>> 86e214299d561cab692b62fdface8c23270e9b65:client/src/components/LandingPage.js
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -67,19 +74,15 @@ const useStyles = makeStyles((theme) => ({
 export default function Header(props) {
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
+  console.log(props)
   useEffect(() => {
       setChecked(true);
+    
   }, []);
-
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
-
-  const [change, setChange] = useState(false);
 
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
-
+ 
     
   });
 
@@ -108,10 +111,11 @@ export default function Header(props) {
       collapsedHeight={50} >
       <div className={classes.container}>
           <h1 className={classes.title}>Welcome to <br />Stock{''}
-          <span className={classes.colorText}>
+          <span className={classes.animation}>
               Trading
           </span>
 
+<<<<<<< Updated upstream
 
           {/* {props.copy.split("").map(function(char, index){
     const style = {"animation-delay": (0.5 + index / 10) + "s"};
@@ -120,8 +124,9 @@ export default function Header(props) {
           </span>;
           })} */}
 
+=======
+>>>>>>> Stashed changes
           </h1>
-
 
           <Scroll to="place-to-visit" smooth={true}>
           <IconButton>
@@ -131,5 +136,7 @@ export default function Header(props) {
       </div>
       </Collapse>
     </div>
+
+
   );
 }
