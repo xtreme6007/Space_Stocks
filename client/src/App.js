@@ -1,12 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { makeStyles, CssBaseline } from "@material-ui/core";
-import Header from "./components/Header";
+import LandingPage from "./components/LandingPage";
 import PlaceToVisit from "./components/PlaceToVisit";
+<<<<<<< HEAD
 import APItest from "./components/APItest";
 import Dashboard from './pages/Dashboard';
+=======
+import Dashboard from './pages/Dashboard';
+import APItest from './components/APItest';
+
+
+>>>>>>> 86e214299d561cab692b62fdface8c23270e9b65
 
 const useStyles = makeStyles((theme) => ({
+
+  
   root: {
     minHeight: "100vh",
     backgroundImage: `url(./assets/universe.jpg)`,
@@ -16,20 +25,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function () {
+
+  
   const classes = useStyles();
   return (
+    
     <Router>
     <div className={classes.root}>
       <CssBaseline />
-      <Header />
+      <LandingPage />
       <PlaceToVisit />
       <Dashboard />
     </div>
     </Router>
+<<<<<<< HEAD
     // <APItest />
     
 
+=======
+        // <APItest />
+>>>>>>> 86e214299d561cab692b62fdface8c23270e9b65
   );
+
 }
+
+
 
 

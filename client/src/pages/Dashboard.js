@@ -17,8 +17,9 @@ import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from '../components/listitems';
+import { mainListItems } from '../components/listitems';
 import Chart from '../components/Chart';
 
 function Copyright() {
@@ -118,12 +119,15 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
+  
   const handleDrawerOpen = () => {
     setOpen(true);
   };
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+ 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   return (
@@ -161,11 +165,14 @@ export default function Dashboard() {
           <IconButton onClick={handleDrawerClose}>
             <ChevronLeftIcon />
           </IconButton>
+          <IconButton onClick={handleDrawerOpen}>
+            <ChevronRightIcon />
+          </IconButton>        
         </div>
         <Divider />
         <List>{mainListItems}</List>
         <Divider />
-        <List>{secondaryListItems}</List>
+        {/* <List>{secondaryListItems}</List> */}
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
@@ -180,7 +187,17 @@ export default function Dashboard() {
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-                
+              <div className="tcontainer">
+          <div className="ticker-wrap">
+            <div className="ticker-move">
+              <div className="ticker-item">Space Stocks</div>
+              <div className="ticker-item">
+                Trading can be an out of this world experience...
+              </div>
+              <div className="ticker-item">Ready to play?</div>
+            </div>
+          </div>
+        </div>
               </Paper>
             </Grid>
             {/* Recent Orders */}

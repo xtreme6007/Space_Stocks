@@ -13,20 +13,32 @@ const APIkey = "f4e7c42e248f28c917aee5e08872c328"
 
 export default  {
   
-  
-  getGainers: function () {
-    
+  // returns a list of most gainers use this to get tickers  
+  getGainers: function() {
     const GainUrl = "https://financialmodelingprep.com/api/v3/gainers?apikey="
-    return axios.get
-    (GainUrl+ APIkey);  
-  },
+    return axios.get(GainUrl+ APIkey);  },
   // getLosers: function () {
   //   const loserURL ="https://financialmodelingprep.com/api/v3/losers?apikey="
   //     return axios.get(loserURL + APIkey);
   // },
+
+  // returns rsi of stock  needs a tickker passed  
   getRSI: function(Stock) {
     const RsiURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=rsi&apikey=" 
         return axios.get(RsiURL + APIkey)
+  },
+// Save stock object to database
+  saveStocks: function(stockData) {
+    console.log("Hello 45", stockData)
+    return axios.post("api/stocks/", stockData);
+  },
+
+  getPrice: function(Stock) {
+      const PriceURL = "https://financialmodelingprep.com/api/v3/historical-price-full/" + Stock + "?apikey="
+      return axios.get(PriceURL + APIkey)
+
+
+
   },
   // getSMA: function(Stock) {
   //   const SmaURL = "https://financialmodelingprep.com/api/v3/technical_indicator/daily/" + Stock + "?period=10&type=SMA&apikey=" 

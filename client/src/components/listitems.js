@@ -2,13 +2,9 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
-import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
-import AssignmentIcon from '@material-ui/icons/Assignment';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import ShowChartIcon from '@material-ui/icons/ShowChart';
 
 export const mainListItems = (
   <div>
@@ -16,55 +12,52 @@ export const mainListItems = (
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
+<<<<<<< HEAD
       <ListItemText primary="Snake List" />
     </ListItem>
+=======
+
+      <ListItemText primary="" />
+    
+
+      <ListItemText primary="Space Stocks" />
+    </ListItem><br />
+
+>>>>>>> 86e214299d561cab692b62fdface8c23270e9b65
     <ListItem button>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <ShowChartIcon />
       </ListItemIcon>
       <ListItemText primary="Stocks" />
     </ListItem>
+
     <ListItem button>
       <ListItemIcon>
-        <PeopleIcon />
+        <AttachMoneyIcon />
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <ListItemText primary="Stocks" />
     </ListItem>
+
     <ListItem button>
       <ListItemIcon>
-        <BarChartIcon />
+        <ShowChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Worst Stocks" />
+      <ListItemText primary="Stocks" />
     </ListItem>
+
     <ListItem button>
       <ListItemIcon>
-        <LayersIcon />
+        <AttachMoneyIcon />
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
+      <ListItemText primary="Stocks" />
+    </ListItem>
+
+    <ListItem button>
+    <ListItemIcon>
+        <ShowChartIcon />
+      </ListItemIcon>
+      <ListItemText primary="Stocks" />
     </ListItem>
   </div>
 );
 
-export const secondaryListItems = (
-  <div>
-    <ListSubheader inset>Best Picks</ListSubheader>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Current month" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Last quarter" />
-    </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
-    </ListItem>
-  </div>
-);

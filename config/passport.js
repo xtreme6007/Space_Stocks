@@ -1,24 +1,93 @@
-const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
-//Local Strategy for comparing passwords
-const LocalStrategy = require("passport-local").Strategy;
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({username: username}, (err, user) => {
-      if(err) {
-        return done(err)
-      }
-      if (!user) {
-        return done(null, false, {message: 'incorrect username'})
-      }
-      if(!user.checkPassword(password)) {
-        return done(null, false, {message: 'incorrect password'})
-      }
-      return done(null, user)
-    })
-      }
-      
+const User = require("../models/users")
+
+module.exports = function (passport) {
+passport.use(
+  new GoogleStrategy(
+    {
+clientID: process.env.GOOGLE_CLIENT_ID,
+clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+//will need to update this will our actual route
+callbackURL: "/auth/google/callback",
+    },
+    async (accessToken, refreshToken, profile, done) => {
+      const  newUser = {
+        googleId: profile.id,
+        displayName: profile.displayName,
+        firstName: profile.name.givenName,
+        lastName: profile.name.familyName,
+        image: profile.photos[0].value,
+      };
+      try {
+          let user = await User.findOne({ googleId: profile.id});
+
+          if(user) {
+            done(null, user);
+
+          }
+          else {
+            user = await User.create(newUser);
+            done(null, user);
+          }
+                } catch(err) {
+                  console.error(err);
+                }
+    }
+  )
+);
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+})
+
+passport.deserializeUser((id, done) => {
+  User.findById(id, (err, user) => done(err,user));
+})
+
+};
 
 
 
-module.exports = passport;
+
+//local strategy from previous iteration NOT USING
+
+
+
+
+
+// const passport = require("passport");
+// const LocalStrategy = require("passport-local").Strategy;
+// const User = ("../models/users.js")
+
+// passport.serializeUser((user, done) => {
+//   done(null, user);
+// });
+
+// passport.deserializeUser((obj, done) => {
+//   done(null, obj);
+// });
+
+
+
+// //local strategy to check username and password
+// const localPassport = 
+//   new LocalStrategy(
+//    function(email, password, done) {
+//      User.findOne({ email: email}, (err, user) => {
+//        if(err) {
+//          return done(err)
+//        }
+//        if(!user) {
+//          return done(null, false, {message: 'incorrect username/password entered'})
+//        }
+//        if(!user.checkPassword(password)) {return done(null, false, {message: "incorrect username/password entered"})
+//       }
+//       return done(null, user)
+//      })
+//    }
+//   )
+
+
+
+
+// module.exports = localPassport;
