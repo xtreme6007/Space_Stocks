@@ -5,6 +5,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Link from "@material-ui/core/Link";
 import { Link as Scroll } from 'react-scroll';
 import './LandingPage.css';
+import Login from './Login'
 // import FontAwesome from "./IconButton";
 
 
@@ -110,6 +111,7 @@ export default function Header(props) {
           </div>
 
           </h1>
+          <Login />
 
           <Scroll to="place-to-visit" smooth={true}>
           <IconButton>
