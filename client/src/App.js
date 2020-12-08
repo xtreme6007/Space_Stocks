@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { makeStyles, CssBaseline } from "@material-ui/core";
 import LandingPage from "./components/LandingPage";
 import PlaceToVisit from "./components/PlaceToVisit";
-import APItest from "./components/APItest";
+// import APItest from "./components/APItest";
 import Dashboard from './pages/Dashboard';
 
 const useStyles = makeStyles((theme) => ({
