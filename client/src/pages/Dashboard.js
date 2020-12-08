@@ -5,6 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from "@material-ui/core/styles";
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
@@ -35,6 +36,28 @@ function Copyright() {
     </Typography>
   );
 }
+
+function Contact() {
+  return (
+    <Typography variant="body2" color="textDanger" align="center">
+      {/* {'Copyright © '} */}
+      <WhiteTextTypography variant="h4">
+      <Link color="inherit" href="/Contact">
+        Contact Us
+      </Link>{' '}
+      </WhiteTextTypography>
+      {/* {new Date().getFullYear()}
+      {'.'} */}
+    </Typography>
+  );
+}
+
+const WhiteTextTypography = withStyles({
+  root: {
+    color: "#FFFFFF"
+  }
+})(Typography);
+
 const drawerWidth = 140;
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -113,6 +136,8 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+
+  
 }));
 export default function Dashboard() {
   const [starter, setStarter] = useState();
@@ -229,31 +254,71 @@ export default function Dashboard() {
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
+<<<<<<< HEAD
           <ListItemText primary={(starter && starter[0]) ? starter[0].ticker : "Loading" } />
+=======
+<<<<<<< HEAD
+          <ListItemText primary="stock ticker" />
+=======
+          <ListItemText primary={(starter && starter[0]) ? starter[0].ticker : "Loading"} />
+>>>>>>> 1892221072c68bcdfb819eef03d8238c1fdc1a89
+>>>>>>> e441db7ce84c5710e6a641c85104c61dfc06d512
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
+<<<<<<< HEAD
           <ListItemText primary={(starter && starter[1]) ? starter[1].ticker : "Loading" } />
+=======
+<<<<<<< HEAD
+          <ListItemText primary="stock ticker" />
+=======
+          <ListItemText primary={(starter && starter[1]) ? starter[1].ticker : "Loading"} />
+>>>>>>> 1892221072c68bcdfb819eef03d8238c1fdc1a89
+>>>>>>> e441db7ce84c5710e6a641c85104c61dfc06d512
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
+<<<<<<< HEAD
           <ListItemText primary={(starter && starter[2]) ? starter[2].ticker : "Loading" } />
+=======
+<<<<<<< HEAD
+          <ListItemText primary="stock ticker" />
+=======
+          <ListItemText primary={(starter && starter[2]) ? starter[2].ticker : "Loading"} />
+>>>>>>> 1892221072c68bcdfb819eef03d8238c1fdc1a89
+>>>>>>> e441db7ce84c5710e6a641c85104c61dfc06d512
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
+<<<<<<< HEAD
           <ListItemText primary={(starter && starter[3]) ? starter[3].ticker : "Loading" } />
+=======
+<<<<<<< HEAD
+          <ListItemText primary="stock ticker" />
+=======
+          <ListItemText primary={(starter && starter[3]) ? starter[3].ticker : "Loading"} />
+>>>>>>> 1892221072c68bcdfb819eef03d8238c1fdc1a89
+>>>>>>> e441db7ce84c5710e6a641c85104c61dfc06d512
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
+<<<<<<< HEAD
           <ListItemText primary={(starter && starter[4]) ? starter[4].ticker : "Loading" } />
+=======
+<<<<<<< HEAD
+          <ListItemText primary="stock ticker" />
+=======
+          <ListItemText primary={(starter && starter[4]) ? starter[4].ticker : "Loading"} />
+>>>>>>> 1892221072c68bcdfb819eef03d8238c1fdc1a89
+>>>>>>> e441db7ce84c5710e6a641c85104c61dfc06d512
         </ListItem>
         <Divider />
         <Divider />
@@ -288,6 +353,12 @@ export default function Dashboard() {
               </Paper>
             </Grid>
           </Grid>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Box>
+            <Contact />
+          </Box>
           <Box pt={4}>
             <Copyright />
           </Box>

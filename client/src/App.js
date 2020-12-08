@@ -9,6 +9,7 @@ import Signup from './components/Signup';
 
 import Login from './components/Login';
 import Header from './components/Login'
+import Contact from './pages/Contact/Contact';
 
 
 
@@ -43,6 +44,8 @@ export default function () {
 
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/dashboard" component={Dashboard} />
+    <Route exact path="/contact" component={Contact} />
+    
   </Switch>
 </div>
 </Router>
