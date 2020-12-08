@@ -13,10 +13,10 @@ export const mainListItems = (
         <DashboardIcon />
       </ListItemIcon>
 
-      <ListItemText primary="Dashboard" />
+      <ListItemText primary="" />
     
 
-      <ListItemText primary="Space Stocks Watch" />
+      <ListItemText primary="Space Stocks" />
     </ListItem><br />
 
     <ListItem button>
