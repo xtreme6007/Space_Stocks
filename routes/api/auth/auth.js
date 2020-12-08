@@ -12,7 +12,7 @@ passport.authenticate("google", {failureRedirect: "/",}),
 });
 
 router.get("/logout", (req, res) => {
-    register.logout();
+    // register.logout();
     res.redirect("/");
 });
 
