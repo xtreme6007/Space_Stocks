@@ -32,13 +32,7 @@ function Copyright() {
     </Typography>
   );
 }
-<<<<<<< HEAD
-
 const drawerWidth = 140;
-
-=======
-const drawerWidth = 140;
->>>>>>> 883914b17eb7f148878eeab3de811ca1d153f8e3
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -130,10 +124,6 @@ export default function Dashboard() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-<<<<<<< HEAD
-
-=======
->>>>>>> 883914b17eb7f148878eeab3de811ca1d153f8e3
       <Drawer
         variant="permanent"
         classes={{
@@ -153,10 +143,6 @@ export default function Dashboard() {
           <ListItemIcon>
             <DashboardIcon />
           </ListItemIcon>
-<<<<<<< HEAD
-
-=======
->>>>>>> 883914b17eb7f148878eeab3de811ca1d153f8e3
           <ListItemText primary="" />
           <ListItemText primary="Space Stocks" />
         </ListItem><br />
@@ -166,50 +152,30 @@ export default function Dashboard() {
           </ListItemIcon>
           <ListItemText primary="Stocks" />
         </ListItem>
-<<<<<<< HEAD
-
-=======
->>>>>>> 883914b17eb7f148878eeab3de811ca1d153f8e3
         <ListItem button>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
           <ListItemText primary="Stocks" />
         </ListItem>
-<<<<<<< HEAD
-
-=======
->>>>>>> 883914b17eb7f148878eeab3de811ca1d153f8e3
         <ListItem button>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
           <ListItemText primary="Stocks" />
         </ListItem>
-<<<<<<< HEAD
-
-=======
->>>>>>> 883914b17eb7f148878eeab3de811ca1d153f8e3
         <ListItem button>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
           <ListItemText primary="Stocks" />
         </ListItem>
-<<<<<<< HEAD
-
-=======
->>>>>>> 883914b17eb7f148878eeab3de811ca1d153f8e3
         <ListItem button>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
           <ListItemText primary="Stocks" />
         </ListItem>
-<<<<<<< HEAD
-
-=======
->>>>>>> 883914b17eb7f148878eeab3de811ca1d153f8e3
         <Divider />
         <Divider />
       </Drawer>
@@ -223,20 +189,10 @@ export default function Dashboard() {
                 <Chart />
               </Paper>
             </Grid>
-<<<<<<< HEAD
-
-            <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
-
-              </Paper>
-            </Grid>
-
-=======
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
               </Paper>
             </Grid>
->>>>>>> 883914b17eb7f148878eeab3de811ca1d153f8e3
             <Grid item xs={12}>
               <Paper className={classes.paper}>
                 <div className="tcontainer">
@@ -257,10 +213,6 @@ export default function Dashboard() {
             <Copyright />
           </Box>
           <div>
-<<<<<<< HEAD
-
-=======
->>>>>>> 883914b17eb7f148878eeab3de811ca1d153f8e3
           </div>
         </Container>
       </main>
