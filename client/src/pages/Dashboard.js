@@ -5,6 +5,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from "@material-ui/core/styles";
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
@@ -35,6 +36,28 @@ function Copyright() {
     </Typography>
   );
 }
+
+function Contact() {
+  return (
+    <Typography variant="body2" color="textDanger" align="center">
+      {/* {'Copyright © '} */}
+      <WhiteTextTypography variant="h4">
+      <Link color="inherit" href="/Contact">
+        Contact Us
+      </Link>{' '}
+      </WhiteTextTypography>
+      {/* {new Date().getFullYear()}
+      {'.'} */}
+    </Typography>
+  );
+}
+
+const WhiteTextTypography = withStyles({
+  root: {
+    color: "#FFFFFF"
+  }
+})(Typography);
+
 const drawerWidth = 140;
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -113,6 +136,8 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+
+  
 }));
 export default function Dashboard() {
   const [starter, setStarter] = useState();
@@ -229,31 +254,31 @@ export default function Dashboard() {
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
-          <ListItemText primary={starter[0].ticker} />
+          <ListItemText primary="stock ticker" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
-          <ListItemText primary={starter[1].ticker} />
+          <ListItemText primary="stock ticker" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
-          <ListItemText primary={starter[2].ticker} />
+          <ListItemText primary="stock ticker" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
-          <ListItemText primary={starter[3].ticker} />
+          <ListItemText primary="stock ticker" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
-          <ListItemText primary={starter[4].ticker} />
+          <ListItemText primary="stock ticker" />
         </ListItem>
         <Divider />
         <Divider />
@@ -288,6 +313,12 @@ export default function Dashboard() {
               </Paper>
             </Grid>
           </Grid>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Box>
+            <Contact />
+          </Box>
           <Box pt={4}>
             <Copyright />
           </Box>
