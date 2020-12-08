@@ -23,6 +23,7 @@ export default function () {
   const classes = useStyles();
   return (
     
+ googlestrategy
     <Router>
     <div className={classes.root}>
       <CssBaseline />
@@ -32,6 +33,8 @@ export default function () {
     </div>
     </Router>
     // <APItest />
+
+   
     
 
   );

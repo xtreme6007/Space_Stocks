@@ -20,12 +20,17 @@ module.exports = {
   create: function(req, res) {
     console.log("Create Function")
     // let data = JSON.parse(req.body)
-    let dailyStock = {stock: req.body}
-    console.log(dailyStock)
+    // let dailyStock = {stock: req.body}
+    // console.log(dailyStock)
       Stock
-      .create(dailyStock)
+      .create({stock: req.body})
       .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .catch(err => {
+        console.log(err);
+        res.status(422).json(err)
+        
+
+      });
   },
   update: function(req, res) {
     Stock
