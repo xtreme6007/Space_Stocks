@@ -78,18 +78,13 @@ export default function ImageCard({ place, checked }) {
             </Route>
           </Switch> */}
         </Typography>
-        {/* <Link href="#" variant="body2">
-                You don’t have an account? Sign up
-          </Link> */}
         <Typography
           variant="body2"
           color="textSecondary"
           component="p"
           className={classes.desc}
         >
-          {/* {place.description} */}
         </Typography>
-        {/* </CardContent> */}
       </Card>
     </Collapse>
   );

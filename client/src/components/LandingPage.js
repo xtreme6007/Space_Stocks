@@ -5,7 +5,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Link from "@material-ui/core/Link";
 import { Link as Scroll } from 'react-scroll';
 import './LandingPage.css';
+
+import {Redirect} from 'react-router-dom';
+
 import Login from './Login'
+
 // import FontAwesome from "./IconButton";
 
 
@@ -81,6 +85,12 @@ export default function Header(props) {
     
   });
 
+  const goToSignup = (e)=>{
+      console.log("cicked")
+      window.location.replace("/signup")  
+
+  }
+
   return (
     <div className={classes.root} id='header'>
       <AppBar className={classes.appbar} elevation={0}>
@@ -93,7 +103,7 @@ export default function Header(props) {
           </Link>
           </div>
             </Toolbar>
-      </AppBar>
+      
 
       <Collapse in={checked} 
       {...(checked ? { timeout: 1000 } : {})} 
@@ -115,11 +125,12 @@ export default function Header(props) {
 
           <Scroll to="place-to-visit" smooth={true}>
           <IconButton>
-              <ExpandMoreIcon className={classes.goDown}/>
+              <ExpandMoreIcon onClick={(e)=>goToSignup(e)} className={classes.goDown}/>
           </IconButton>
           </Scroll>
       </div>
       </Collapse>
+      </AppBar>
     </div>
 
 
