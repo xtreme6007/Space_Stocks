@@ -40,3 +40,7 @@
   27% { opacity: 0; width: 100%; }
   100% { opacity: 0; }
 }
+
+.login {
+	padding-top: 50px;
+}

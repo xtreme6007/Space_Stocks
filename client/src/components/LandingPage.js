@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
+        height: '100%',
     },
     appbar: {
         background: 'none',
@@ -27,6 +27,7 @@ const useStyles = makeStyles((theme) => ({
         margin: '0 auto',
     },
     appbarTitle: {
+    
         flexGrow: '2rem',
         fontFamily: 'Nunito',
         marginTop: '15px',
@@ -51,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
         color: '#fff',
         fontFamily: 'Nunito',
         fontSize: '5.5rem',
+        marginTop: '100px',
     },
     simple: {
         color: '#fff',
@@ -58,10 +60,7 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '5.5rem',
         fontStyle: 'italic',
     },
-    goDown: {
-        color: '#5AFF3D',
-        fontSize: '7rem',
-    },
+
     fas: {
         color: '#5AFF3D',
     }
@@ -107,20 +106,22 @@ export default function Header(props) {
                     {...(checked ? { timeout: 1000 } : {})}
                     collapsedHeight={50} >
                     <div className={classes.wrapper}>
-                        <h1 className={classes.text}>Welcome to <br />Stock{''}
+                        <h1 className={classes.text}>Welcome to <br />Space <span className={classes.colorText}>Stocks{''}</span>
                         <div className="anim-words">
                             <span>Trading</span>
                             <span>Made</span>
                             <span>Easy</span>
                         </div>
                         </h1>
-                        <Login />
-
+                        <div className='login'>
+                        <Login className={classes.login}/>
+                        </div>
+{/* 
                         <Scroll to="place-to-visit" smooth={true}>
                             <IconButton>
                                 <ExpandMoreIcon onClick={(e) => goToSignup(e)} className={classes.goDown} />
                             </IconButton>
-                        </Scroll>
+                        </Scroll> */}
                     </div>
                 </Collapse>
             </AppBar>
