@@ -1,13 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { AppBar, IconButton, Toolbar, Collapse } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Link from "@material-ui/core/Link";
 import { Link as Scroll } from 'react-scroll';
 import './LandingPage.css';
-
-import {Redirect} from 'react-router-dom';
-
+import { Redirect } from 'react-router-dom';
 import Login from './Login'
 
 // import FontAwesome from "./IconButton";
@@ -46,10 +44,10 @@ const useStyles = makeStyles((theme) => ({
         animation: 'move-text-color'
 
     },
-    container: {
+    wrapper: {
         textAlign: 'center',
     },
-    title: {
+    text: {
         color: '#fff',
         fontFamily: 'Nunito',
         fontSize: '5.5rem',
@@ -71,71 +69,63 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Header(props) {
-  const classes = useStyles();
-  const [checked, setChecked] = useState(false);
-  console.log(props)
-  useEffect(() => {
-      setChecked(true);
-    
-  }, []);
+    const classes = useStyles();
+    const [checked, setChecked] = useState(false);
+    console.log(props)
+    useEffect(() => {
+        setChecked(true);
 
-  // Similar to componentDidMount and componentDidUpdate:
-  useEffect(() => {
- 
-    
-  });
+    }, []);
 
-  const goToSignup = (e)=>{
-      console.log("cicked")
-      window.location.replace("/signup")  
-
-  }
-
-  return (
-    <div className={classes.root} id='header'>
-      <AppBar className={classes.appbar} elevation={0}>
-        <Toolbar className={classes.appbarWrapper}> 
-            <h1 className={classes.appbarTitle}>
-              Space <span className={classes.colorText}>Stocks</span> 
-            </h1>
-            <div><Link href="/">
-          
-          </Link>
-          </div>
-            </Toolbar>
-      
-
-      <Collapse in={checked} 
-      {...(checked ? { timeout: 1000 } : {})} 
-      collapsedHeight={50} >
-      <div className={classes.container}>
-       
-          <h1 className={classes.title}>Welcome to <br />Stock{''}
-
-          <span className='animation'>
-              Trading
-          </span>
-
-          <div className='anim-words'>
-          <span >
-              making trades great again!
-          </span>
-          </div>
+    // Similar to componentDidMount and componentDidUpdate:
+    useEffect(() => {
 
 
-          </h1>
-          <Login />
+    });
 
-          <Scroll to="place-to-visit" smooth={true}>
-          <IconButton>
-              <ExpandMoreIcon onClick={(e)=>goToSignup(e)} className={classes.goDown}/>
-          </IconButton>
-          </Scroll>
-      </div>
-      </Collapse>
-      </AppBar>
-    </div>
+    const goToSignup = (e) => {
+        console.log("cicked")
+        window.location.replace("/signup")
+
+    }
+
+    return (
+        <div className={classes.root} id='header'>
+            <AppBar className={classes.appbar} elevation={0}>
+                <Toolbar className={classes.appbarWrapper}>
+                    <h1 className={classes.appbarTitle}>
+                        Space <span className={classes.colorText}>Stocks</span>
+                    </h1>
+                    <div><Link href="/">
+
+                    </Link>
+                    </div>
+                </Toolbar>
 
 
-  );
+                <Collapse in={checked}
+                    {...(checked ? { timeout: 1000 } : {})}
+                    collapsedHeight={50} >
+                    <div className={classes.wrapper}>
+                        <h1 className={classes.text}>Welcome to <br />Stock{''}
+                        <div className="anim-words">
+                            <span>Trading</span>
+                            <span>Made</span>
+                            <span>Easy</span>
+                        </div>
+                        </h1>
+                        <Login />
+
+                        <Scroll to="place-to-visit" smooth={true}>
+                            <IconButton>
+                                <ExpandMoreIcon onClick={(e) => goToSignup(e)} className={classes.goDown} />
+                            </IconButton>
+                        </Scroll>
+                    </div>
+                </Collapse>
+            </AppBar>
+        </div>
+
+
+    );
 }
