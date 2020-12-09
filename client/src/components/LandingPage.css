@@ -1,17 +1,18 @@
 .rw-wrapper {
-    width: 80%;
+    width: 100%;
+    align-content: center;
     position: relative;
-    margin: 110px auto 0 auto;
+    margin: 100px auto 0 auto;
     font-family: 'Nunito';
-	padding: 10px;
-	
+    /* padding: 10px; */
+    padding-bottom: 50px;
   }
   
   .rw-sentence {
 	margin: 0;
 	font-size: 60px;
-    text-align: left;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+  text-align: left;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
   }
   .rw-sentence span {
     color: #fff;
@@ -33,13 +34,13 @@
   }
   
   .rw-words-1 span {
-    -webkit-animation: rotateWordsFirst 16s linear infinite 0s;
-            animation: rotateWordsFirst 16s linear infinite 0s;
+    -webkit-animation: rotateWordsFirst 12s linear infinite 1s;
+            animation: rotateWordsFirst 12s linear infinite 1s;
   }
   
   .rw-words-2 span {
-    -webkit-animation: rotateWordsSecond 15s linear infinite 0s;
-            animation: rotateWordsSecond 15s linear infinite 0s;
+    -webkit-animation: rotateWordsSecond 15s linear infinite 1s;
+            animation: rotateWordsSecond 18s linear infinite 1s;
   }
   
   @-webkit-keyframes rotateWordsFirst {
@@ -75,20 +76,21 @@
     }
     8% {
       opacity: 1;
-      height: 60px;
+      height: 120px;
     }
     19% {
       opacity: 1;
-      height: 60px;
+      height: 120px;
     }
-    /* 25% {
+    25% {
       opacity: 0;
-      height: 60px;
+      height: 120px;
     }
     100% {
       opacity: 0;
-    } */
+    }
   }
+
   @-webkit-keyframes rotateWordsSecond {
     0% {
       opacity: 1;
@@ -136,8 +138,6 @@
     }
   }
 
-  .login {
-	padding-top: 50px;
-}
+
 
   
