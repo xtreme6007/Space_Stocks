@@ -33,13 +33,13 @@
   }
   
   .rw-words-1 span {
-    -webkit-animation: rotateWordsFirst 10s linear infinite 1s;
-            animation: rotateWordsFirst 10s linear infinite 1s;
+    -webkit-animation: rotateWordsFirst 12s linear infinite 1s;
+            animation: rotateWordsFirst 12s linear infinite 1s;
   }
   
   .rw-words-2 span {
     -webkit-animation: rotateWordsSecond 15s linear infinite 1s;
-            animation: rotateWordsSecond 15s linear infinite 1s;
+            animation: rotateWordsSecond 18s linear infinite 1s;
   }
   
   @-webkit-keyframes rotateWordsFirst {
@@ -51,7 +51,7 @@
     }
     8% {
       opacity: 1;
-      height: 30px;
+      height: 60px;
     }
     19% {
       opacity: 1;
@@ -75,20 +75,21 @@
     }
     8% {
       opacity: 1;
-      height: 60px;
+      height: 120px;
     }
     19% {
       opacity: 1;
-      height: 60px;
+      height: 120px;
     }
     25% {
       opacity: 0;
-      height: 60px;
+      height: 120px;
     }
     100% {
       opacity: 0;
     }
   }
+
   @-webkit-keyframes rotateWordsSecond {
     0% {
       opacity: 1;
