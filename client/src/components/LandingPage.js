@@ -107,18 +107,12 @@ export default function Header(props) {
       {...(checked ? { timeout: 1000 } : {})} 
       collapsedHeight={50} >
       <div className={classes.container}>
+       
           <h1 className={classes.title}>Welcome to <br />Stock{''}
           <span className={classes.colorText}>
               Trading
           </span>
 
-
-          {/* {props.copy.split("").map(function(char, index){
-    const style = {"animation-delay": (0.5 + index / 10) + "s"};
-    return<span className={classes.animation}>
-              has never been so easy   
-          </span>;
-          })} */}
 
           </h1>
 
