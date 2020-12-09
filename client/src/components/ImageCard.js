@@ -7,13 +7,14 @@ import { Route, Switch } from "react-router-dom";
 import "./imagecard.css";
 import Login from "../components/Login";
 import Signup from "../components/Signup";
+import Dashboard from "../pages/Dashboard";
 
 const useStyles = makeStyles({
   root: {
     background: "rgba(0,0,0,0.5)",
     marginBottom: "20px",
     color: "rgba(0,0,0,0.7)",
-    backgroundColor: "#5AFF3D",
+    // backgroundColor: "#5AFF3D",
     textAlign: "center",
     boxShadow: "5px 15px 25px 15px #000000",
   },
@@ -65,27 +66,25 @@ export default function ImageCard({ place, checked }) {
           component="h1"
           className={classes.title}
         >
-          <Switch>
+          {/* <Switch>
             <Route exact path="/Signup">
               <Signup></Signup>
             </Route>
             <Route exact path={["/", "/Login"]}>
               <Login></Login>
+              <Route exact path="/dashboard">
+                <Dashboard></Dashboard>
+              </Route>
             </Route>
-          </Switch>
+          </Switch> */}
         </Typography>
-        {/* <Link href="#" variant="body2">
-                You don’t have an account? Sign up
-          </Link> */}
         <Typography
           variant="body2"
           color="textSecondary"
           component="p"
           className={classes.desc}
         >
-          {/* {place.description} */}
         </Typography>
-        {/* </CardContent> */}
       </Card>
     </Collapse>
   );

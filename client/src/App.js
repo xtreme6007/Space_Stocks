@@ -1,10 +1,15 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { makeStyles, CssBaseline } from "@material-ui/core";
-import LandingPage from "./components/LandingPage";
 import PlaceToVisit from "./components/PlaceToVisit";
+// import APItest from "./components/APItest";
 import Dashboard from './pages/Dashboard';
-import APItest from './components/APItest';
+import LandingPage from './components/LandingPage';
+import Signup from './components/Signup';
+
+import Login from './components/Login';
+import Header from './components/Login'
+import Contact from './pages/Contact/Contact';
 
 
 
@@ -24,16 +29,30 @@ export default function () {
   
   const classes = useStyles();
   return (
-    
-    <Router>
+    <>
     <div className={classes.root}>
-      <CssBaseline />
-      <LandingPage />
-      <PlaceToVisit />
-      <Dashboard />
+   
+
+<Router basename='/'>
+
+<div className="mb-5">
+  <Switch>
+
+    <Route exact path="/" component={LandingPage} />
+
+    <Route exact path="/" component={Header} />
+
+    <Route exact path="/signup" component={Signup} />
+    <Route exact path="/dashboard" component={Dashboard} />
+    <Route exact path="/contact" component={Contact} />
+    
+  </Switch>
+</div>
+</Router>
+    {/* //  <APItest /> */}
     </div>
-    </Router>
-        // <APItest />
+    </>
+
   );
 
 }

@@ -1,33 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import Box from '@material-ui/core/Box';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
+import { withStyles } from "@material-ui/core/styles";
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
-import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems } from '../components/listitems';
 import Chart from '../components/Chart';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import ShowChartIcon from '@material-ui/icons/ShowChart';
+import Api from '../utils/Api'
+import { set } from 'mongoose';
+
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="https://space-stocks.com/">
+        Space Stocks
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -35,8 +38,28 @@ function Copyright() {
   );
 }
 
-const drawerWidth = 240;
+function Contact() {
+  return (
+    <Typography variant="body2" color="textDanger" align="center">
+      {/* {'Copyright © '} */}
+      <WhiteTextTypography variant="h4">
+        <Link color="inherit" href="/Contact">
+          Contact Us
+      </Link>{' '}
+      </WhiteTextTypography>
+      {/* {new Date().getFullYear()}
+      {'.'} */}
+    </Typography>
+  );
+}
 
+const WhiteTextTypography = withStyles({
+  root: {
+    color: "#FFFFFF"
+  }
+})(Typography);
+
+const drawerWidth = 250;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -48,7 +71,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    padding: '0 8px',
+    padding: '0 5px',
     ...theme.mixins.toolbar,
   },
   appBar: {
@@ -67,7 +90,7 @@ const useStyles = makeStyles((theme) => ({
     }),
   },
   menuButton: {
-    marginRight: 36,
+    marginRight: 30,
   },
   menuButtonHidden: {
     display: 'none',
@@ -114,46 +137,100 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
-}));
 
+
+}));
 export default function Dashboard() {
+  const [starter, setStarter] = useState();
+  const [stockData, setStockData] = useState([]);
+  const [RSI, setRSI] = useState([]);
+  const [priceInfo, setPriceInfo] = useState([]);
+  const [chartData, setChartData] = useState([]);
+  useEffect(() => {
+    async function Gainers() {
+      const res = await Api.getGainers()
+      console.log("Test", res)
+      const sliced = await res.data.slice(0, 5)
+      setStarter(sliced);
+
+      for (let i = 0; i < sliced.length; i++) {
+        
+        await eachStock(sliced[i])
+        if (i === (sliced.length - 1)) {
+          // console.log("Hello", stockData)
+          Api.saveStocks(stockData)
+        }
+      }
+    }
+    Gainers();
+  }, [])
+
+  
+
+  // use this as the foreach callback 
+  const eachStock = async (item) => {
+    // console.log("its an item", item)
+    let response = await Api.getRSI(item.ticker).catch(err => console.log(err))
+    // console.log("this is the response", response)
+    let recomendation;
+    // recomendation algoritham  
+    if (response.data[0].rsi < 40) {
+      recomendation = "Strong Buy"
+    } else if (response.data[0].rsi > 80) {
+      recomendation = "Strong Sell"
+    } else if (response.data[0].rsi > 40 && response.data[0].rsi < 70) {
+      recomendation = "Buy"
+    } else if (response.data[0].rsi > 70 && response.data[0].rsi < 80) {
+      recomendation = "Sell"
+    }
+    // set stock object
+    const stock = { ticker: item.ticker, RSI: response.data[0].rsi, recomended: recomendation };
+    const stocks = stockData;
+    stocks.push(stock)
+    // set stock object to state
+    setStockData(stocks)
+
+    console.log(stockData)
+  }
+
+  const Search = (Stock) => {
+
+
+
+    Api.getPrice(Stock).then(res => {
+
+      const data = res.data.historical.splice(0, 20)
+      setPriceInfo(data)
+
+      // this.state.PriceInfo.forEach()
+      let chart = [];
+      priceInfo.forEach(stock => {
+        chart.push(stock.close)
+      })
+      setChartData(chart)
+      console.log(chartData)
+    }).catch(err => console.log(err))
+  }
+
+
+
+  const SearchTest = "AAPL"
+
+
+
+  // -------------------------------------------------------------
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  
   const handleDrawerOpen = () => {
     setOpen(true);
   };
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
- 
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
-
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <AppBar position="absolute" className={clsx(classes.appBar, open && classes.appBarShift)}>
-        <Toolbar className={classes.toolbar}>
-          <IconButton
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            className={clsx(classes.menuButton, open && classes.menuButtonHidden)}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
-          </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
-        </Toolbar>
-      </AppBar>
       <Drawer
         variant="permanent"
         classes={{
@@ -167,12 +244,47 @@ export default function Dashboard() {
           </IconButton>
           <IconButton onClick={handleDrawerOpen}>
             <ChevronRightIcon />
-          </IconButton>        
+          </IconButton>
         </div>
+        <ListItem button>
+          <ListItemIcon>
+            <DashboardIcon />
+          </ListItemIcon>
+          <ListItemText primary="" />
+          <ListItemText primary="Space Stocks" />
+        </ListItem><br />
+        <ListItem button onClick={() => { Search((stockData && stockData[0]) ? stockData[0].ticker : "Loading") }}>
+          <ListItemIcon>
+            <ShowChartIcon />
+          </ListItemIcon>
+          <ListItemText primary={(stockData && stockData[0]) ? stockData[0].ticker : "Loading"} />
+        </ListItem>
+        <ListItem button onClick={() => { Search((stockData && stockData[1]) ? stockData[1].ticker : "Loading") }}>
+          <ListItemIcon>
+            <AttachMoneyIcon />
+          </ListItemIcon>
+          <ListItemText primary={(stockData && stockData[1]) ? stockData[1].ticker : "Loading"} />
+        </ListItem>
+        <ListItem button onClick={() => { Search((stockData && stockData[2]) ? stockData[2].ticker : "Loading") }}>
+          <ListItemIcon>
+            <ShowChartIcon />
+          </ListItemIcon>
+          <ListItemText primary={(stockData && stockData[2]) ? stockData[2].ticker : "Loading"} />
+        </ListItem>
+        <ListItem button onClick={() => { Search((stockData && stockData[3]) ? stockData[3].ticker : "Loading") }}>
+          <ListItemIcon>
+            <AttachMoneyIcon />
+          </ListItemIcon>
+          <ListItemText primary={(stockData && stockData[3]) ? stockData[3].ticker : "Loading"} />
+        </ListItem>
+        <ListItem button onClick={() => { Search((stockData && stockData[4]) ? stockData[4].ticker : "Loading") }}>
+          <ListItemIcon>
+            <ShowChartIcon />
+          </ListItemIcon>
+          <ListItemText primary={(stockData && stockData[4]) ? stockData[4].ticker : "Loading"} />
+        </ListItem>
         <Divider />
-        <List>{mainListItems}</List>
         <Divider />
-        {/* <List>{secondaryListItems}</List> */}
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
@@ -184,32 +296,37 @@ export default function Dashboard() {
                 <Chart />
               </Paper>
             </Grid>
-            {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
-              <div className="tcontainer">
-          <div className="ticker-wrap">
-            <div className="ticker-move">
-              <div className="ticker-item">Space Stocks</div>
-              <div className="ticker-item">
-                Trading can be an out of this world experience...
-              </div>
-              <div className="ticker-item">Ready to play?</div>
-            </div>
-          </div>
-        </div>
               </Paper>
             </Grid>
-            {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-              
+                <div className="tcontainer">
+                  <div className="ticker-wrap">
+                    <div className="ticker-move">
+                      <div className="ticker-item">Space Stocks</div>
+                      <div className="ticker-item">
+                        Trading can be an out of this world experience...
+                      </div>
+                      <div className="ticker-item">Ready to play?</div>
+                    </div>
+                  </div>
+                </div>
               </Paper>
             </Grid>
           </Grid>
+          <br></br>
+          <br></br>
+          <br></br>
+          <Box>
+            <Contact />
+          </Box>
           <Box pt={4}>
             <Copyright />
           </Box>
+          <div>
+          </div>
         </Container>
       </main>
     </div>

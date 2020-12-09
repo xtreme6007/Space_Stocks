@@ -8,21 +8,23 @@ function createData(date, amount) {
   return { date, amount };
 }
 
-const data = [
-  createData('2020/12/03', 10.10),
-  createData('2020/12/02', 6.86),
-  createData('2020/12/01', 6.86),
-  createData('2020/11/30', 6.87),
-  createData('2020/11/29', 7.19),
-  createData('2020/11/26', 7.50),
-];
 
-export default function Chart() {
+
+export default function Chart(props) {
   const theme = useTheme();
+
+  const data = [
+    createData('2020/12/03', 10.10),
+    createData('2020/12/02', 6.86),
+    createData('2020/12/01', 6.86),
+    createData('2020/11/30', 6.87),
+    createData('2020/11/29', 7.19),
+    createData('2020/11/26', 7.50),
+  ];
 
   return (
     <React.Fragment>
-      <Title>Today</Title>
+      <Title>Month</Title>
       <ResponsiveContainer>
         <LineChart
           data={data}

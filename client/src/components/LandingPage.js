@@ -5,7 +5,13 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Link from "@material-ui/core/Link";
 import { Link as Scroll } from 'react-scroll';
 import './LandingPage.css';
+
+import {Redirect} from 'react-router-dom';
+
+import Login from './Login'
+
 // import FontAwesome from "./IconButton";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -67,21 +73,23 @@ const useStyles = makeStyles((theme) => ({
 export default function Header(props) {
   const classes = useStyles();
   const [checked, setChecked] = useState(false);
+  console.log(props)
   useEffect(() => {
       setChecked(true);
+    
   }, []);
-
-  const handleChange = () => {
-    setChecked((prev) => !prev);
-  };
-
-  const [change, setChange] = useState(false);
 
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
-
+ 
     
   });
+
+  const goToSignup = (e)=>{
+      console.log("cicked")
+      window.location.replace("/signup")  
+
+  }
 
   return (
     <div className={classes.root} id='header'>
@@ -91,17 +99,11 @@ export default function Header(props) {
               Space <span className={classes.colorText}>Stocks</span> 
             </h1>
             <div><Link href="/">
-
-          {/* <FontAwesome>
-          <div className={classes.appbarTitle}>
-      <Icon className="fas fa-space-shuttle" />
-          </div> 
-          </FontAwesome> */}
           
           </Link>
           </div>
             </Toolbar>
-      </AppBar>
+      
 
       <Collapse in={checked} 
       {...(checked ? { timeout: 1000 } : {})} 
@@ -109,21 +111,31 @@ export default function Header(props) {
       <div className={classes.container}>
        
           <h1 className={classes.title}>Welcome to <br />Stock{''}
-          <span className={classes.colorText}>
+
+          <span className='animation'>
               Trading
           </span>
 
+          <div className='anim-words'>
+          <span >
+              making trades great again!
+          </span>
+          </div>
+
 
           </h1>
-
+          <Login />
 
           <Scroll to="place-to-visit" smooth={true}>
           <IconButton>
-              <ExpandMoreIcon className={classes.goDown}/>
+              <ExpandMoreIcon onClick={(e)=>goToSignup(e)} className={classes.goDown}/>
           </IconButton>
           </Scroll>
       </div>
       </Collapse>
+      </AppBar>
     </div>
+
+
   );
 }

@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const PORT = process.env.PORT || 3001;
-const app = express();
+
 const dotenv = require("dotenv")
 const session = require("express-session");
 const mongoose = require("mongoose");
@@ -17,10 +17,9 @@ require("./config/passport")(passport);
 connectDB();
 
 //adding middleware
+const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-
 
 //setting up express session
 app.use(
@@ -43,11 +42,11 @@ next();
 //setting up static
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use("/", require("./routes/api/auth/index"));
+app.use("/auth", require("./routes/api/auth/auth"));
+
 //setting up routes
 app.use(routes);
-
-
-
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
