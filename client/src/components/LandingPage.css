@@ -1,10 +1,10 @@
 .rw-wrapper {
-    width: 80%;
+    width: 50%;
+    align-content: center;
     position: relative;
     margin: 110px auto 0 auto;
     font-family: 'Nunito';
-	padding: 10px;
-	
+	  padding: 10px;
   }
   
   .rw-sentence {
@@ -33,13 +33,13 @@
   }
   
   .rw-words-1 span {
-    -webkit-animation: rotateWordsFirst 16s linear infinite 0s;
-            animation: rotateWordsFirst 16s linear infinite 0s;
+    -webkit-animation: rotateWordsFirst 10s linear infinite 1s;
+            animation: rotateWordsFirst 10s linear infinite 1s;
   }
   
   .rw-words-2 span {
-    -webkit-animation: rotateWordsSecond 15s linear infinite 0s;
-            animation: rotateWordsSecond 15s linear infinite 0s;
+    -webkit-animation: rotateWordsSecond 15s linear infinite 1s;
+            animation: rotateWordsSecond 15s linear infinite 1s;
   }
   
   @-webkit-keyframes rotateWordsFirst {
@@ -51,7 +51,7 @@
     }
     8% {
       opacity: 1;
-      height: 60px;
+      height: 30px;
     }
     19% {
       opacity: 1;
@@ -81,13 +81,13 @@
       opacity: 1;
       height: 60px;
     }
-    /* 25% {
+    25% {
       opacity: 0;
       height: 60px;
     }
     100% {
       opacity: 0;
-    } */
+    }
   }
   @-webkit-keyframes rotateWordsSecond {
     0% {
@@ -136,8 +136,6 @@
     }
   }
 
-  .login {
-	padding-top: 50px;
-}
+
 
   

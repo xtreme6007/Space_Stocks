@@ -78,23 +78,23 @@ export default function Header(props) {
                     <h1 className={classes.appbarTitle}>
                         Space <span className={classes.colorText}>Stocks</span>
                     </h1>
-                    <div><Link href="/">
-
+                    {/* <div>
+                        <Link href="/">
                     </Link>
-                    </div>
+                    </div> */}
                 </Toolbar>
                 <Collapse in={checked}
                     {...(checked ? { timeout: 1000 } : {})}
                     collapsedHeight={50} >
-                    <section class="rw-wrapper">
-                        <h2 class="rw-sentence">
+                    <section className="rw-wrapper">
+                        <h2 className="rw-sentence">
                             <span>Space</span>
-                            <div class="rw-words rw-words-1">
+                            <div className="rw-words rw-words-1">
                                 <span>Stocks</span>
                             </div>
                             <br />
                                 <span>Trading</span>
-                            <div class="rw-words rw-words-2">
+                            <div className="rw-words rw-words-2">
                                 <span>Made Easy</span>
                             </div>
                         </h2>
