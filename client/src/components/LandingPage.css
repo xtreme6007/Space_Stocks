@@ -1,46 +1,143 @@
-.wrapper{
-	width: 80%;
-	position: relative;
-	margin: 110px auto 0 auto;
-	font-family: 'Nunito';
+.rw-wrapper {
+    width: 80%;
+    position: relative;
+    margin: 110px auto 0 auto;
+    font-family: 'Nunito';
 	padding: 10px;
-}
-.anim-sentence{
+	
+  }
+  
+  .rw-sentence {
 	margin: 0;
-	text-align: left;
-	text-shadow: 1px 1px 1px rgba(255,255,255,0.8);
-}
-.anim-words{
-	display: inline;
-	text-indent: 10px;
-}
-.anim-words span{
-	position: absolute;
-	opacity: 0;
-	overflow: hidden;
-	width: 100%;
-	color: #a801f0;
-}
-.anim-words span{
-	animation: rotateWords 18s linear infinite 0s;
-}
-.anim-words span:nth-child(2) { 
-	animation-delay: 3s; 
-	color: #a801f0;
-}
-.anim-words span:nth-child(3) { 
-	animation-delay: 6s; 
-	color: #a801f0;	
-}
+	font-size: 60px;
+    text-align: left;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+  }
+  .rw-sentence span {
+    color: #fff;
+    white-space: nowrap;
+    font-size: 200%;
+    font-weight: normal;
+  }
+  
+  .rw-words {
+    display: inline;
+    text-indent: 10px;
+  }
+  .rw-words span {
+    position: absolute;
+    opacity: 0;
+    overflow: hidden;
+    width: 100%;
+    color: #5AFF3D;
+  }
+  
+  .rw-words-1 span {
+    -webkit-animation: rotateWordsFirst 16s linear infinite 0s;
+            animation: rotateWordsFirst 16s linear infinite 0s;
+  }
+  
+  .rw-words-2 span {
+    -webkit-animation: rotateWordsSecond 15s linear infinite 0s;
+            animation: rotateWordsSecond 15s linear infinite 0s;
+  }
+  
+  @-webkit-keyframes rotateWordsFirst {
+    0% {
+      opacity: 1;
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      height: 0px;
+    }
+    8% {
+      opacity: 1;
+      height: 60px;
+    }
+    19% {
+      opacity: 1;
+      height: 60px;
+    }
+    25% {
+      opacity: 0;
+      height: 60px;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes rotateWordsFirst {
+    0% {
+      opacity: 1;
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      height: 0px;
+    }
+    8% {
+      opacity: 1;
+      height: 60px;
+    }
+    19% {
+      opacity: 1;
+      height: 60px;
+    }
+    /* 25% {
+      opacity: 0;
+      height: 60px;
+    }
+    100% {
+      opacity: 0;
+    } */
+  }
+  @-webkit-keyframes rotateWordsSecond {
+    0% {
+      opacity: 1;
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      width: 0px;
+    }
+    10% {
+      opacity: 0.3;
+      width: 0px;
+    }
+    20% {
+      opacity: 1;
+      width: 100%;
+    }
+    27% {
+      opacity: 0;
+      width: 100%;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes rotateWordsSecond {
+    0% {
+      opacity: 1;
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      width: 0px;
+    }
+    10% {
+      opacity: 0.3;
+      width: 0px;
+    }
+    20% {
+      opacity: 1;
+      width: 100%;
+    }
+    27% {
+      opacity: 0;
+      width: 100%;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 
-@keyframes rotateWords {
-  0% { opacity: 1; animation-timing-function: ease-in; width: 0px; }
-  10% { opacity: 0.3; width: 0px; }
-  20% { opacity: 1; width: 100%; }
-  27% { opacity: 0; width: 100%; }
-  100% { opacity: 0; }
-}
-
-.login {
+  .login {
 	padding-top: 50px;
 }
+
+  
