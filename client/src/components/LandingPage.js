@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, IconButton, Toolbar, Collapse } from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Link from "@material-ui/core/Link";
-import { Link as Scroll } from 'react-scroll';
+import { AppBar, Toolbar, Collapse } from '@material-ui/core';
 import './LandingPage.css';
-import { Redirect } from 'react-router-dom';
-import Login from './Login'
+import Login from './Login';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 
 // import FontAwesome from "./IconButton";
 
@@ -86,23 +84,31 @@ export default function Header(props) {
                 <Collapse in={checked}
                     {...(checked ? { timeout: 1000 } : {})}
                     collapsedHeight={50} >
-                    <section className="rw-wrapper">
-                        <h2 className="rw-sentence">
-                            <span>Space</span>
-                            <div className="rw-words rw-words-1">
-                                <span>Stocks</span>
-                            </div>
-                            <br />
-                                <span>Trading</span>
-                            <div className="rw-words rw-words-2">
-                                <span>Made Easy</span>
-                            </div>
-                        </h2>
-                    </section>
-                    <div className="login">
-                    <Login className={classes.login}/>
-                    </div>
 
+                    <Container>
+                        <Row className="justify-content-md-center">
+
+                            <section className="rw-wrapper">
+                                <h2 className="rw-sentence">
+                                    <span>Space</span>
+                                    <div className="rw-words rw-words-1">
+                                        <span>Stocks</span>
+                                    </div>
+                                    <br />
+                                    <span>Trading</span>
+                                    <div className="rw-words rw-words-2">
+                                        <span>Made Easy</span>
+                                    </div>
+                                </h2>
+                            </section>
+
+                        </Row>
+                        <Row>
+                            <div className="login">
+                                <Login className={classes.login} />
+                            </div>
+                        </Row>
+                    </Container>
                     {/* <div className={classes.wrapper}>
                         <h1 className={classes.text}>Welcome to <br />Space <span className={classes.colorText}>Stocks{''}</span>
                         <div className="anim-words">

@@ -1,17 +1,18 @@
 .rw-wrapper {
-    width: 50%;
+    width: 100%;
     align-content: center;
     position: relative;
-    margin: 110px auto 0 auto;
+    margin: 100px auto 0 auto;
     font-family: 'Nunito';
-	  padding: 10px;
+    /* padding: 10px; */
+    padding-bottom: 50px;
   }
   
   .rw-sentence {
 	margin: 0;
 	font-size: 60px;
-    text-align: left;
-    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+  text-align: left;
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
   }
   .rw-sentence span {
     color: #fff;
