@@ -109,16 +109,19 @@ export default function Header(props) {
       {...(checked ? { timeout: 1000 } : {})} 
       collapsedHeight={50} >
       <div className={classes.container}>
+       
           <h1 className={classes.title}>Welcome to <br />Stock{''}
 
           <span className='animation'>
               Trading
           </span>
+
           <div className='anim-words'>
           <span >
               making trades great again!
           </span>
           </div>
+
 
           </h1>
           <Login />
