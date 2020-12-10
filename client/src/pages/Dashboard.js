@@ -213,10 +213,11 @@ export default function Dashboard() {
 
   })
 
-  const findOne =  async ( event, input) => {
-    event.preventDefault();
+  const findOne =  async ( e, input) => {
+    e.preventDefault();
+    console.log((input))
     Search(input);
-    let response = await Api.getRSI(input.ticker).catch(err => console.log(err))
+    let response = await Api.getRSI(input).catch(err => console.log(err))
     if (response.data[0].rsi < 40) {
       setRecomendation("Strong Buy")
     } else if (response.data[0].rsi > 80) {
@@ -341,11 +342,11 @@ export default function Dashboard() {
      placeholder={"search Stock"}
      onChange={(e) => setQuery(e.target.value)}
     />
-    <button onClick={(event) => {
+    <button onClick={(e) => {
      
-      findOne(query)
+      findOne(e, query)
     }
-  }>Submit</button>
+  }>Ask AL</button>
 
         </form>
       </Drawer>
@@ -361,7 +362,7 @@ export default function Dashboard() {
             </Grid>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper} >
-                <h1>Aliens Recommend:</h1><br />
+                <h1>AL the Alien Recommend:</h1><br />
                 <h2>{recomendation}</h2>
               </Paper>
             </Grid>
