@@ -135,6 +135,9 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
+  alButton: {
+    color: '#FF3D'
+  },
 }));
 export default function Dashboard() {
   const [starter, setStarter] = useState();
@@ -228,20 +231,7 @@ export default function Dashboard() {
        setRecomendation("Sell")
     }
     }
-   
- 
 
-  //   setColor("start")
-  // if (recomendation === "Strong Sell"){
-  //   setColor("red");
-  // } else if ( recomendation === "Sell"){
-  //   setColor("Orange");
-  // } else if(recomendation === "Strong Buy"){
-  //   setColor("Green");
-  // } else if(recomendation === "Buy") {
-  //   setColor("Blue");
-  // }
-  // -------------------------------------------------------------
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -321,6 +311,7 @@ export default function Dashboard() {
           </ListItemIcon>
           <ListItemText primary={(stockData && stockData[4]) ? stockData[4].ticker : "Loading"} />
         </ListItem>
+       <div container className='space'>
         <div id='center'>
           <div id="spaceship">
             <div id="window"></div>
@@ -332,9 +323,10 @@ export default function Dashboard() {
           <div id="tail"></div>
 
         </div>
-
+        </div>
         <Divider />
         <Divider />
+       
         <form>
         <input 
      type="input"
@@ -342,11 +334,12 @@ export default function Dashboard() {
      placeholder={"search Stock"}
      onChange={(e) => setQuery(e.target.value)}
     />
-    <button onClick={(e) => {
+ 
+    <button className='alButton' onClick={(e) => {
      
       findOne(e, query)
     }
-  }>Ask AL</button>
+  }>Ask Al</button>
 
         </form>
       </Drawer>
@@ -363,7 +356,7 @@ export default function Dashboard() {
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper} >
 
-                <h1 className="rec">AL the Alien Recommend:</h1><br />
+                <h1 className="rec">Al, the alien Recommends:</h1><br />
                 <h2>{recomendation}</h2>
               </Paper>
             </Grid>
