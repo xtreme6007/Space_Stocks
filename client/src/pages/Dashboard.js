@@ -142,6 +142,7 @@ export default function Dashboard() {
   const [priceInfo, setPriceInfo] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [recomendation, setRecomendation] = useState()
+  const [color, setColor] = useState();
   useEffect(() => {
     async function Gainers() {
       const res = await Api.getGainers()
@@ -184,17 +185,21 @@ export default function Dashboard() {
     return "it might help";
   }
   const Search = async (Stock) => {
-   await  Api.getPrice(Stock).then(res => {
-      const data = res.data.historical.splice(0, 20)
+   
+   try{
+    const result = await Api.getPrice(Stock)
+      const data = await result.data.historical.splice(0, 20)
       setPriceInfo([...data])
       // this.state.PriceInfo.forEach()
-      let chart = [];
-       priceInfo.forEach(stock => {
-        chart.push({close:stock.close,  date:stock.date})
+      
+      const chart = await priceInfo.map(stock => {
+         const price = stock.close.toFixed(2);
+        return {close: price,  date:stock.date}
       })
        setChartData([...chart])
       console.log(chartData)
-    }).catch(err => console.log(err))
+    }
+    catch(err) {console.log(err)}
   }
   function createData(date, amount) {
     return { date, amount };
@@ -202,20 +207,20 @@ export default function Dashboard() {
 
   const chartPoints = chartData.map(res => {
     console.log(res)
-    createData(res.date, res.close)
+    return createData(res.date, res.close)
 
   })
-  let color="start"
-if (recomendation === "Strong Sell"){
-  color = "red"
-
-} else if ( recomendation === "Sell"){
-  color ="Orange"
-} else if(recomendation === "Strong Buy"){
-  color = "Green"
-} else if(recomendation === "Buy") {
-  color = "Blue"
-}
+  
+//   setColor("start")
+// if (recomendation === "Strong Sell"){
+//   setColor("red");
+// } else if ( recomendation === "Sell"){
+//   setColor("Orange");
+// } else if(recomendation === "Strong Buy"){
+//   setColor("Green");
+// } else if(recomendation === "Buy") {
+//   setColor("Blue");
+// }
   // -------------------------------------------------------------
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -261,7 +266,7 @@ if (recomendation === "Strong Sell"){
           <ListItemText primary={(stockData && stockData[0]) ? stockData[0].ticker : "Loading"} />
         </ListItem>
         <ListItem button onClick={() => { 
-          Search((stockData && stockData[1]) ? stockData[1].ticker : "Loading") 
+          Search(stockData[1].ticker) 
           setRecomendation(stockData[1].recomended)
           }}>
           <ListItemIcon>
@@ -269,7 +274,7 @@ if (recomendation === "Strong Sell"){
           </ListItemIcon>
           <ListItemText primary={(stockData && stockData[1]) ? stockData[1].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => { 
+        <ListItem button onClick={() => {  
           Search((stockData && stockData[2]) ? stockData[2].ticker : "Loading")
           setRecomendation(stockData[2].recomended)
           }}>
@@ -322,7 +327,7 @@ if (recomendation === "Strong Sell"){
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper, color } >
+              <Paper className={fixedHeightPaper} >
                 <h1>Aliens Recommend:</h1><br />
             <h2>{recomendation}</h2>
               </Paper>

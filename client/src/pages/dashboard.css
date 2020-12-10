@@ -167,4 +167,28 @@
  100% {
      margin-left: 25px;
  }
+ 
+}
+.red{
+
+background-color: red;
+
+}
+.blue{
+  background-color: blue;
+}
+.orange{
+  background-color: orange
+}
+
+.green{
+
+  background-color: green;
+
+}
+.start{
+
+  background: radial-gradient(blue, red, orange,green )
+
+
 }
