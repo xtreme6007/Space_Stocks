@@ -194,7 +194,7 @@ export default function Dashboard() {
       setPriceInfo([...data])
       // this.state.PriceInfo.forEach()
 
-      const chart = await priceInfo.map(stock => {
+      const chart = await priceInfo.reverse().map(stock => {
         const price = stock.close.toFixed(2);
         return { close: price, date: stock.date }
       })
