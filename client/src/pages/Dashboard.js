@@ -23,8 +23,6 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
 import Api from '../utils/Api'
 import { set } from 'mongoose';
-
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -37,7 +35,6 @@ function Copyright() {
     </Typography>
   );
 }
-
 function Contact() {
   return (
     <Typography variant="body2" color="textDanger" align="center">
@@ -52,13 +49,11 @@ function Contact() {
     </Typography>
   );
 }
-
 const WhiteTextTypography = withStyles({
   root: {
     color: "#FFFFFF"
   }
 })(Typography);
-
 const drawerWidth = 250;
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -137,8 +132,6 @@ const useStyles = makeStyles((theme) => ({
   fixedHeight: {
     height: 240,
   },
-
-
 }));
 export default function Dashboard() {
   const [starter, setStarter] = useState();
@@ -152,9 +145,7 @@ export default function Dashboard() {
       console.log("Test", res)
       const sliced = await res.data.slice(0, 5)
       setStarter(sliced);
-
       for (let i = 0; i < sliced.length; i++) {
-        
         await eachStock(sliced[i])
         if (i === (sliced.length - 1)) {
           // console.log("Hello", stockData)
@@ -164,9 +155,6 @@ export default function Dashboard() {
     }
     Gainers();
   }, [])
-
-  
-
   // use this as the foreach callback 
   const eachStock = async (item) => {
     // console.log("its an item", item)
@@ -188,20 +176,14 @@ export default function Dashboard() {
     const stocks = stockData;
     stocks.push(stock)
     // set stock object to state
-    setStockData(stocks)
-
+    setStockData([...stocks])
     console.log(stockData)
+    return "it might help";
   }
-
   const Search = (Stock) => {
-
-
-
     Api.getPrice(Stock).then(res => {
-
       const data = res.data.historical.splice(0, 20)
       setPriceInfo(data)
-
       // this.state.PriceInfo.forEach()
       let chart = [];
       priceInfo.forEach(stock => {
@@ -211,13 +193,7 @@ export default function Dashboard() {
       console.log(chartData)
     }).catch(err => console.log(err))
   }
-
-
-
   const SearchTest = "AAPL"
-
-
-
   // -------------------------------------------------------------
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
