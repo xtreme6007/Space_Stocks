@@ -9,6 +9,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
@@ -142,6 +143,7 @@ export default function Dashboard() {
   const [priceInfo, setPriceInfo] = useState([]);
   const [chartData, setChartData] = useState([]);
   const [recomendation, setRecomendation] = useState()
+  const [query, setQuery] = useState()
   const [color, setColor] = useState();
   useEffect(() => {
     async function Gainers() {
@@ -164,19 +166,19 @@ export default function Dashboard() {
     // console.log("its an item", item)
     let response = await Api.getRSI(item.ticker).catch(err => console.log(err))
     // console.log("this is the response", response)
-    let recomendation;
-    // recomendation algoritham  
+    let advice;
+    // advice algoritham  
     if (response.data[0].rsi < 40) {
-      recomendation = "Strong Buy"
+      advice = "Strong Buy"
     } else if (response.data[0].rsi > 80) {
-      recomendation = "Strong Sell"
+      advice = "Strong Sell"
     } else if (response.data[0].rsi > 40 && response.data[0].rsi < 70) {
-      recomendation = "Buy"
+      advice = "Buy"
     } else if (response.data[0].rsi > 70 && response.data[0].rsi < 80) {
-      recomendation = "Sell"
+      advice = "Sell"
     }
     // set stock object
-    const stock = { ticker: item.ticker, RSI: response.data[0].rsi, recomended: recomendation };
+    const stock = { ticker: item.ticker, RSI: response.data[0].rsi, recomended: advice };
     const stocks = stockData;
     stocks.push(stock)
     // set stock object to state
@@ -185,21 +187,21 @@ export default function Dashboard() {
     return "it might help";
   }
   const Search = async (Stock) => {
-   
-   try{
-    const result = await Api.getPrice(Stock)
+
+    try {
+      const result = await Api.getPrice(Stock)
       const data = await result.data.historical.splice(0, 20)
       setPriceInfo([...data])
       // this.state.PriceInfo.forEach()
-      
+
       const chart = await priceInfo.map(stock => {
-         const price = stock.close.toFixed(2);
-        return {close: price,  date:stock.date}
+        const price = stock.close.toFixed(2);
+        return { close: price, date: stock.date }
       })
-       setChartData([...chart])
+      setChartData([...chart])
       console.log(chartData)
     }
-    catch(err) {console.log(err)}
+    catch (err) { console.log(err) }
   }
   function createData(date, amount) {
     return { date, amount };
@@ -210,17 +212,34 @@ export default function Dashboard() {
     return createData(res.date, res.close)
 
   })
-  
-//   setColor("start")
-// if (recomendation === "Strong Sell"){
-//   setColor("red");
-// } else if ( recomendation === "Sell"){
-//   setColor("Orange");
-// } else if(recomendation === "Strong Buy"){
-//   setColor("Green");
-// } else if(recomendation === "Buy") {
-//   setColor("Blue");
-// }
+
+  const findOne =  async ( event, input) => {
+    event.preventDefault();
+    Search(input);
+    let response = await Api.getRSI(input.ticker).catch(err => console.log(err))
+    if (response.data[0].rsi < 40) {
+      setRecomendation("Strong Buy")
+    } else if (response.data[0].rsi > 80) {
+      setRecomendation("Strong Sell")
+    } else if (response.data[0].rsi > 40 && response.data[0].rsi < 70) {
+     setRecomendation("Buy")
+    } else if (response.data[0].rsi > 70 && response.data[0].rsi < 80) {
+       setRecomendation("Sell")
+    }
+    }
+   
+ 
+
+  //   setColor("start")
+  // if (recomendation === "Strong Sell"){
+  //   setColor("red");
+  // } else if ( recomendation === "Sell"){
+  //   setColor("Orange");
+  // } else if(recomendation === "Strong Buy"){
+  //   setColor("Green");
+  // } else if(recomendation === "Buy") {
+  //   setColor("Blue");
+  // }
   // -------------------------------------------------------------
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -256,65 +275,79 @@ export default function Dashboard() {
           <ListItemText primary="" />
           <ListItemText primary="Space Stocks" />
         </ListItem><br />
-        <ListItem button onClick={() => { 
-          Search((stockData && stockData[0]) ? stockData[0].ticker : "Loading") 
+        <ListItem button onClick={() => {
+          Search((stockData && stockData[0]) ? stockData[0].ticker : "Loading")
           setRecomendation(stockData[0].recomended)
-          }}>
+        }}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
           <ListItemText primary={(stockData && stockData[0]) ? stockData[0].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => { 
-          Search(stockData[1].ticker) 
+        <ListItem button onClick={() => {
+          Search(stockData[1].ticker)
           setRecomendation(stockData[1].recomended)
-          }}>
+        }}>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
           <ListItemText primary={(stockData && stockData[1]) ? stockData[1].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => {  
+        <ListItem button onClick={() => {
           Search((stockData && stockData[2]) ? stockData[2].ticker : "Loading")
           setRecomendation(stockData[2].recomended)
-          }}>
+        }}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
           <ListItemText primary={(stockData && stockData[2]) ? stockData[2].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => { 
+        <ListItem button onClick={() => {
           Search((stockData && stockData[3]) ? stockData[3].ticker : "Loading")
           setRecomendation(stockData[3].recomended)
-          }}>
+        }}>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
           <ListItemText primary={(stockData && stockData[3]) ? stockData[3].ticker : "Loading"} />
         </ListItem>
         <ListItem button onClick={() => {
-           Search((stockData && stockData[4]) ? stockData[4].ticker : "Loading")
-           setRecomendation(stockData[4].recomended)
-           }}>
+          Search((stockData && stockData[4]) ? stockData[4].ticker : "Loading")
+          setRecomendation(stockData[4].recomended)
+        }}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
           <ListItemText primary={(stockData && stockData[4]) ? stockData[4].ticker : "Loading"} />
         </ListItem>
         <div id='center'>
-        <div id="spaceship">
+          <div id="spaceship">
             <div id="window"></div>
-        </div>  
-        <div id='tail'></div>
-        <div id='left-wing'></div>
-        <div id="right-wing"></div>
-        <div id="exhaust"></div>
-        <div id="tail"></div>
+          </div>
+          <div id='tail'></div>
+          <div id='left-wing'></div>
+          <div id="right-wing"></div>
+          <div id="exhaust"></div>
+          <div id="tail"></div>
 
-    </div>
+        </div>
 
-    <Divider />
         <Divider />
+        <Divider />
+        <form>
+        <input 
+     type="input"
+     key="random1"
+     placeholder={"search Stock"}
+     onChange={(e) => setQuery(e.target.value)}
+    />
+    <button onClick={(event) => {
+     
+      findOne(query)
+    }
+  }>Submit</button>
+
+        </form>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
@@ -323,13 +356,13 @@ export default function Dashboard() {
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
-                <Chart data={chartPoints}/>
+                <Chart data={chartPoints} />
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper} >
                 <h1>Aliens Recommend:</h1><br />
-            <h2>{recomendation}</h2>
+                <h2>{recomendation}</h2>
               </Paper>
             </Grid>
             <Grid item xs={12}>

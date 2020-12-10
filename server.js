@@ -5,14 +5,14 @@ const PORT = process.env.PORT || 3001;
 const dotenv = require("dotenv")
 const session = require("express-session");
 const mongoose = require("mongoose");
-const passport = require("passport");
+
 
 const connectDB = require("./config/db");
 const routes = require("./routes");
 
 dotenv.config( {path: "./config/config.env"});
 
-require("./config/passport")(passport);
+
 
 connectDB();
 
@@ -30,9 +30,7 @@ app.use(
   })
 );
 
-//starts passport session
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 app.use(function (req, res, next){
 res.locals.user = req.user || null;
@@ -42,8 +40,8 @@ next();
 //setting up static
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", require("./routes/api/auth/index"));
-app.use("/auth", require("./routes/api/auth/auth"));
+
+
 
 //setting up routes
 app.use(routes);
