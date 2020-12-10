@@ -6,7 +6,7 @@ const dotenv = require("dotenv")
 const session = require("express-session");
 const mongoose = require("mongoose");
 const passport = require("passport");
-const User = require("./models/users");
+
 const connectDB = require("./config/db");
 const routes = require("./routes");
 
