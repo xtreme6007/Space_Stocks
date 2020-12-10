@@ -361,7 +361,7 @@ export default function Dashboard() {
             </Grid>
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper} >
-                <h1>Aliens Recommend:</h1><br />
+                <h1 className='rec'>Aliens Recommend:</h1><br />
                 <h2>{recomendation}</h2>
               </Paper>
             </Grid>
