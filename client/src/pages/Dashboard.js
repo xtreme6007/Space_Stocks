@@ -9,7 +9,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
-import Button from '@material-ui/core/Button';
+
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
@@ -23,7 +23,7 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
 import Api from '../utils/Api'
-import { set } from 'mongoose';
+
 import './dashboard.css';
 
 function Copyright() {
