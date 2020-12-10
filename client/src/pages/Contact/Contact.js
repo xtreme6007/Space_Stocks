@@ -1,10 +1,20 @@
 import React from "react";
 import "./Contact.css";
+// import ReactDOM from 'react-dom;
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
-export default function Dashboard() {
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faEnvelope);
+ 
+// const element = <FontAwesomeIcon icon={faEnvelope} /> ReactDOM.render(element, document.body)
+
+export default function Contact() {
 // class Contact extends Component {
   return(
-
+<div className="test">
 <section className="contact-us-section">
   <div className="row medium-unstack">
     <div className="columns contact-us-section-left">
@@ -13,7 +23,8 @@ export default function Dashboard() {
         <img src="https://maps.googleapis.com/maps/api/staticmap?center=campbell&zoom=13&scale=false&size=600x300&maptype=roadmap&sensor=false&format=png&visual_refresh=true" alt="Google Map of campbell" />
       </div> */}
       <ul className="contact-us-list">
-        <li className="email"><a href="mailto:">info@spacestocks.com</a></li>
+      
+        <li className="email"><FontAwesomeIcon icon="envelope" className="icon" size="lg" /><a href="mailto:">info@spacestocks.com</a></li>
       </ul>
     </div>
     <div className="columns contact-us-section-right">
@@ -29,6 +40,7 @@ export default function Dashboard() {
     </div>
   </div>
 </section>
+</div>
 
 )
 }
