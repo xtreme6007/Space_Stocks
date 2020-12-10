@@ -149,7 +149,7 @@ export default function Dashboard() {
     async function Gainers() {
       const res = await Api.getGainers()
       console.log("Test", res)
-      const sliced = await res.data.slice(0, 5)
+      const sliced = await res.data.slice(2, 7)
       setStarter(sliced);
       for (let i = 0; i < sliced.length; i++) {
         await eachStock(sliced[i])
