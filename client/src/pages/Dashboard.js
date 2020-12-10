@@ -141,6 +141,8 @@ export default function Dashboard() {
   const [RSI, setRSI] = useState([]);
   const [priceInfo, setPriceInfo] = useState([]);
   const [chartData, setChartData] = useState([]);
+  const [recomendation, setRecomendation] = useState()
+  const [color, setColor] = useState();
   useEffect(() => {
     async function Gainers() {
       const res = await Api.getGainers()
@@ -182,20 +184,43 @@ export default function Dashboard() {
     console.log(stockData)
     return "it might help";
   }
-  const Search = (Stock) => {
-    Api.getPrice(Stock).then(res => {
-      const data = res.data.historical.splice(0, 20)
-      setPriceInfo(data)
+  const Search = async (Stock) => {
+   
+   try{
+    const result = await Api.getPrice(Stock)
+      const data = await result.data.historical.splice(0, 20)
+      setPriceInfo([...data])
       // this.state.PriceInfo.forEach()
-      let chart = [];
-      priceInfo.forEach(stock => {
-        chart.push(stock.close)
+      
+      const chart = await priceInfo.map(stock => {
+         const price = stock.close.toFixed(2);
+        return {close: price,  date:stock.date}
       })
-      setChartData(chart)
+       setChartData([...chart])
       console.log(chartData)
-    }).catch(err => console.log(err))
+    }
+    catch(err) {console.log(err)}
   }
-  const SearchTest = "AAPL"
+  function createData(date, amount) {
+    return { date, amount };
+  }
+
+  const chartPoints = chartData.map(res => {
+    console.log(res)
+    return createData(res.date, res.close)
+
+  })
+  
+//   setColor("start")
+// if (recomendation === "Strong Sell"){
+//   setColor("red");
+// } else if ( recomendation === "Sell"){
+//   setColor("Orange");
+// } else if(recomendation === "Strong Buy"){
+//   setColor("Green");
+// } else if(recomendation === "Buy") {
+//   setColor("Blue");
+// }
   // -------------------------------------------------------------
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -231,31 +256,46 @@ export default function Dashboard() {
           <ListItemText primary="" />
           <ListItemText primary="Space Stocks" />
         </ListItem><br />
-        <ListItem button onClick={() => { Search((stockData && stockData[0]) ? stockData[0].ticker : "Loading") }}>
+        <ListItem button onClick={() => { 
+          Search((stockData && stockData[0]) ? stockData[0].ticker : "Loading") 
+          setRecomendation(stockData[0].recomended)
+          }}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
           <ListItemText primary={(stockData && stockData[0]) ? stockData[0].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => { Search((stockData && stockData[1]) ? stockData[1].ticker : "Loading") }}>
+        <ListItem button onClick={() => { 
+          Search(stockData[1].ticker) 
+          setRecomendation(stockData[1].recomended)
+          }}>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
           <ListItemText primary={(stockData && stockData[1]) ? stockData[1].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => { Search((stockData && stockData[2]) ? stockData[2].ticker : "Loading") }}>
+        <ListItem button onClick={() => {  
+          Search((stockData && stockData[2]) ? stockData[2].ticker : "Loading")
+          setRecomendation(stockData[2].recomended)
+          }}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
           <ListItemText primary={(stockData && stockData[2]) ? stockData[2].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => { Search((stockData && stockData[3]) ? stockData[3].ticker : "Loading") }}>
+        <ListItem button onClick={() => { 
+          Search((stockData && stockData[3]) ? stockData[3].ticker : "Loading")
+          setRecomendation(stockData[3].recomended)
+          }}>
           <ListItemIcon>
             <AttachMoneyIcon />
           </ListItemIcon>
           <ListItemText primary={(stockData && stockData[3]) ? stockData[3].ticker : "Loading"} />
         </ListItem>
-        <ListItem button onClick={() => { Search((stockData && stockData[4]) ? stockData[4].ticker : "Loading") }}>
+        <ListItem button onClick={() => {
+           Search((stockData && stockData[4]) ? stockData[4].ticker : "Loading")
+           setRecomendation(stockData[4].recomended)
+           }}>
           <ListItemIcon>
             <ShowChartIcon />
           </ListItemIcon>
@@ -283,11 +323,13 @@ export default function Dashboard() {
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
-                <Chart />
+                <Chart data={chartPoints}/>
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={3}>
-              <Paper className={fixedHeightPaper}>
+              <Paper className={fixedHeightPaper} >
+                <h1>Aliens Recommend:</h1><br />
+            <h2>{recomendation}</h2>
               </Paper>
             </Grid>
             <Grid item xs={12}>
