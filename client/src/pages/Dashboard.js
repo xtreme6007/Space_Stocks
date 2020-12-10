@@ -23,6 +23,8 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
 import Api from '../utils/Api'
 import { set } from 'mongoose';
+import './dashboard.css';
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -259,7 +261,19 @@ export default function Dashboard() {
           </ListItemIcon>
           <ListItemText primary={(stockData && stockData[4]) ? stockData[4].ticker : "Loading"} />
         </ListItem>
-        <Divider />
+        <div id='center'>
+        <div id="spaceship">
+            <div id="window"></div>
+        </div>  
+        <div id='tail'></div>
+        <div id='left-wing'></div>
+        <div id="right-wing"></div>
+        <div id="exhaust"></div>
+        <div id="tail"></div>
+
+    </div>
+
+    <Divider />
         <Divider />
       </Drawer>
       <main className={classes.content}>
