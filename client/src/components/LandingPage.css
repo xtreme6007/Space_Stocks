@@ -34,20 +34,20 @@
   }
   
   .rw-words-1 span {
-    -webkit-animation: rotateWordsFirst 12s linear infinite 1s;
-            animation: rotateWordsFirst 12s linear infinite 1s;
+    -webkit-animation: rotateWordsFirst 4s linear infinite 1s;
+            animation: rotateWordsFirst 4s linear infinite 1s;
   }
   
   .rw-words-2 span {
-    -webkit-animation: rotateWordsSecond 15s linear infinite 1s;
-            animation: rotateWordsSecond 18s linear infinite 1s;
+    -webkit-animation: rotateWordsSecond 1s linear infinite 1s;
+            animation: rotateWordsSecond 4s linear infinite 1s;
   }
   
   @-webkit-keyframes rotateWordsFirst {
     0% {
       opacity: 1;
       -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
+              animation-timing-function: ease-out;
       height: 0px;
     }
     8% {
@@ -71,7 +71,7 @@
     0% {
       opacity: 1;
       -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
+              animation-timing-function: ease-out;
       height: 0px;
     }
     8% {
@@ -95,7 +95,7 @@
     0% {
       opacity: 1;
       -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
+              animation-timing-function: ease-out;
       width: 0px;
     }
     10% {
@@ -118,7 +118,7 @@
     0% {
       opacity: 1;
       -webkit-animation-timing-function: ease-in;
-              animation-timing-function: ease-in;
+              animation-timing-function: ease-out;
       width: 0px;
     }
     10% {
@@ -138,6 +138,12 @@
     }
   }
 
+.justify-content-md-center {
+  padding-left: 90px;
+}
 
+.login {
+  padding-left: 100px;
+}
 
   
