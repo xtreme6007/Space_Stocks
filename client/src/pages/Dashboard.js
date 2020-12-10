@@ -40,7 +40,7 @@ function Copyright() {
 }
 function Contact() {
   return (
-    <Typography variant="h1" color="textDanger" align="center">
+    <Typography variant="body2" color="textDanger" align="center">
       {/* {'Copyright © '} */}
       <WhiteTextTypography variant="h4">
         <Link color="inherit" href="/Contact">
