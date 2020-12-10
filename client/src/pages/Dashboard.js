@@ -26,29 +26,17 @@ import Api from '../utils/Api'
 
 import './dashboard.css';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://space-stocks.com/">
-        Space Stocks
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
 function Contact() {
   return (
-    <Typography variant="body2" color="textDanger" align="center">
-      {/* {'Copyright © '} */}
+    <Typography variant="h1" color="textDanger" align="center">
+      {
       <WhiteTextTypography variant="h4">
         <Link color="inherit" href="/Contact">
           Contact Us
       </Link>{' '}
       </WhiteTextTypography>
-      {/* {new Date().getFullYear()}
-      {'.'} */}
+     
     </Typography>
   );
 }
