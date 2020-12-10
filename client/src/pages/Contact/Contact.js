@@ -60,7 +60,7 @@ export default function Contact() {
     type="button"
     onClick={() => push('/dashboard')}
   >
-    Space Stocks dashboard
+    Space Stocks Dashboard
   </button>
     </div>
       </section>
