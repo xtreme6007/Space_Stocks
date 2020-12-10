@@ -1,3 +1,9 @@
+.test {
+  padding-top: 120px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
 .contact {
   margin-top: 45px;
 }
@@ -96,4 +102,10 @@
 
   .icon {
     padding-right: 7px;
+  }
+
+  .button {
+    color: #fff;
+    background-color: #5AFF3D;
+    font-weight: bold;
   }
