@@ -9,7 +9,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import Container from '@material-ui/core/Container';
-
+import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
@@ -23,20 +23,32 @@ import DashboardIcon from '@material-ui/icons/Dashboard';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import ShowChartIcon from '@material-ui/icons/ShowChart';
 import Api from '../utils/Api'
-
+import { set } from 'mongoose';
 import './dashboard.css';
 
-
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://space-stocks.com/">
+        Space Stocks
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 function Contact() {
   return (
-    <Typography variant="h1" color="textDanger" align="center">
-      {
+    <Typography variant="body2" color="textDanger" align="center">
+      {/* {'Copyright © '} */}
       <WhiteTextTypography variant="h4">
         <Link color="inherit" href="/Contact">
           Contact Us
       </Link>{' '}
       </WhiteTextTypography>
-     
+      {/* {new Date().getFullYear()}
+      {'.'} */}
     </Typography>
   );
 }
