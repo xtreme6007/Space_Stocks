@@ -28,28 +28,43 @@ import './dashboard.css';
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <Box pr={35}>
+    <Typography variant="body2" color="#FFFFFF" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://space-stocks.com/">
+      <Link color="#FFFFFF" href="https://space-stocks.com/">
         Space Stocks
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
+    </Box>
   );
 }
+
+
+
 function Contact() {
   return (
+    <Box pl={50}>
+    <Button
+    style={{
+      borderRadius: 35,
+      backgroundColor: "#5AFF3D",
+      // paddingLeft: '150px'
+  }}
+    variant="contained" color="primary" className="contactLink">
     <Typography variant="h1" color="textDanger" align="center">
-      {/* {'Copyright © '} */}
+      
       <WhiteTextTypography variant="h4">
-        <Link color="inherit" href="/Contact">
+        <Link
+     color="inherit" href="/Contact">
           Contact Us
       </Link>{' '}
       </WhiteTextTypography>
-      {/* {new Date().getFullYear()}
-      {'.'} */}
+      
     </Typography>
+    </Button>
+    </Box>
   );
 }
 const WhiteTextTypography = withStyles({
@@ -149,7 +164,7 @@ export default function Dashboard() {
     async function Gainers() {
       const res = await Api.getGainers()
       console.log("Test", res)
-      const sliced = await res.data.slice(0, 5)
+      const sliced = await res.data.slice(2, 7)
       setStarter(sliced);
       for (let i = 0; i < sliced.length; i++) {
         await eachStock(sliced[i])

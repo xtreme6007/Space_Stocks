@@ -45,6 +45,7 @@ export default function () {
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/dashboard" component={Dashboard} />
     <Route exact path="/contact" component={Contact} />
+    {/* <Route exact path="/dashboard" component={DashboardComponent} /> */}
     
   </Switch>
 </div>
