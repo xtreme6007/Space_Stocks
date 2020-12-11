@@ -167,7 +167,7 @@ export default function Dashboard() {
     async function Gainers() {
       const res = await Api.getGainers()
       console.log("Test", res)
-      const sliced = await res.data.slice(2, 7)
+      const sliced = await res.data.slice(0, 5)
       setStarter(sliced);
       for (let i = 0; i < sliced.length; i++) {
         await eachStock(sliced[i])
@@ -354,7 +354,7 @@ export default function Dashboard() {
      
       findOne(e, query)
     }
-  }>Ask Al</button>
+  }>Ask Algo</button>
 
         </form>
       </Drawer>
@@ -371,7 +371,7 @@ export default function Dashboard() {
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper} >
 
-                <h1 className="rec">Al, the alien Recommends:</h1><br />
+                <h1 className="rec">Algo, the alien Recommends:</h1><br />
                 <h2>{recomendation}</h2>
               </Paper>
             </Grid>
