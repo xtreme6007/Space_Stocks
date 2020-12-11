@@ -163,6 +163,7 @@ export default function Dashboard() {
   const [recomendation, setRecomendation] = useState()
   const [query, setQuery] = useState()
   const [color, setColor] = useState();
+  const [chartTitle, setChartTitle]= useState()
   useEffect(() => {
     async function Gainers() {
       const res = await Api.getGainers()
@@ -205,6 +206,7 @@ export default function Dashboard() {
     return "it might help";
   }
   const Search = async (Stock) => {
+    setChartTitle(Stock)
 
     try {
       const result = await Api.getPrice(Stock)
@@ -365,7 +367,7 @@ export default function Dashboard() {
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
-                <Chart data={chartPoints}/>
+                <Chart data={chartPoints} title={chartTitle}/>
               </Paper>
             </Grid>
             <Grid item xs={12} md={4} lg={3}>
