@@ -221,7 +221,7 @@ export default function Dashboard() {
       setChartData([...chart])
       console.log(chartData)
     }
-    catch (err) { console.log(err) }
+    catch (err) {  alert("Please search a valid stock ticker") }
   }
   function createData(date, amount) {
     return { date, amount };
