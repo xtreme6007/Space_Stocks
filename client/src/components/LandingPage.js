@@ -76,10 +76,6 @@ export default function Header(props) {
                     <h1 className={classes.appbarTitle}>
                         Space <span className={classes.colorText}>Stocks</span>
                     </h1>
-                    {/* <div>
-                        <Link href="/">
-                    </Link>
-                    </div> */}
                 </Toolbar>
                 <Collapse in={checked}
                     {...(checked ? { timeout: 1000 } : {})}
@@ -109,24 +105,6 @@ export default function Header(props) {
                             </div>
                         </Row>
                     </Container>
-                    {/* <div className={classes.wrapper}>
-                        <h1 className={classes.text}>Welcome to <br />Space <span className={classes.colorText}>Stocks{''}</span>
-                        <div className="anim-words">
-                            <span>Trading</span>
-                            <span>Made</span>
-                            <span>Easy</span>
-                        </div>
-                        </h1>
-                        <div className='login'>
-                        
-                        </div> */}
-                    {/* 
-                        <Scroll to="place-to-visit" smooth={true}>
-                            <IconButton>
-                                <ExpandMoreIcon onClick={(e) => goToSignup(e)} className={classes.goDown} />
-                            </IconButton>
-                        </Scroll> */}
-                    {/* </div> */}
                 </Collapse>
             </AppBar>
         </div>
