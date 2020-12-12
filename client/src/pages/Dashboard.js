@@ -76,6 +76,7 @@ const drawerWidth = 250;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    fontFamily: 'Nunito',
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
@@ -85,6 +86,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: '0 5px',
+    fontFamily: 'nunito',
     ...theme.mixins.toolbar,
   },
   appBar: {
@@ -149,9 +151,6 @@ const useStyles = makeStyles((theme) => ({
   },
   fixedHeight: {
     height: 240,
-  },
-  alButton: {
-    color: '#FF3D'
   },
 }));
 export default function Dashboard() {
@@ -279,7 +278,7 @@ export default function Dashboard() {
             <DashboardIcon />
           </ListItemIcon>
           <ListItemText primary="" />
-          <ListItemText primary="Space Stocks" />
+          <ListItemText className='spaceStock' primary="Space Stocks" />
         </ListItem><br />
         <ListItem button onClick={() => {
           Search((stockData && stockData[0]) ? stockData[0].ticker : "Loading")
@@ -342,7 +341,7 @@ export default function Dashboard() {
         <Divider />
         <Divider />
        
-        <form>
+        <form className='searchForm'>
         <input 
      type="input"
      key="random1"

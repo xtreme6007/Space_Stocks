@@ -4,11 +4,7 @@ import axios from "axios";
 
 
 // const APIkey = process.env.ApiKey
-<<<<<<< HEAD
-const APIkey = "865dc03270de514bfc7cb4ca02b1612a"
-=======
 const APIkey = "f4e7c42e248f28c917aee5e08872c328"
->>>>>>> c5e18c5db1d6ef8b07928afa94e6285cd28c63ea
 
 
 
