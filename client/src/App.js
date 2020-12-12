@@ -5,7 +5,6 @@ import PlaceToVisit from "./components/PlaceToVisit";
 // import APItest from "./components/APItest";
 import Dashboard from './pages/Dashboard';
 import LandingPage from './components/LandingPage';
-import Signup from './components/Signup';
 
 import Login from './components/Login';
 import Header from './components/Login'
@@ -41,8 +40,6 @@ export default function () {
     <Route exact path="/" component={LandingPage} />
 
     <Route exact path="/" component={Header} />
-
-    <Route exact path="/signup" component={Signup} />
     <Route exact path="/dashboard" component={Dashboard} />
     <Route exact path="/contact" component={Contact} />
     {/* <Route exact path="/dashboard" component={DashboardComponent} /> */}

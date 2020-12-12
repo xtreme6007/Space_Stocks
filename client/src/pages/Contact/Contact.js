@@ -1,11 +1,13 @@
 import React from "react";
 import "./Contact.css";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
 // import Link from '@material-ui/core/Link';
+=======
+>>>>>>> 9eb2b9520c63dfeae2f23a4e49bc837a74595082
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from 'react-router'
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-
+import {Link} from 'react-router-dom'
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Box from '@material-ui/core/Box';
@@ -30,7 +32,6 @@ const WhiteText = withStyles({
 })(Typography);
 
 
-
 export default function Contact() {
   // class Contact extends Component {
     const { push } = useHistory()
@@ -41,9 +42,6 @@ export default function Contact() {
         <div className="row medium-unstack">
           <div className="columns contact-us-section-left">
             <h1 className="contact-us-header">Contact Us</h1>
-            {/* <div className="responsive-embed">
-        <img src="https://maps.googleapis.com/maps/api/staticmap?center=campbell&zoom=13&scale=false&size=600x300&maptype=roadmap&sensor=false&format=png&visual_refresh=true" alt="Google Map of campbell" />
-      </div> */}
             <ul className="contact-us-list">
               <li className="email">
                 <FontAwesomeIcon icon="envelope" className="icon" size="lg" />

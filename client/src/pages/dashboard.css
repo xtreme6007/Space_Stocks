@@ -160,3 +160,19 @@ background-color: red;
   padding-left: 280px;
   padding-top: 50px;
 }
+
+.searchForm {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.alButton {
+  color: #fff;
+  background-color: rgb(52, 25, 150);
+  font-family: 'nunito';
+}
+
+.spaceStock {
+  color: #5AFF3D;
+  font-family: 'nunito';
+}

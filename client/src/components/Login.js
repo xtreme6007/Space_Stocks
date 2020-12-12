@@ -1,14 +1,7 @@
 import React from 'react';
 import { GoogleLogin } from 'react-google-login';
-import { Redirect } from "react-router-dom";
-import Dashboard from '../pages/Dashboard';
-import LandingPage from '../components/LandingPage'
 import { refreshTokenSetup } from '../utils/refreshToken';
 import "./Login.css";
-
-// refresh token
-
-// import { Switch } from '@material-ui/core';
 
 const clientId =
   '6045650641-tq4ukq9d2gmds59t2cv9qnhreae8fkec.apps.googleusercontent.com';
@@ -18,9 +11,7 @@ const clientId =
 export default function Login() {
   const onSuccess = (res) => {
     console.log('Login Success: currentUser:', res.profileObj);
-    // alert(
-    //   `Logged in successfully welcome ${res.profileObj.name}  \n See console for full profile object.`
-    // );
+   
     refreshTokenSetup(res);
     console.log("next is the redirect")
  
