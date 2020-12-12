@@ -343,7 +343,11 @@ export default function Dashboard() {
         </div>
         <Divider />
         <Divider />
-       
+
+      </Drawer>
+      <main className={classes.content}>
+        <div className={classes.appBarSpacer} />
+        <Container maxWidth="lg" className={classes.container}>
         <form className='searchForm'>
         <input 
      type="input"
@@ -359,10 +363,6 @@ export default function Dashboard() {
   }>Ask Algo</button>
 
         </form>
-      </Drawer>
-      <main className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>
