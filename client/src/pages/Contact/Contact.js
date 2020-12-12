@@ -1,10 +1,5 @@
 import React from "react";
 import "./Contact.css";
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
-// import Link from '@material-ui/core/Link';
-=======
->>>>>>> 9eb2b9520c63dfeae2f23a4e49bc837a74595082
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from 'react-router'
 import {Link} from 'react-router-dom'
@@ -17,13 +12,7 @@ import { withStyles } from "@material-ui/core/styles";
 
 
 library.add(faEnvelope);
-// const element = <FontAwesomeIcon icon={faEnvelope} /> ReactDOM.render(element, document.body)
 
-// function Copyright() {
-//   return (
-    
-//   );
-// }
 
 const WhiteText = withStyles({
   root: {
