@@ -18,7 +18,7 @@ export default function Chart(props) {
   ];
   return (
     <React.Fragment>
-      <Title>Month</Title>
+      <Title>{props.title}</Title>
       <ResponsiveContainer>
         <LineChart
           data={props.data}
