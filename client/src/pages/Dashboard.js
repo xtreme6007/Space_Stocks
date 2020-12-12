@@ -28,15 +28,15 @@ import './dashboard.css';
 
 function Copyright() {
   return (
-    <Box pr={35}>
-    <Typography variant="body2" color="#FFFFFF" align="center">
+    <Box pl={53}>
+    <WhiteTextTypography variant="contained" color="inherit" align="center">
       {'Copyright © '}
       <Link color="#FFFFFF" href="https://space-stocks.com/">
         Space Stocks
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
-    </Typography>
+    </WhiteTextTypography>
     </Box>
   );
 }
