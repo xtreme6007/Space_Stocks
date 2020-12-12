@@ -2,11 +2,10 @@ import axios from "axios";
  const env = require("dot-env")
 
 
-
 // const APIkey = process.env.ApiKey
+
+
 const APIkey = "daa5f8a2ca6437380aea8522e02fc737"
-
-
 
 
 
