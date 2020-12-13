@@ -8,10 +8,17 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import WhiteTextTypography from '@material-ui/core/Typography';
+import { withStyles } from "@material-ui/core/styles";
 
 
 library.add(faEnvelope);
-// const element = <FontAwesomeIcon icon={faEnvelope} /> ReactDOM.render(element, document.body)
+
+
+const WhiteText = withStyles({
+  root: {
+    color: "#FFFFFF"
+  }
+})(Typography);
 
 
 export default function Contact() {
@@ -64,18 +71,21 @@ export default function Contact() {
     
       </section>
       <Box pl={53}>
-      <Typography>
-    <WhiteTextTypography variant="contained" color="inherit" align="center">
+    <WhiteText variant="contained" color="inherit" align="center">
       {'Copyright © '}
       <Link color="#FFFFFF" href="https://space-stocks.com/">
         Space Stocks
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
-    </WhiteTextTypography>
-    </Typography>
+    </WhiteText>
     </Box>
+
+      
     </div>
     
   );
 }
+
+
+
