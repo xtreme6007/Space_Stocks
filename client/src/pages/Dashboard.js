@@ -77,9 +77,11 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     fontFamily: 'Nunito',
+    
   },
   toolbar: {
     paddingRight: 24, // keep right padding when drawer closed
+    fontFamily: 'nunito',
   },
   toolbarIcon: {
     display: 'flex',
@@ -94,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create(['width', 'margin'], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
+      fontFamily: 'nunito',
     }),
   },
   appBarShift: {
@@ -106,16 +109,20 @@ const useStyles = makeStyles((theme) => ({
   },
   menuButton: {
     marginRight: 30,
+    fontFamily: 'nunito',
   },
   menuButtonHidden: {
     display: 'none',
   },
   title: {
     flexGrow: 1,
+    fontFamily: 'nunito',
   },
   drawerPaper: {
     position: 'relative',
     whiteSpace: 'nowrap',
+    overflow: "hidden",
+    fontFamily: 'nunito',
     width: drawerWidth,
     transition: theme.transitions.create('width', {
       easing: theme.transitions.easing.sharp,
@@ -137,20 +144,24 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     height: '100vh',
+    fontFamily: 'nunito',
     overflow: 'auto',
   },
   container: {
     paddingTop: theme.spacing(4),
     paddingBottom: theme.spacing(4),
+    fontFamily: 'nunito',
   },
   paper: {
     padding: theme.spacing(2),
     display: 'flex',
     overflow: 'auto',
     flexDirection: 'column',
+    fontFamily: 'nunito',
   },
   fixedHeight: {
-    height: 240,
+    height: 250,
+    overflow: 'auto',
   },
 }));
 export default function Dashboard() {
@@ -280,7 +291,7 @@ export default function Dashboard() {
           <ListItemIcon>
             <DashboardIcon />
           </ListItemIcon>
-          <ListItemText primary="" />
+          <ListItemText className='spaceStock' primary="" />
           <ListItemText className='spaceStock' primary="Space Stocks" />
         </ListItem><br />
         <ListItem button onClick={() => {
@@ -363,6 +374,7 @@ export default function Dashboard() {
   }>Ask Algo</button>
 
         </form>
+
           <Grid container spacing={3}>
             {/* Chart */}
             <Grid item xs={12} md={8} lg={9}>

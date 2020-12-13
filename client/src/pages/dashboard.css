@@ -173,6 +173,12 @@ background-color: red;
 }
 
 .spaceStock {
-  color: #5AFF3D;
+  color: #BE2E6B;
+  font-weight: bold;
   font-family: 'nunito';
 }
+
+.parent>span{
+  font-family: 'nunito';
+}
+
