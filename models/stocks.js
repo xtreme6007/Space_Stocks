@@ -6,7 +6,7 @@ const stockSchema = new Schema({
     date: {type: Date, default: Date.now },
     stock:[{
       ticker: {type: String},
-      RSI: {type: Schema.Types.Decimal128},
+      RSI: {},
       recomended: {type: String}
       
     }]

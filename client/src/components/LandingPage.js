@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Header(props) {
     const classes = useStyles();
     const [checked, setChecked] = useState(false);
-    console.log(props)
+    // console.log(props)
     useEffect(() => {
         setChecked(true);
 
@@ -64,7 +64,7 @@ export default function Header(props) {
     });
 
     const goToSignup = (e) => {
-        console.log("cicked")
+        // console.log("cicked")
         window.location.replace("/signup")
 
     }
