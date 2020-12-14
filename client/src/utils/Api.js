@@ -28,7 +28,7 @@ export default  {
   },
 // Save stock object to database
   saveStocks: function(stockData) {
-    console.log("Hello 45", stockData)
+    // console.log("Hello 45", stockData)
     return axios.post("api/stocks/", stockData);
   },
 

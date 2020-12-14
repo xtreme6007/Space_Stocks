@@ -6,14 +6,14 @@ import "./Login.css";
 const clientId =
   '6045650641-tq4ukq9d2gmds59t2cv9qnhreae8fkec.apps.googleusercontent.com';
 
-
+//googleOauth brought to you by https://medium.com/javascript-in-plain-english/add-google-login-to-your-react-apps-in-10-mins-c45315c93db0
 
 export default function Login() {
   const onSuccess = (res) => {
-    console.log('Login Success: currentUser:', res.profileObj);
+    // console.log('Login Success: currentUser:', res.profileObj);
    
     refreshTokenSetup(res);
-    console.log("next is the redirect")
+    // console.log("next is the redirect")
  
 window.location.replace("/Dashboard")  
 
@@ -21,7 +21,7 @@ window.location.replace("/Dashboard")
 }
 
   const onFailure = (res) => {
-    console.log('Login failed: res:', res);
+    // console.log('Login failed: res:', res);
     alert(
       `Was not able to Authenticate`
     );

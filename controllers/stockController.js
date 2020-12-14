@@ -18,10 +18,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    console.log("Create Function")
-    // let data = JSON.parse(req.body)
-    // let dailyStock = {stock: req.body}
-    // console.log(dailyStock)
+    
       Stock
       .create({stock: req.body})
       .then(dbModel => res.json(dbModel))

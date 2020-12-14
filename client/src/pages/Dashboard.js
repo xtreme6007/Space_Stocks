@@ -215,7 +215,7 @@ export default function Dashboard() {
     stocks.push(stock)
     // set stock object to state
     setStockData([...stocks])
-    console.log(stockData)
+    // console.log(stockData)
     return "it might help";
   }
   const Search = async (Stock) => {
@@ -233,7 +233,7 @@ export default function Dashboard() {
         return { close: price, date: stock.date }
       })
       setChartData([...chart])
-      console.log(chartData)
+      // console.log(chartData)
     }
     catch (err) {  alert("Please search a valid stock ticker") }
   }
@@ -242,14 +242,14 @@ export default function Dashboard() {
   }
 
   const chartPoints = chartData.map(res => {
-    console.log(res)
+    // console.log(res)
     return createData(res.date, res.close)
 
   })
 
   const findOne =  async ( e, input) => {
     e.preventDefault();
-    console.log((input))
+    // console.log((input))
     Search(input);
     let response = await Api.getRSI(input).catch(err => console.log(err))
     if (response.data[0].rsi < 40) {
