@@ -368,7 +368,7 @@ export default function Dashboard() {
         <input 
      type="input"
      key="random1"
-     placeholder={"search Stock"}
+     placeholder={"Search Stock"}
      onChange={(e) => setQuery(e.target.value)}
     />
  
