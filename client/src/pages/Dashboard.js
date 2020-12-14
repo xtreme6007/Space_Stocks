@@ -197,7 +197,10 @@ export default function Dashboard() {
     // console.log("this is the response", response)
     let advice;
     // advice algoritham  
-    if (response.data[0].rsi < 40) {
+    if(!response) {
+      advice = "Not Enough Information"
+    }
+    else if (response.data[0].rsi < 40) {
       advice = "Strong Buy"
     } else if (response.data[0].rsi > 80) {
       advice = "Strong Sell"
@@ -205,9 +208,9 @@ export default function Dashboard() {
       advice = "Buy"
     } else if (response.data[0].rsi > 70 && response.data[0].rsi < 80) {
       advice = "Sell"
-    }
+    } 
     // set stock object
-    const stock = { ticker: item.ticker, RSI: response.data[0].rsi, recomended: advice };
+    const stock = { ticker: item.ticker, RSI: (response && response.data[0].rsi) ? response.data[0].rsi : "Need More Information" , recomended: advice };
     const stocks = stockData;
     stocks.push(stock)
     // set stock object to state
@@ -257,6 +260,8 @@ export default function Dashboard() {
      setRecomendation("Buy")
     } else if (response.data[0].rsi > 70 && response.data[0].rsi < 80) {
        setRecomendation("Sell")
+    } else  {
+      setRecomendation("Not Enough Information")
     }
     }
 
