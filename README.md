@@ -50,7 +50,7 @@ N/A
 
 
 ## Screen shots
-![screenshot](public/assets/SpaceScreen.png)
+![screenshot](client/public/assets/SpaceScreen.png)
 
 
 
