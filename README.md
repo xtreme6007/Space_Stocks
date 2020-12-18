@@ -1,29 +1,81 @@
-# Create React Express App blah
+# Space Stocks
 
-## About This Boilerplate
+  ## License
+  [![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)
+  This application is licensed under the Unlicensed license.
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+  
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+  ## Description 
+  * This project is designed to simplify the complex and often overbearing stock market. As well as recommend looking into buying or selling stocks. 
+ 
 
-## Starting the app locally
 
-Start by installing front and backend dependencies. While in this directory, run the following command:
 
-```
-npm install
-```
+  ## Links:
 
-This should install node modules within the server and the client folder.
+  * Deployed application Url: https://space-stocks.herokuapp.com/
+  * Github Repo: https://github.com/xtreme6007/Snake_Stocks
+  
+  ## Tabel of contents
 
-After both installations complete, run the following command in your terminal:
 
-```
-npm start
-```
+> * [Title / Repository Name]
+>   * [About](#about)
+>   * [Table of contents](#tabel-of-contents)
+>   * [Installation](#installation)
+>   * [Usage](#usage)
+>   * [Screenshots](#sceenshots)
+>   * [Resources (Documentation and other links)](#resources)
+>   * [Contributers](#contributers)
+>   * [License](#license)
+>   * [Tests](#tests)
+>   * [Questions](#questions)
 
-Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
 
-## Deployment (Heroku)
 
-To deploy, simply add and commit your changes, and push to Heroku. As is, the NPM scripts should take care of the rest.
+## Instalation
+
+N/A
+
+
+
+
+## Usage
+
+ Through the deployed applications url
+
+
+
+
+
+## Screen shots
+![screenshot](public/assets/SpaceScreen.png)
+
+
+
+
+
+## Resources
+
+
+
+
+## Contributers
+Contributers for this project were:
+
+Preston Nichos, Teressa Heidt, Vlad Steere, Israel Varela, Zach Parr
+
+
+## Tests
+
+N/A
+
+## Questions?
+GitHub UserName: xtreme6007@yahoo.com
+GitHub Profile: https://github.com/xtreme6007@yahoo.com
+Email: prestonnichols96@gmail.com
+Please contact me via email for any further question.
+
+
+
