@@ -175,6 +175,7 @@ export default function Dashboard() {
   const [color, setColor] = useState();
   const [title, setTitle] = useState();
   useEffect(() => {
+    alert("Sometimes you have to click items twice to get accurate data! It is a bug Algo is aware of and working on.")
     async function Gainers() {
       const res = await Api.getGainers()
       console.log("Test", res)
@@ -219,7 +220,7 @@ export default function Dashboard() {
     return "it might help";
   }
   const Search = async (Stock) => {
-
+        
     setTitle(Stock)
 
     try {
